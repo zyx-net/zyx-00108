@@ -1,0 +1,20 @@
+{
+  "name": "lab-sample-api",
+  "version": "1.0.0",
+  "description": "Laboratory Sample Borrowing and Destruction Approval API",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node src/test-runner.js"
+  },
+  "keywords": [
+    "laboratory",
+    "sample",
+    "management",
+    "api"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
