@@ -229,21 +229,28 @@ async function runTests() {
     const concurrentDestResult = await request('POST', '/api/requests/destruction', concurrentDestRequest, getHeaders(USER_ROLES.LIBRARIAN));
     const concurrentDestReqId = concurrentDestResult.data.data.id;
 
-    const firstApproval = await request('POST', `/api/requests/${concurrentDestReqId}/approve-destruction`, {
+    let approvalResults;
+    const firstApprovalPromise = request('POST', `/api/requests/${concurrentDestReqId}/approve-destruction`, {
       approver: 'Prof. Chen (Supervisor)',
       approvalBasis: 'First approval'
     }, getHeaders(USER_ROLES.SUPERVISOR));
-    assert(firstApproval.status === 200 && firstApproval.data.success === true, 'First supervisor approval succeeds',
-           { status: firstApproval.status, success: firstApproval.data?.success });
 
-    const secondApproval = await request('POST', `/api/requests/${concurrentDestReqId}/approve-destruction`, {
+    const secondApprovalPromise = request('POST', `/api/requests/${concurrentDestReqId}/approve-destruction`, {
       approver: 'Prof. Liu (Supervisor)',
       approvalBasis: 'Second approval attempt'
     }, getHeaders(USER_ROLES.SUPERVISOR));
-    assert(secondApproval.status === 409, 'Second supervisor approval returns 409 Conflict',
-           { expected: 409, actual: secondApproval.status, error: secondApproval.data?.error });
-    assert(secondApproval.data.error.includes('not pending'), 'Error message indicates request is not pending',
-           { error: secondApproval.data?.error });
+
+    approvalResults = await Promise.all([firstApprovalPromise, secondApprovalPromise]);
+
+    const successResults = approvalResults.filter(r => r.status === 200);
+    const conflictResults = approvalResults.filter(r => r.status === 409);
+    
+    assert(successResults.length === 1, 'Exactly one approval should succeed in concurrent scenario',
+           { successCount: successResults.length });
+    assert(conflictResults.length === 1, 'Exactly one approval should fail with 409 Conflict',
+           { conflictCount: conflictResults.length });
+    assert(conflictResults[0].data.error.includes('not pending'), 'Error message indicates request is not pending',
+           { error: conflictResults[0].data?.error });
 
     console.log('\n[8/10] Exception Scenarios');
     
