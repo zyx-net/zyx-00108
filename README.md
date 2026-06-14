@@ -366,6 +366,29 @@ curl -X POST http://localhost:3000/api/requests/REQ-xxx-xxx/approve \
 }
 ```
 
+### 7. 库管尝试审批销毁请求
+
+库管不能通过普通审批接口审批销毁请求，必须由主管通过专用接口审批：
+
+```bash
+# 库管尝试通过普通审批接口审批销毁请求
+curl -X POST http://localhost:3000/api/requests/REQ-xxx-xxx/approve \
+  -H "Content-Type: application/json" \
+  -H "X-User-Role: LIBRARIAN" \
+  -d '{
+    "approver": "Dr. Li",
+    "approvalBasis": "Approved"
+  }'
+```
+
+响应 (403):
+```json
+{
+  "success": false,
+  "error": "Destruction requests must be approved by Supervisor via /approve-destruction endpoint"
+}
+```
+
 ## 其他 API 接口
 
 ### 查询样本

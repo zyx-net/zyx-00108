@@ -52,10 +52,6 @@ function getHeaders(role) {
   return { 'X-User-Role': role };
 }
 
-async function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 async function runTests() {
   console.log('='.repeat(60));
   console.log('Laboratory Sample API - Integration Tests');
@@ -80,11 +76,11 @@ async function runTests() {
   }
 
   try {
-    console.log('\n[1/8] Health Check');
+    console.log('\n[1/9] Health Check');
     const health = await request('GET', '/health');
     assert(health.status === 200 && health.data.status === 'ok', 'Server is running');
 
-    console.log('\n[2/8] Sample Registration (Librarian)');
+    console.log('\n[2/9] Sample Registration (Librarian)');
     const sampleData = {
       name: 'COVID-19 Test Sample #001',
       category: 'Biological',
@@ -97,7 +93,7 @@ async function runTests() {
     const sampleId = createResult.data.data.id;
     assert(sampleId && sampleId.startsWith('SMP-'), 'Sample ID generated correctly', { sampleId });
 
-    console.log('\n[3/8] Borrow Flow');
+    console.log('\n[3/9] Borrow Flow with Request Status Verification');
     const borrowRequest = {
       sampleId: sampleId,
       applicant: 'Researcher Wang',
@@ -115,8 +111,14 @@ async function runTests() {
     assert(approveBorrow.status === 200 && approveBorrow.data.success === true, 'Borrow request approved by librarian', approveBorrow.data);
     assert(approveBorrow.data.data.sample.status === 'BORROWED', 'Sample status updated to BORROWED', 
            { expected: 'BORROWED', actual: approveBorrow.data.data?.sample?.status });
+    
+    const borrowReqCheck = await request('GET', `/api/requests/${borrowReqId}`, null, getHeaders(USER_ROLES.LIBRARIAN));
+    assert(borrowReqCheck.data.data.status === 'APPROVED', 'Request status is APPROVED after approval', 
+           { expected: 'APPROVED', actual: borrowReqCheck.data.data?.status });
+    assert(borrowReqCheck.data.data.approver === 'Dr. Li (Librarian)', 'Approver is recorded correctly',
+           { expected: 'Dr. Li (Librarian)', actual: borrowReqCheck.data.data?.approver });
 
-    console.log('\n[4/8] Renew Flow');
+    console.log('\n[4/9] Renew Flow with Request Status Verification');
     const renewRequest = {
       sampleId: sampleId,
       applicant: 'Researcher Wang',
@@ -134,8 +136,12 @@ async function runTests() {
     assert(approveRenew.status === 200 && approveRenew.data.success === true, 'Renew request approved', approveRenew.data);
     assert(approveRenew.data.data.sample.dueDate !== null, 'Due date updated',
            { dueDate: approveRenew.data.data?.sample?.dueDate });
+    
+    const renewReqCheck = await request('GET', `/api/requests/${renewReqId}`, null, getHeaders(USER_ROLES.LIBRARIAN));
+    assert(renewReqCheck.data.data.status === 'APPROVED', 'Renew request status is APPROVED after approval',
+           { expected: 'APPROVED', actual: renewReqCheck.data.data?.status });
 
-    console.log('\n[5/8] Return Flow');
+    console.log('\n[5/9] Return Flow with Request Status Verification');
     const returnRequest = {
       sampleId: sampleId,
       applicant: 'Researcher Wang'
@@ -151,8 +157,12 @@ async function runTests() {
     assert(approveReturn.status === 200 && approveReturn.data.success === true, 'Return request approved', approveReturn.data);
     assert(approveReturn.data.data.sample.status === 'AVAILABLE', 'Sample status updated to AVAILABLE',
            { expected: 'AVAILABLE', actual: approveReturn.data.data?.sample?.status });
+    
+    const returnReqCheck = await request('GET', `/api/requests/${returnReqId}`, null, getHeaders(USER_ROLES.LIBRARIAN));
+    assert(returnReqCheck.data.data.status === 'APPROVED', 'Return request status is APPROVED after approval',
+           { expected: 'APPROVED', actual: returnReqCheck.data.data?.status });
 
-    console.log('\n[6/8] Destruction Flow');
+    console.log('\n[6/9] Destruction Flow with Role Restriction');
     const destSampleData = {
       name: 'Expired Chemical Sample #002',
       category: 'Chemical',
@@ -173,6 +183,13 @@ async function runTests() {
     assert(destructionResult.status === 201 && destructionResult.data.success === true, 'Destruction request created', destructionResult.data);
     const destReqId = destructionResult.data.data.id;
 
+    const librarianApproveDestruction = await request('POST', `/api/requests/${destReqId}/approve`, {
+      approver: 'Dr. Li (Librarian)',
+      approvalBasis: 'Trying to bypass supervisor approval'
+    }, getHeaders(USER_ROLES.LIBRARIAN));
+    assert(librarianApproveDestruction.status === 403, 'Librarian cannot approve destruction via regular approve endpoint',
+           { expected: 403, actual: librarianApproveDestruction.status, error: librarianApproveDestruction.data?.error });
+
     const approveDestruction = await request('POST', `/api/requests/${destReqId}/approve-destruction`, {
       approver: 'Prof. Chen (Supervisor)',
       approvalBasis: 'Confirmed expired, disposal protocol followed'
@@ -180,8 +197,20 @@ async function runTests() {
     assert(approveDestruction.status === 200 && approveDestruction.data.success === true, 'Destruction approved by supervisor', approveDestruction.data);
     assert(approveDestruction.data.data.sample.status === 'DESTROYED', 'Sample status updated to DESTROYED',
            { expected: 'DESTROYED', actual: approveDestruction.data.data?.sample?.status });
+    
+    const destReqCheck = await request('GET', `/api/requests/${destReqId}`, null, getHeaders(USER_ROLES.SUPERVISOR));
+    assert(destReqCheck.data.data.status === 'APPROVED', 'Destruction request status is APPROVED after approval',
+           { expected: 'APPROVED', actual: destReqCheck.data.data?.status });
 
-    console.log('\n[7/8] Exception Scenarios');
+    console.log('\n[7/9] Duplicate Approval Prevention');
+    const duplicateApprove = await request('POST', `/api/requests/${borrowReqId}/approve`, {
+      approver: 'Dr. Li (Librarian)',
+      approvalBasis: 'Trying to approve again'
+    }, getHeaders(USER_ROLES.LIBRARIAN));
+    assert(duplicateApprove.status === 400, 'Cannot approve already approved request',
+           { expected: 400, actual: duplicateApprove.status, error: duplicateApprove.data?.error });
+
+    console.log('\n[8/9] Exception Scenarios');
     
     const frozenSampleData = {
       name: 'Frozen Sample #003',
@@ -247,7 +276,7 @@ async function runTests() {
     assert(destroyedReturnResult.status === 400, 'Return rejected for destroyed sample',
            { expected: 400, actual: destroyedReturnResult.status });
 
-    console.log('\n[8/8] Audit Log Export');
+    console.log('\n[9/9] Audit Log Export and Verification');
     const auditLogs = await request('GET', '/api/audit-logs', null, getHeaders(USER_ROLES.LIBRARIAN));
     assert(auditLogs.status === 200 && auditLogs.data.success === true, 'Audit logs retrieved', auditLogs.data);
     assert(auditLogs.data.data.total > 0, 'Audit logs contain records',
@@ -260,6 +289,14 @@ async function runTests() {
            { storageLocation: auditWithDetails?.storageLocation });
     assert(auditWithDetails.approvalBasis !== undefined, 'Audit log includes approval basis field',
            { approvalBasis: auditWithDetails?.approvalBasis });
+
+    const approvedLogs = auditLogs.data.data.logs.filter(l => l.action === 'REQUEST_APPROVED');
+    if (approvedLogs.length > 0) {
+      const approvedLog = approvedLogs[0];
+      assert(approvedLog.approvalBasis !== null && approvedLog.approvalBasis !== undefined, 
+             'Approved request audit log has approvalBasis',
+             { approvalBasis: approvedLog.approvalBasis });
+    }
 
     console.log('\n' + '='.repeat(60));
     console.log(`Test Results: ${passed} passed, ${failed} failed`);

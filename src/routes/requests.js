@@ -196,6 +196,15 @@ router.post('/:id/approve', requireRole(USER_ROLE.LIBRARIAN), async (req, res) =
       return res.status(400).json(buildResponse(false, null, 'Approver and approvalBasis are required'));
     }
 
+    const request = await requestService.findById(req.params.id);
+    if (!request) {
+      return res.status(404).json(buildResponse(false, null, 'Request not found'));
+    }
+
+    if (request.type === REQUEST_TYPE.DESTRUCTION) {
+      return res.status(403).json(buildResponse(false, null, 'Destruction requests must be approved by Supervisor via /approve-destruction endpoint'));
+    }
+
     const result = await requestService.approve(
       req.params.id,
       approver,

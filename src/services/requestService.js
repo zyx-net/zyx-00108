@@ -149,7 +149,7 @@ class RequestService {
         throw new Error(`Unknown request type: ${request.type}`);
     }
 
-    await dataStore.update(requestId, {
+    await dataStore.update('requests', requestId, {
       status: REQUEST_STATUS.APPROVED,
       approver,
       approverRole,
@@ -187,7 +187,7 @@ class RequestService {
 
     const sample = await sampleService.findById(request.sampleId);
 
-    await dataStore.update(requestId, {
+    await dataStore.update('requests', requestId, {
       status: REQUEST_STATUS.REJECTED,
       approver,
       approverRole,
@@ -229,7 +229,7 @@ class RequestService {
 
     const sample = await sampleService.findById(request.sampleId);
 
-    await dataStore.update(requestId, {
+    await dataStore.update('requests', requestId, {
       status: REQUEST_STATUS.CANCELLED
     });
 
