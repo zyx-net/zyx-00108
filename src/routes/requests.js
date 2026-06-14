@@ -218,7 +218,7 @@ router.post('/:id/approve', requireRole(USER_ROLE.LIBRARIAN), async (req, res) =
       return res.status(404).json(buildResponse(false, null, error.message));
     }
     if (error.message.includes('not pending')) {
-      return res.status(400).json(buildResponse(false, null, error.message));
+      return res.status(409).json(buildResponse(false, null, error.message));
     }
     if (error.message.includes('retry')) {
       return res.status(409).json(buildResponse(false, null, error.message));
@@ -248,7 +248,7 @@ router.post('/:id/approve-destruction', requireRole(USER_ROLE.SUPERVISOR), async
       return res.status(404).json(buildResponse(false, null, error.message));
     }
     if (error.message.includes('not pending')) {
-      return res.status(400).json(buildResponse(false, null, error.message));
+      return res.status(409).json(buildResponse(false, null, error.message));
     }
     if (error.message.includes('already destroyed')) {
       return res.status(409).json(buildResponse(false, null, error.message));

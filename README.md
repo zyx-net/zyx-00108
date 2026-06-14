@@ -290,7 +290,7 @@ curl -X POST http://localhost:3000/api/samples \
 }
 ```
 
-### 4. 并发销毁审批 (乐观锁冲突)
+### 4. 并发销毁审批
 
 当两个 Supervisor 同时审批同一销毁请求时：
 
@@ -320,7 +320,7 @@ curl -X POST http://localhost:3000/api/requests/REQ-xxx-xxx/approve-destruction 
 ```json
 {
   "success": false,
-  "error": "Sample was already destroyed by another request"
+  "error": "Request is not pending, current status: APPROVED"
 }
 ```
 
@@ -358,7 +358,7 @@ curl -X POST http://localhost:3000/api/requests/REQ-xxx-xxx/approve \
   }'
 ```
 
-响应 (400):
+响应 (409):
 ```json
 {
   "success": false,

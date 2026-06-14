@@ -202,15 +202,50 @@ async function runTests() {
     assert(destReqCheck.data.data.status === 'APPROVED', 'Destruction request status is APPROVED after approval',
            { expected: 'APPROVED', actual: destReqCheck.data.data?.status });
 
-    console.log('\n[7/9] Duplicate Approval Prevention');
+    console.log('\n[7/10] Duplicate and Concurrent Approval Prevention');
     const duplicateApprove = await request('POST', `/api/requests/${borrowReqId}/approve`, {
       approver: 'Dr. Li (Librarian)',
       approvalBasis: 'Trying to approve again'
     }, getHeaders(USER_ROLES.LIBRARIAN));
-    assert(duplicateApprove.status === 400, 'Cannot approve already approved request',
-           { expected: 400, actual: duplicateApprove.status, error: duplicateApprove.data?.error });
+    assert(duplicateApprove.status === 409, 'Cannot approve already approved request (returns 409 Conflict)',
+           { expected: 409, actual: duplicateApprove.status, error: duplicateApprove.data?.error });
 
-    console.log('\n[8/9] Exception Scenarios');
+    const concurrentDestSampleData = {
+      name: 'Concurrent Destruction Sample',
+      category: 'Chemical',
+      validityPeriod: '2020-01-01',
+      storageLocation: 'Cabinet C, Shelf 1',
+      registrant: 'Dr. Zhang (Library)'
+    };
+    const concurrentDestCreateResult = await request('POST', '/api/samples', concurrentDestSampleData, getHeaders(USER_ROLES.LIBRARIAN));
+    const concurrentDestSampleId = concurrentDestCreateResult.data.data.id;
+
+    const concurrentDestRequest = {
+      sampleId: concurrentDestSampleId,
+      applicant: 'Dr. Zhang (Library)',
+      reason: 'Expired sample',
+      approvalBasis: 'Safety regulation'
+    };
+    const concurrentDestResult = await request('POST', '/api/requests/destruction', concurrentDestRequest, getHeaders(USER_ROLES.LIBRARIAN));
+    const concurrentDestReqId = concurrentDestResult.data.data.id;
+
+    const firstApproval = await request('POST', `/api/requests/${concurrentDestReqId}/approve-destruction`, {
+      approver: 'Prof. Chen (Supervisor)',
+      approvalBasis: 'First approval'
+    }, getHeaders(USER_ROLES.SUPERVISOR));
+    assert(firstApproval.status === 200 && firstApproval.data.success === true, 'First supervisor approval succeeds',
+           { status: firstApproval.status, success: firstApproval.data?.success });
+
+    const secondApproval = await request('POST', `/api/requests/${concurrentDestReqId}/approve-destruction`, {
+      approver: 'Prof. Liu (Supervisor)',
+      approvalBasis: 'Second approval attempt'
+    }, getHeaders(USER_ROLES.SUPERVISOR));
+    assert(secondApproval.status === 409, 'Second supervisor approval returns 409 Conflict',
+           { expected: 409, actual: secondApproval.status, error: secondApproval.data?.error });
+    assert(secondApproval.data.error.includes('not pending'), 'Error message indicates request is not pending',
+           { error: secondApproval.data?.error });
+
+    console.log('\n[8/10] Exception Scenarios');
     
     const frozenSampleData = {
       name: 'Frozen Sample #003',
@@ -276,7 +311,7 @@ async function runTests() {
     assert(destroyedReturnResult.status === 400, 'Return rejected for destroyed sample',
            { expected: 400, actual: destroyedReturnResult.status });
 
-    console.log('\n[9/9] Audit Log Export and Verification');
+    console.log('\n[9/10] Audit Log Export and Verification');
     const auditLogs = await request('GET', '/api/audit-logs', null, getHeaders(USER_ROLES.LIBRARIAN));
     assert(auditLogs.status === 200 && auditLogs.data.success === true, 'Audit logs retrieved', auditLogs.data);
     assert(auditLogs.data.data.total > 0, 'Audit logs contain records',
