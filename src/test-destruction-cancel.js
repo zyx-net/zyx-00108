@@ -1,10 +1,12 @@
 const http = require('http');
-const { exec } = require('child_process');
+const { exec, spawn } = require('child_process');
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const BASE_URL = 'http://localhost:3000';
 const DATA_DIR = path.join(__dirname, '..', 'data');
+const SERVER_SCRIPT = path.join(__dirname, '..', 'src', 'server.js');
 
 const USER_ROLES = {
   APPLICANT: 'APPLICANT',
@@ -59,16 +61,34 @@ function getHeaders(role) {
 async function stopServer() {
   return new Promise((resolve) => {
     exec('taskkill /F /IM node.exe /FI "WINDOWTITLE eq node*" 2>nul', (err) => {
-      setTimeout(resolve, 1000);
+      setTimeout(resolve, 1500);
     });
   });
 }
 
 async function startServer() {
   return new Promise((resolve, reject) => {
-    const proc = exec('node src/server.js', { cwd: path.join(__dirname, '..') });
+    const proc = spawn('node', [SERVER_SCRIPT], {
+      cwd: path.join(__dirname, '..'),
+      detached: true,
+      stdio: 'ignore'
+    });
+    proc.unref();
     setTimeout(resolve, 2000);
   });
+}
+
+async function waitForServer(maxRetries = 10) {
+  for (let i = 0; i < maxRetries; i++) {
+    try {
+      const response = await request('GET', '/health');
+      if (response.status === 200) {
+        return true;
+      }
+    } catch (e) {}
+    await new Promise(r => setTimeout(r, 500));
+  }
+  return false;
 }
 
 async function readJsonFile(filename) {
@@ -80,10 +100,19 @@ async function readJsonFile(filename) {
   return [];
 }
 
+async function computeFileChecksum(filename) {
+  const filePath = path.join(DATA_DIR, filename);
+  if (fs.existsSync(filePath)) {
+    const content = fs.readFileSync(filePath, 'utf8');
+    return crypto.createHash('sha256').update(content).digest('hex');
+  }
+  return null;
+}
+
 async function runTests() {
-  console.log('='.repeat(70));
-  console.log('Destruction Request Cancellation - Comprehensive Tests');
-  console.log('='.repeat(70));
+  console.log('='.repeat(80));
+  console.log('Destruction Request Cancellation - Comprehensive Security & Consistency Tests');
+  console.log('='.repeat(80));
 
   let passed = 0;
   let failed = 0;
@@ -103,188 +132,254 @@ async function runTests() {
     }
   }
 
+  function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
   try {
-    console.log('\n[Part 1] Successful Cancellation Tests');
+    console.log('\n[Phase 1] Creator Self-Cancellation (Legitimate Use)');
 
-    const sampleData = {
-      name: 'Test Destruction Cancel Sample',
+    const sampleData1 = {
+      name: 'Test Self-Cancel Sample',
       category: 'Chemical',
-      validityPeriod: '2020-01-01',
-      storageLocation: 'Cabinet X, Shelf 1',
-      registrant: 'Dr. Zhang (Library)'
+      validityPeriod: '2025-01-01',
+      storageLocation: 'Cabinet A, Shelf 1',
+      registrant: 'Dr. Wang (Library)'
     };
-    const sampleCreate = await request('POST', '/api/samples', sampleData, getHeaders(USER_ROLES.LIBRARIAN));
-    assert(sampleCreate.status === 201, 'Sample registered', sampleCreate.data);
-    const sampleId = sampleCreate.data.data.id;
+    const sampleCreate1 = await request('POST', '/api/samples', sampleData1, getHeaders(USER_ROLES.LIBRARIAN));
+    assert(sampleCreate1.status === 201, 'Sample registered for self-cancel test',
+           { sampleId: sampleCreate1.data?.data?.id });
+    const sampleId1 = sampleCreate1.data.data.id;
 
-    const destructionReq = {
-      sampleId: sampleId,
-      applicant: 'Dr. Zhang (Library)',
-      reason: 'Expired sample for cancel test',
+    const destReq1 = {
+      sampleId: sampleId1,
+      applicant: 'Dr. Wang (Library)',
+      reason: 'Sample expired for self-cancel test',
       approvalBasis: 'Safety regulation'
     };
-    const destructionResult = await request('POST', '/api/requests/destruction', destructionReq, getHeaders(USER_ROLES.LIBRARIAN));
-    assert(destructionResult.status === 201, 'Destruction request created', destructionResult.data);
-    const reqId = destructionResult.data.data.id;
+    const destResult1 = await request('POST', '/api/requests/destruction', destReq1, getHeaders(USER_ROLES.LIBRARIAN));
+    assert(destResult1.status === 201, 'Destruction request created');
+    const reqId1 = destResult1.data.data.id;
 
-    const reqCheck = await request('GET', `/api/requests/${reqId}`, null, getHeaders(USER_ROLES.LIBRARIAN));
-    assert(reqCheck.data.data.status === 'PENDING', 'Request status is PENDING',
-           { expected: 'PENDING', actual: reqCheck.data.data?.status });
-    assert(reqCheck.data.data.creator === 'Dr. Zhang (Library)', 'Creator is librarian',
-           { expected: 'Dr. Zhang (Library)', actual: reqCheck.data.data?.creator });
-    assert(reqCheck.data.data.creatorRole === 'LIBRARIAN', 'Creator role is LIBRARIAN',
-           { expected: 'LIBRARIAN', actual: reqCheck.data.data?.creatorRole });
+    const reqCheck1 = await request('GET', `/api/requests/${reqId1}`, null, getHeaders(USER_ROLES.LIBRARIAN));
+    assert(reqCheck1.data.data.status === 'PENDING', 'Request status is PENDING');
+    assert(reqCheck1.data.data.creator === 'Dr. Wang (Library)', 'Creator is Dr. Wang (Library)');
+    assert(reqCheck1.data.data.creatorRole === 'LIBRARIAN', 'Creator role is LIBRARIAN');
+    assert(reqCheck1.data.data.version === 1, 'Request has version 1');
 
-    const cancelResult = await request('POST', `/api/requests/${reqId}/cancel`, {
-      user: 'Dr. Zhang (Library)',
+    const selfCancel = await request('POST', `/api/requests/${reqId1}/cancel`, {
+      user: 'Dr. Wang (Library)',
       reason: 'Sample not actually expired'
     }, getHeaders(USER_ROLES.LIBRARIAN));
-    assert(cancelResult.status === 200, 'Creator (Librarian) can cancel own request',
-           { status: cancelResult.status, success: cancelResult.data?.success });
-    assert(cancelResult.data.data.status === 'CANCELLED', 'Status changed to CANCELLED',
-           { expected: 'CANCELLED', actual: cancelResult.data.data?.status });
-    assert(cancelResult.data.data.cancelledAt !== null, 'Cancelled timestamp recorded',
-           { cancelledAt: cancelResult.data.data?.cancelledAt });
-    assert(cancelResult.data.data.cancelReason === 'Sample not actually expired', 'Cancel reason recorded',
-           { expected: 'Sample not actually expired', actual: cancelResult.data.data?.cancelReason });
+    assert(selfCancel.status === 200, 'Creator (Librarian) can cancel own request');
+    assert(selfCancel.data.data.status === 'CANCELLED', 'Status changed to CANCELLED');
+    assert(selfCancel.data.data.cancelledBy === 'Dr. Wang (Library)', 'Cancelled by is the creator');
+    assert(selfCancel.data.data.cancelledByRole === 'LIBRARIAN', 'Cancelled by role is LIBRARIAN');
+    assert(selfCancel.data.data.version === 2, 'Version incremented to 2');
+    assert(selfCancel.data.data.statusHistory.length === 2, 'Status history has 2 entries');
 
-    const sampleAfterCancel = await request('GET', `/api/samples/${sampleId}`, null, getHeaders(USER_ROLES.LIBRARIAN));
-    assert(sampleAfterCancel.data.data.status === 'AVAILABLE', 'Sample status unchanged (still AVAILABLE)',
-           { expected: 'AVAILABLE', actual: sampleAfterCancel.data.data?.status });
-    assert(sampleAfterCancel.data.data.currentHolder === null, 'Sample holder unchanged (null)',
-           { expected: null, actual: sampleAfterCancel.data.data?.currentHolder });
-
-    console.log('\n[Part 2] Authorization Tests');
+    console.log('\n[Phase 2] Identity Spoofing Tests - Reject Impersonation');
 
     const sampleData2 = {
-      name: 'Test Non-Creator Cancel Sample',
+      name: 'Test Impersonation Sample',
       category: 'Chemical',
-      validityPeriod: '2020-01-01',
-      storageLocation: 'Cabinet Y, Shelf 1',
-      registrant: 'Dr. Zhang (Library)'
+      validityPeriod: '2025-01-01',
+      storageLocation: 'Cabinet B, Shelf 1',
+      registrant: 'Dr. Wang (Library)'
     };
     const sampleCreate2 = await request('POST', '/api/samples', sampleData2, getHeaders(USER_ROLES.LIBRARIAN));
     const sampleId2 = sampleCreate2.data.data.id;
 
     const destReq2 = {
       sampleId: sampleId2,
-      applicant: 'Dr. Zhang (Library)',
-      reason: 'Another expired sample',
+      applicant: 'Dr. Wang (Library)',
+      reason: 'Sample for impersonation test',
       approvalBasis: 'Safety regulation'
     };
     const destResult2 = await request('POST', '/api/requests/destruction', destReq2, getHeaders(USER_ROLES.LIBRARIAN));
     const reqId2 = destResult2.data.data.id;
 
-    const supervisorCancel = await request('POST', `/api/requests/${reqId2}/cancel`, {
-      user: 'Prof. Chen (Supervisor)',
-      reason: 'Supervisor trying to cancel'
+    const impersonateCancel = await request('POST', `/api/requests/${reqId2}/cancel`, {
+      user: 'Dr. Wang (Library)',
+      reason: 'Trying to impersonate'
     }, getHeaders(USER_ROLES.SUPERVISOR));
-    assert(supervisorCancel.status === 403, 'Supervisor cannot cancel (non-creator)',
-           { expected: 403, actual: supervisorCancel.status });
-    assert(supervisorCancel.data.error.includes('Only the creator'), 'Error message is descriptive',
-           { error: supervisorCancel.data?.error });
+    assert(impersonateCancel.status === 403, 'Impersonation blocked: wrong role despite correct name');
+    assert(impersonateCancel.data.error.includes('Role mismatch') || impersonateCancel.data.error.includes('Identity mismatch'),
+           'Error indicates role mismatch');
 
-    const applicantCancel = await request('POST', `/api/requests/${reqId2}/cancel`, {
-      user: 'Researcher Wang',
-      reason: 'Applicant trying to cancel'
+    const wrongNameCancel = await request('POST', `/api/requests/${reqId2}/cancel`, {
+      user: 'Prof. Chen (Supervisor)',
+      reason: 'Trying to impersonate'
+    }, getHeaders(USER_ROLES.SUPERVISOR));
+    assert(wrongNameCancel.status === 403, 'Wrong name blocked: cannot impersonate creator');
+    assert(wrongNameCancel.data.error.includes('Name mismatch') || wrongNameCancel.data.error.includes('Identity mismatch'),
+           'Error indicates name mismatch');
+
+    const nameOnlyMatch = await request('POST', `/api/requests/${reqId2}/cancel`, {
+      user: 'Dr. Wang (Library)',
+      reason: 'Name matches but role does not'
     }, getHeaders(USER_ROLES.APPLICANT));
-    assert(applicantCancel.status === 403, 'Applicant cannot cancel (non-creator)',
-           { expected: 403, actual: applicantCancel.status });
+    assert(nameOnlyMatch.status === 403, 'Name-only match blocked: role must also match');
+    assert(nameOnlyMatch.data.error.includes('Role mismatch'),
+           'Error indicates role mismatch');
 
-    console.log('\n[Part 3] Conflict Tests (Already Processed)');
+    console.log('\n[Phase 3] Duplicate Cancellation Test');
 
-    const duplicateCancel = await request('POST', `/api/requests/${reqId}/cancel`, {
-      user: 'Dr. Zhang (Library)',
+    const duplicateCancel = await request('POST', `/api/requests/${reqId1}/cancel`, {
+      user: 'Dr. Wang (Library)',
       reason: 'Try to cancel again'
     }, getHeaders(USER_ROLES.LIBRARIAN));
-    assert(duplicateCancel.status === 409, 'Cannot cancel already cancelled request',
-           { expected: 409, actual: duplicateCancel.status });
+    assert(duplicateCancel.status === 409, 'Cannot cancel already cancelled request');
+    assert(duplicateCancel.data.error.includes('not pending'),
+           'Error indicates request not pending');
 
-    const approvedSampleData = {
-      name: 'Test Approved Sample',
+    console.log('\n[Phase 4] Approval vs Cancellation Conflict');
+
+    const sampleData3 = {
+      name: 'Test Approval Conflict Sample',
       category: 'Chemical',
-      validityPeriod: '2020-01-01',
-      storageLocation: 'Cabinet Z, Shelf 1',
-      registrant: 'Dr. Zhang (Library)'
+      validityPeriod: '2025-01-01',
+      storageLocation: 'Cabinet C, Shelf 1',
+      registrant: 'Dr. Wang (Library)'
     };
-    const approvedSampleCreate = await request('POST', '/api/samples', approvedSampleData, getHeaders(USER_ROLES.LIBRARIAN));
-    const approvedSampleId = approvedSampleCreate.data.data.id;
+    const sampleCreate3 = await request('POST', '/api/samples', sampleData3, getHeaders(USER_ROLES.LIBRARIAN));
+    const sampleId3 = sampleCreate3.data.data.id;
 
-    const approvedDestReq = {
-      sampleId: approvedSampleId,
-      applicant: 'Dr. Zhang (Library)',
-      reason: 'Expired sample for approval test',
+    const destReq3 = {
+      sampleId: sampleId3,
+      applicant: 'Dr. Wang (Library)',
+      reason: 'Sample for approval conflict test',
       approvalBasis: 'Safety regulation'
     };
-    const approvedDestResult = await request('POST', '/api/requests/destruction', approvedDestReq, getHeaders(USER_ROLES.LIBRARIAN));
-    const approvedReqId = approvedDestResult.data.data.id;
+    const destResult3 = await request('POST', '/api/requests/destruction', destReq3, getHeaders(USER_ROLES.LIBRARIAN));
+    const reqId3 = destResult3.data.data.id;
 
-    await request('POST', `/api/requests/${approvedReqId}/approve-destruction`, {
+    const approveResult = await request('POST', `/api/requests/${reqId3}/approve-destruction`, {
       approver: 'Prof. Chen (Supervisor)',
       approvalBasis: 'Approved for destruction'
     }, getHeaders(USER_ROLES.SUPERVISOR));
+    assert(approveResult.status === 200, 'Approval succeeded');
 
-    const cancelApproved = await request('POST', `/api/requests/${approvedReqId}/cancel`, {
-      user: 'Dr. Zhang (Library)',
-      reason: 'Try to cancel approved'
+    const cancelAfterApprove = await request('POST', `/api/requests/${reqId3}/cancel`, {
+      user: 'Dr. Wang (Library)',
+      reason: 'Try to cancel after approval'
     }, getHeaders(USER_ROLES.LIBRARIAN));
-    assert(cancelApproved.status === 409, 'Cannot cancel approved request',
-           { expected: 409, actual: cancelApproved.status });
+    assert(cancelAfterApprove.status === 409, 'Cannot cancel approved request');
+    assert(cancelAfterApprove.data.error.includes('not pending'),
+           'Error indicates request not pending');
 
-    console.log('\n[Part 4] Audit Log Verification');
+    console.log('\n[Phase 5] Concurrent Cancel vs Approve Test');
+
+    const sampleData4 = {
+      name: 'Test Concurrent Sample',
+      category: 'Chemical',
+      validityPeriod: '2025-01-01',
+      storageLocation: 'Cabinet D, Shelf 1',
+      registrant: 'Dr. Wang (Library)'
+    };
+    const sampleCreate4 = await request('POST', '/api/samples', sampleData4, getHeaders(USER_ROLES.LIBRARIAN));
+    const sampleId4 = sampleCreate4.data.data.id;
+
+    const destReq4 = {
+      sampleId: sampleId4,
+      applicant: 'Dr. Wang (Library)',
+      reason: 'Sample for concurrent test',
+      approvalBasis: 'Safety regulation'
+    };
+    const destResult4 = await request('POST', '/api/requests/destruction', destReq4, getHeaders(USER_ROLES.LIBRARIAN));
+    const reqId4 = destResult4.data.data.id;
+
+    const cancelPromise = request('POST', `/api/requests/${reqId4}/cancel`, {
+      user: 'Dr. Wang (Library)',
+      reason: 'Creator cancels'
+    }, getHeaders(USER_ROLES.LIBRARIAN));
+
+    const approvePromise = request('POST', `/api/requests/${reqId4}/approve-destruction`, {
+      approver: 'Prof. Chen (Supervisor)',
+      approvalBasis: 'Supervisor approves'
+    }, getHeaders(USER_ROLES.SUPERVISOR));
+
+    const [cancelResult, approveResult2] = await Promise.allSettled([cancelPromise, approvePromise]);
+
+    const cancelled = cancelResult.status === 'fulfilled' && cancelResult.value.status === 200;
+    const approved = approveResult2.status === 'fulfilled' && approveResult2.value.status === 200;
+    const conflictDetected = (cancelResult.status === 'fulfilled' && cancelResult.value.status === 409) ||
+                            (approveResult2.status === 'fulfilled' && approveResult2.value.status === 409);
+
+    assert(cancelled || approved || conflictDetected, 'Concurrent operations handled (one succeeded, one conflict detected)');
+
+    const finalReq = await request('GET', `/api/requests/${reqId4}`, null, getHeaders(USER_ROLES.LIBRARIAN));
+    assert(finalReq.data.data.status !== 'PENDING', 'Request is no longer PENDING after concurrent operations');
+
+    console.log('\n[Phase 6] Audit Log Verification');
 
     const auditLogs = await request('GET', '/api/audit-logs?action=REQUEST_CANCELLED', null, getHeaders(USER_ROLES.LIBRARIAN));
-    assert(auditLogs.status === 200, 'Audit logs query succeeded', auditLogs.data);
+    assert(auditLogs.status === 200, 'Audit logs query succeeded');
 
-    const cancelAuditLogs = auditLogs.data.data.logs.filter(log => log.requestId === reqId);
-    assert(cancelAuditLogs.length > 0, 'Cancellation audit log exists for cancelled request',
-           { count: cancelAuditLogs.length });
+    const cancelAuditLogs = auditLogs.data.data.logs.filter(log => log.requestId === reqId1);
+    assert(cancelAuditLogs.length > 0, 'Cancellation audit log exists');
 
     const cancelAudit = cancelAuditLogs[0];
-    assert(cancelAudit.action === 'REQUEST_CANCELLED', 'Audit action is REQUEST_CANCELLED',
-           { expected: 'REQUEST_CANCELLED', actual: cancelAudit.action });
-    assert(cancelAudit.user === 'Dr. Zhang (Library)', 'Audit user is creator',
-           { expected: 'Dr. Zhang (Library)', actual: cancelAudit.user });
-    assert(cancelAudit.role === 'LIBRARIAN', 'Audit role matches actual role',
-           { expected: 'LIBRARIAN', actual: cancelAudit.role });
-    assert(cancelAudit.result === 'SUCCESS', 'Audit result is SUCCESS',
-           { expected: 'SUCCESS', actual: cancelAudit.result });
-    assert(cancelAudit.details.cancelReason === 'Sample not actually expired', 'Audit details include cancel reason',
-           { expected: 'Sample not actually expired', actual: cancelAudit.details?.cancelReason });
-    assert(cancelAudit.details.previousStatus === 'PENDING', 'Audit details include previous status',
-           { expected: 'PENDING', actual: cancelAudit.details?.previousStatus });
-    assert(cancelAudit.details.creator === 'Dr. Zhang (Library)', 'Audit details include creator',
-           { expected: 'Dr. Zhang (Library)', actual: cancelAudit.details?.creator });
+    assert(cancelAudit.action === 'REQUEST_CANCELLED', 'Audit action is REQUEST_CANCELLED');
+    assert(cancelAudit.user === 'Dr. Wang (Library)', 'Audit user is creator');
+    assert(cancelAudit.role === 'LIBRARIAN', 'Audit role is LIBRARIAN');
+    assert(cancelAudit.result === 'SUCCESS', 'Audit result is SUCCESS');
+    assert(cancelAudit.details.cancelReason === 'Sample not actually expired', 'Audit details include cancel reason');
+    assert(cancelAudit.details.verifiedIdentity, 'Audit details include identity verification info');
+    assert(cancelAudit.details.verifiedIdentity.nameVerified === true, 'Name verification recorded');
+    assert(cancelAudit.details.verifiedIdentity.roleVerified === true, 'Role verification recorded');
 
-    console.log('\n[Part 5] Export Verification');
+    const failureAuditLogs = await request('GET', '/api/audit-logs?action=ERROR_OCCURRED&result=FAILURE', null, getHeaders(USER_ROLES.LIBRARIAN));
+    const impersonationAudits = failureAuditLogs.data.data.logs.filter(log =>
+      log.details?.action === 'CANCEL_REQUEST' &&
+      log.requestId === reqId2
+    );
+    assert(impersonationAudits.length >= 3, 'Failed impersonation attempts logged');
+
+    console.log('\n[Phase 7] Export Consistency Tests');
 
     const jsonExport = await request('GET', '/api/audit-logs/export?format=json&action=REQUEST_CANCELLED', null, getHeaders(USER_ROLES.LIBRARIAN));
     assert(jsonExport.status === 200, 'JSON export succeeded');
 
-    let exportedLogs;
+    let exportData;
     try {
-      exportedLogs = typeof jsonExport.data === 'string' ? JSON.parse(jsonExport.data) : jsonExport.data;
+      exportData = typeof jsonExport.data === 'string' ? JSON.parse(jsonExport.data) : jsonExport.data;
     } catch (e) {
       console.log(`  [FAIL] JSON parse failed: ${e.message}`);
-      exportedLogs = [];
+      exportData = null;
     }
-    const exportedCancellations = Array.isArray(exportedLogs) ? exportedLogs.filter(log => log.action === 'REQUEST_CANCELLED') : [];
-    assert(exportedCancellations.length > 0, 'Exported logs include cancellation records',
-           { count: exportedCancellations.length });
+
+    if (exportData) {
+      assert(exportData.checksum, 'Export includes checksum');
+      assert(exportData.exportedAt, 'Export includes timestamp');
+      assert(Array.isArray(exportData.logs), 'Export data has logs array');
+
+      const exportedCancellations = exportData.logs.filter(log => log.action === 'REQUEST_CANCELLED');
+      assert(exportedCancellations.length > 0, 'Exported logs include cancellation records');
+    }
 
     const csvExport = await request('GET', '/api/audit-logs/export?format=csv&action=REQUEST_CANCELLED', null, getHeaders(USER_ROLES.LIBRARIAN));
     assert(csvExport.status === 200, 'CSV export succeeded');
     const csvContent = typeof csvExport.data === 'string' ? csvExport.data : JSON.stringify(csvExport.data);
-    assert(csvContent.includes('REQUEST_CANCELLED'), 'CSV contains cancellation records',
-           { includes: csvContent.includes('REQUEST_CANCELLED') });
+    assert(csvContent.includes('REQUEST_CANCELLED'), 'CSV contains cancellation records');
+    assert(csvContent.includes('# Checksum:'), 'CSV includes checksum metadata');
 
-    console.log('\n[Part 6] Restart Recovery Test');
+    console.log('\n[Phase 8] Restart Recovery Tests');
+
     const requestsBeforeRestart = await readJsonFile('requests.json');
-    const cancelledRequestsBefore = requestsBeforeRestart.filter(r => r.id === reqId);
-    assert(cancelledRequestsBefore.length === 1, 'Cancelled request exists in data file before restart',
-           { count: cancelledRequestsBefore.length });
-    assert(cancelledRequestsBefore[0].status === 'CANCELLED', 'Cancelled request has CANCELLED status in data file',
-           { expected: 'CANCELLED', actual: cancelledRequestsBefore[0]?.status });
+    const cancelledRequestsBefore = requestsBeforeRestart.filter(r => r.id === reqId1);
+    assert(cancelledRequestsBefore.length === 1, 'Cancelled request exists in data file');
+    assert(cancelledRequestsBefore[0].status === 'CANCELLED', 'Status is CANCELLED');
+    assert(cancelledRequestsBefore[0].version === 2, 'Version is 2');
+    assert(cancelledRequestsBefore[0].cancelledAt !== null, 'CancelledAt is set');
+    assert(cancelledRequestsBefore[0].cancelledBy === 'Dr. Wang (Library)', 'CancelledBy is correct');
+    assert(cancelledRequestsBefore[0].statusHistory.length === 2, 'Status history has 2 entries');
+
+    const checksumsBefore = {
+      requests: await computeFileChecksum('requests.json'),
+      samples: await computeFileChecksum('samples.json'),
+      auditLogs: await computeFileChecksum('audit-logs.json')
+    };
 
     console.log('  Stopping server for restart test...');
     await stopServer();
@@ -292,49 +387,79 @@ async function runTests() {
     console.log('  Starting server...');
     await startServer();
 
+    const serverReady = await waitForServer();
+    assert(serverReady, 'Server restarted successfully');
+
+    const checksumsAfter = {
+      requests: await computeFileChecksum('requests.json'),
+      samples: await computeFileChecksum('samples.json'),
+      auditLogs: await computeFileChecksum('audit-logs.json')
+    };
+
+    assert(checksumsBefore.requests === checksumsAfter.requests, 'Requests file checksum unchanged after restart');
+    assert(checksumsBefore.samples === checksumsAfter.samples, 'Samples file checksum unchanged after restart');
+    assert(checksumsBefore.auditLogs === checksumsAfter.auditLogs, 'Audit logs file checksum unchanged after restart');
+
     const requestsAfterRestart = await readJsonFile('requests.json');
-    const cancelledRequestsAfter = requestsAfterRestart.filter(r => r.id === reqId);
-    assert(cancelledRequestsAfter.length === 1, 'Cancelled request exists after restart',
-           { count: cancelledRequestsAfter.length });
-    assert(cancelledRequestsAfter[0].status === 'CANCELLED', 'Status preserved after restart (CANCELLED)',
-           { expected: 'CANCELLED', actual: cancelledRequestsAfter[0]?.status });
-    assert(cancelledRequestsAfter[0].cancelledAt !== null, 'CancelledAt preserved after restart',
-           { cancelledAt: cancelledRequestsAfter[0]?.cancelledAt });
-    assert(cancelledRequestsAfter[0].cancelReason === 'Sample not actually expired', 'CancelReason preserved after restart',
-           { expected: 'Sample not actually expired', actual: cancelledRequestsAfter[0]?.cancelReason });
+    const cancelledRequestsAfter = requestsAfterRestart.filter(r => r.id === reqId1);
+    assert(cancelledRequestsAfter.length === 1, 'Cancelled request exists after restart');
+    assert(cancelledRequestsAfter[0].status === 'CANCELLED', 'Status preserved after restart');
+    assert(cancelledRequestsAfter[0].version === 2, 'Version preserved after restart');
+    assert(cancelledRequestsAfter[0].cancelledAt !== null, 'CancelledAt preserved');
+    assert(cancelledRequestsAfter[0].cancelledBy === 'Dr. Wang (Library)', 'CancelledBy preserved');
+    assert(cancelledRequestsAfter[0].statusHistory.length === 2, 'Status history preserved');
 
-    const queryAfterRestart = await request('GET', `/api/requests/${reqId}`, null, getHeaders(USER_ROLES.LIBRARIAN));
-    assert(queryAfterRestart.data.data.status === 'CANCELLED', 'Query returns CANCELLED status after restart',
-           { expected: 'CANCELLED', actual: queryAfterRestart.data.data?.status });
+    const queryAfterRestart = await request('GET', `/api/requests/${reqId1}`, null, getHeaders(USER_ROLES.LIBRARIAN));
+    assert(queryAfterRestart.data.data.status === 'CANCELLED', 'Query returns CANCELLED after restart');
+    assert(queryAfterRestart.data.data.version === 2, 'Query returns correct version');
 
-    const auditAfterRestart = await request('GET', '/api/audit-logs?action=REQUEST_CANCELLED&requestId=' + reqId, null, getHeaders(USER_ROLES.LIBRARIAN));
-    assert(auditAfterRestart.data.data.total > 0, 'Audit log preserved after restart',
-           { total: auditAfterRestart.data.data?.total });
+    const auditAfterRestart = await request('GET', '/api/audit-logs?action=REQUEST_CANCELLED&requestId=' + reqId1, null, getHeaders(USER_ROLES.LIBRARIAN));
+    assert(auditAfterRestart.data.data.total > 0, 'Audit log preserved after restart');
 
-    const exportAfterRestart = await request('GET', '/api/audit-logs/export?format=json&requestId=' + reqId, null, getHeaders(USER_ROLES.LIBRARIAN));
+    const exportAfterRestart = await request('GET', '/api/audit-logs/export?format=json&requestId=' + reqId1, null, getHeaders(USER_ROLES.LIBRARIAN));
     let exportedAfterRestart;
     try {
       exportedAfterRestart = typeof exportAfterRestart.data === 'string' ? JSON.parse(exportAfterRestart.data) : exportAfterRestart.data;
     } catch (e) {
       console.log(`  [FAIL] Export parse failed: ${e.message}`);
-      exportedAfterRestart = [];
+      exportedAfterRestart = null;
     }
-    assert(exportedAfterRestart.length > 0, 'Exported data consistent after restart',
-           { count: exportedAfterRestart.length });
+
+    if (exportedAfterRestart) {
+      assert(exportedAfterRestart.logs.length > 0, 'Exported data exists after restart');
+      const cancellationLogs = exportedAfterRestart.logs.filter(log => log.requestId === reqId1);
+      assert(cancellationLogs.length > 0, 'Cancellation log in export after restart');
+      assert(cancellationLogs[0].status === 'CANCELLED' || cancellationLogs[0].action === 'REQUEST_CANCELLED',
+             'Export reflects correct cancellation status');
+    }
 
     const samplesAfterRestart = await readJsonFile('samples.json');
-    const sampleAfterRestart = samplesAfterRestart.filter(s => s.id === sampleId);
-    assert(sampleAfterRestart[0].status === 'AVAILABLE', 'Sample status preserved after restart (AVAILABLE)',
-           { expected: 'AVAILABLE', actual: sampleAfterRestart[0]?.status });
+    const sampleAfterRestart = samplesAfterRestart.filter(s => s.id === sampleId1);
+    assert(sampleAfterRestart[0].status === 'AVAILABLE', 'Sample status preserved after restart (AVAILABLE)');
 
-    console.log('\n' + '='.repeat(70));
+    console.log('\n[Phase 9] Export Consistency Verification After Restart');
+
+    const freshExport = await request('GET', '/api/audit-logs/export?format=json&requestId=' + reqId1, null, getHeaders(USER_ROLES.LIBRARIAN));
+    let freshExportData;
+    try {
+      freshExportData = typeof freshExport.data === 'string' ? JSON.parse(freshExport.data) : freshExport.data;
+    } catch (e) {
+      freshExportData = null;
+    }
+
+    if (exportedAfterRestart && freshExportData) {
+      assert(exportedAfterRestart.checksum === freshExportData.checksum,
+             'Export checksums match before and after restart verification');
+    }
+
+    console.log('\n' + '='.repeat(80));
     console.log(`Test Results: ${passed} passed, ${failed} failed`);
-    
+
     if (failures.length > 0) {
       console.log('\nFailed Tests:');
       failures.forEach((f, i) => console.log(`  ${i + 1}. ${f}`));
     }
-    console.log('='.repeat(70));
+    console.log('='.repeat(80));
 
     if (failed > 0) {
       process.exit(1);

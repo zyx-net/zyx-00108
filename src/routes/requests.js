@@ -193,7 +193,7 @@ router.get('/:id', async (req, res) => {
 router.post('/:id/approve', requireRole(USER_ROLE.LIBRARIAN), async (req, res) => {
   try {
     const { approver, approvalBasis } = req.body;
-    
+
     if (!approver || !approvalBasis) {
       return res.status(400).json(buildResponse(false, null, 'Approver and approvalBasis are required'));
     }
@@ -222,7 +222,7 @@ router.post('/:id/approve', requireRole(USER_ROLE.LIBRARIAN), async (req, res) =
     if (error.message.includes('not pending')) {
       return res.status(409).json(buildResponse(false, null, error.message));
     }
-    if (error.message.includes('retry')) {
+    if (error.message.includes('retry') || error.message.includes('was modified')) {
       return res.status(409).json(buildResponse(false, null, error.message));
     }
     res.status(500).json(buildResponse(false, null, error.message));
@@ -232,7 +232,7 @@ router.post('/:id/approve', requireRole(USER_ROLE.LIBRARIAN), async (req, res) =
 router.post('/:id/approve-destruction', requireRole(USER_ROLE.SUPERVISOR), async (req, res) => {
   try {
     const { approver, approvalBasis } = req.body;
-    
+
     if (!approver || !approvalBasis) {
       return res.status(400).json(buildResponse(false, null, 'Approver and approvalBasis are required'));
     }
@@ -255,7 +255,7 @@ router.post('/:id/approve-destruction', requireRole(USER_ROLE.SUPERVISOR), async
     if (error.message.includes('already destroyed')) {
       return res.status(409).json(buildResponse(false, null, error.message));
     }
-    if (error.message.includes('retry')) {
+    if (error.message.includes('retry') || error.message.includes('was modified')) {
       return res.status(409).json(buildResponse(false, null, error.message));
     }
     res.status(500).json(buildResponse(false, null, error.message));
@@ -265,7 +265,7 @@ router.post('/:id/approve-destruction', requireRole(USER_ROLE.SUPERVISOR), async
 router.post('/:id/reject', requireRole(USER_ROLE.LIBRARIAN, USER_ROLE.SUPERVISOR), async (req, res) => {
   try {
     const { approver, reason } = req.body;
-    
+
     if (!approver || !reason) {
       return res.status(400).json(buildResponse(false, null, 'Approver and reason are required'));
     }
@@ -285,6 +285,9 @@ router.post('/:id/reject', requireRole(USER_ROLE.LIBRARIAN, USER_ROLE.SUPERVISOR
     if (error.message.includes('not pending')) {
       return res.status(400).json(buildResponse(false, null, error.message));
     }
+    if (error.message.includes('retry') || error.message.includes('was modified')) {
+      return res.status(409).json(buildResponse(false, null, error.message));
+    }
     res.status(500).json(buildResponse(false, null, error.message));
   }
 });
@@ -293,7 +296,7 @@ router.post('/:id/cancel', async (req, res) => {
   try {
     const { user, reason } = req.body;
     const userRole = req.headers['x-user-role'] || 'APPLICANT';
-    
+
     if (!user) {
       return res.status(400).json(buildResponse(false, null, 'User is required'));
     }
@@ -304,10 +307,13 @@ router.post('/:id/cancel', async (req, res) => {
     if (error.message.includes('not found')) {
       return res.status(404).json(buildResponse(false, null, error.message));
     }
-    if (error.message.includes('Only the creator')) {
+    if (error.message.includes('Name mismatch') || error.message.includes('Role mismatch') || error.message.includes('Identity mismatch')) {
       return res.status(403).json(buildResponse(false, null, error.message));
     }
     if (error.message.includes('not pending')) {
+      return res.status(409).json(buildResponse(false, null, error.message));
+    }
+    if (error.message.includes('retry') || error.message.includes('was modified')) {
       return res.status(409).json(buildResponse(false, null, error.message));
     }
     res.status(500).json(buildResponse(false, null, error.message));

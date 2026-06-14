@@ -10239,5 +10239,4053 @@
     },
     "result": "SUCCESS",
     "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebh8e5-3408e1c2",
+    "timestamp": "2026-06-14T21:49:17.117Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebh8e3-4d697b83",
+    "sampleName": "Review Success Sample",
+    "validityPeriod": "2020-01-01",
+    "storageLocation": "Review Rack A1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebh8ef-e3bba1f5",
+    "timestamp": "2026-06-14T21:49:17.127Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebh8e3-4d697b83",
+    "sampleName": "Review Success Sample",
+    "validityPeriod": "2020-01-01",
+    "storageLocation": "Review Rack A1",
+    "requestId": "REQ-mqebh8ed-791e2483",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Expired for review success path"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebh8ep-6a008cfc",
+    "timestamp": "2026-06-14T21:49:17.137Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebh8e3-4d697b83",
+    "sampleName": "Review Success Sample",
+    "validityPeriod": "2020-01-01",
+    "storageLocation": "Review Rack A1",
+    "requestId": "REQ-mqebh8ed-791e2483",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Creator cancels pending request",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebh8f2-76b803e2",
+    "timestamp": "2026-06-14T21:49:17.150Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebh8f0-ab0b3bbb",
+    "sampleName": "Review Spoof Sample",
+    "validityPeriod": "2020-01-02",
+    "storageLocation": "Review Rack A2",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebh8f9-f99ee628",
+    "timestamp": "2026-06-14T21:49:17.157Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebh8f0-ab0b3bbb",
+    "sampleName": "Review Spoof Sample",
+    "validityPeriod": "2020-01-02",
+    "storageLocation": "Review Rack A2",
+    "requestId": "REQ-mqebh8f7-0a7e6120",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Expired for spoof path"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebh8fg-899b146d",
+    "timestamp": "2026-06-14T21:49:17.164Z",
+    "action": "ERROR_OCCURRED",
+    "user": "Reviewer Librarian",
+    "role": "APPLICANT",
+    "sampleId": null,
+    "sampleName": null,
+    "validityPeriod": null,
+    "storageLocation": null,
+    "requestId": "REQ-mqebh8f7-0a7e6120",
+    "approvalBasis": null,
+    "details": {
+      "action": "CANCEL_REQUEST",
+      "requestId": "REQ-mqebh8f7-0a7e6120",
+      "requestCreator": "Reviewer Librarian",
+      "requestCreatorRole": "LIBRARIAN",
+      "reason": "Role mismatch: user role 'APPLICANT' does not match creator's role 'LIBRARIAN'. Only the original creator can cancel this request"
+    },
+    "result": "FAILURE",
+    "errorMessage": "Role mismatch: user role 'APPLICANT' does not match creator's role 'LIBRARIAN'. Only the original creator can cancel this request"
+  },
+  {
+    "id": "AUDIT-mqebh8fo-f689b678",
+    "timestamp": "2026-06-14T21:49:17.172Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebh8fn-d8c9a7f1",
+    "sampleName": "Review Conflict Sample",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Review Rack A3",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebh8fw-84ffc813",
+    "timestamp": "2026-06-14T21:49:17.180Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebh8fn-d8c9a7f1",
+    "sampleName": "Review Conflict Sample",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Review Rack A3",
+    "requestId": "REQ-mqebh8fu-0ac4318e",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Expired for conflict path"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebh8g5-6213ed92",
+    "timestamp": "2026-06-14T21:49:17.189Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebh8fn-d8c9a7f1",
+    "sampleName": "Review Conflict Sample",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Review Rack A3",
+    "requestId": "REQ-mqebh8fu-0ac4318e",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebka4j-0dd824c1",
+    "timestamp": "2026-06-14T21:51:39.332Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebka4i-edfc9824",
+    "sampleName": "Review Success Sample 2",
+    "validityPeriod": "2020-01-01",
+    "storageLocation": "Review Rack B1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebka4w-93975ecf",
+    "timestamp": "2026-06-14T21:51:39.344Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebka4i-edfc9824",
+    "sampleName": "Review Success Sample 2",
+    "validityPeriod": "2020-01-01",
+    "storageLocation": "Review Rack B1",
+    "requestId": "REQ-mqebka4t-eb1e8015",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Expired for success path"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebka56-600b05dd",
+    "timestamp": "2026-06-14T21:51:39.354Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebka4i-edfc9824",
+    "sampleName": "Review Success Sample 2",
+    "validityPeriod": "2020-01-01",
+    "storageLocation": "Review Rack B1",
+    "requestId": "REQ-mqebka4t-eb1e8015",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Creator cancels pending request",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeblcd2-5d7fcb95",
+    "timestamp": "2026-06-14T21:52:28.886Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqeblcd1-95e1aa15",
+    "sampleName": "Review Spoof Sample 2",
+    "validityPeriod": "2020-01-02",
+    "storageLocation": "Review Rack B2",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeblcdd-b1a19c4a",
+    "timestamp": "2026-06-14T21:52:28.897Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqeblcd1-95e1aa15",
+    "sampleName": "Review Spoof Sample 2",
+    "validityPeriod": "2020-01-02",
+    "storageLocation": "Review Rack B2",
+    "requestId": "REQ-mqeblcdb-1cc6e58e",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Expired for spoof path"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeblcdj-74b41d28",
+    "timestamp": "2026-06-14T21:52:28.903Z",
+    "action": "ERROR_OCCURRED",
+    "user": "Reviewer Librarian",
+    "role": "APPLICANT",
+    "sampleId": null,
+    "sampleName": null,
+    "validityPeriod": null,
+    "storageLocation": null,
+    "requestId": "REQ-mqeblcdb-1cc6e58e",
+    "approvalBasis": null,
+    "details": {
+      "action": "CANCEL_REQUEST",
+      "requestId": "REQ-mqeblcdb-1cc6e58e",
+      "requestCreator": "Reviewer Librarian",
+      "requestCreatorRole": "LIBRARIAN",
+      "reason": "Role mismatch: user role 'APPLICANT' does not match creator's role 'LIBRARIAN'. Only the original creator can cancel this request"
+    },
+    "result": "FAILURE",
+    "errorMessage": "Role mismatch: user role 'APPLICANT' does not match creator's role 'LIBRARIAN'. Only the original creator can cancel this request"
+  },
+  {
+    "id": "AUDIT-mqeblcds-e90a0d08",
+    "timestamp": "2026-06-14T21:52:28.912Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqeblcd1-95e1aa15",
+    "sampleName": "Review Spoof Sample 2",
+    "validityPeriod": "2020-01-02",
+    "storageLocation": "Review Rack B2",
+    "requestId": "REQ-mqeblcdb-1cc6e58e",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Duplicate cancel attempt",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmurg-dc1be801",
+    "timestamp": "2026-06-14T21:53:39.388Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmure-161924ba",
+    "sampleName": "Race Sample 0",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 0",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmurr-94dfdae8",
+    "timestamp": "2026-06-14T21:53:39.399Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmure-161924ba",
+    "sampleName": "Race Sample 0",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 0",
+    "requestId": "REQ-mqebmuro-01602d4a",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 0"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmus0-c591b3ba",
+    "timestamp": "2026-06-14T21:53:39.408Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmure-161924ba",
+    "sampleName": "Race Sample 0",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 0",
+    "requestId": "REQ-mqebmuro-01602d4a",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmusb-8c8e5374",
+    "timestamp": "2026-06-14T21:53:39.419Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmus9-310a12b8",
+    "sampleName": "Race Sample 1",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmusj-ec2fd391",
+    "timestamp": "2026-06-14T21:53:39.427Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmus9-310a12b8",
+    "sampleName": "Race Sample 1",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 1",
+    "requestId": "REQ-mqebmush-995025c4",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 1"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuss-700d1afe",
+    "timestamp": "2026-06-14T21:53:39.436Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmus9-310a12b8",
+    "sampleName": "Race Sample 1",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 1",
+    "requestId": "REQ-mqebmush-995025c4",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmut2-b653175a",
+    "timestamp": "2026-06-14T21:53:39.446Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmut1-b83fff6d",
+    "sampleName": "Race Sample 2",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 2",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuta-598a95cb",
+    "timestamp": "2026-06-14T21:53:39.454Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmut1-b83fff6d",
+    "sampleName": "Race Sample 2",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 2",
+    "requestId": "REQ-mqebmut8-8ddbd70a",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 2"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuti-b0a1523f",
+    "timestamp": "2026-06-14T21:53:39.462Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmut1-b83fff6d",
+    "sampleName": "Race Sample 2",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 2",
+    "requestId": "REQ-mqebmut8-8ddbd70a",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuts-ea8f06a7",
+    "timestamp": "2026-06-14T21:53:39.472Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmutr-5d47253b",
+    "sampleName": "Race Sample 3",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 3",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmutz-429bff83",
+    "timestamp": "2026-06-14T21:53:39.479Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmutr-5d47253b",
+    "sampleName": "Race Sample 3",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 3",
+    "requestId": "REQ-mqebmutx-b8c44757",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 3"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuu8-5a802aa3",
+    "timestamp": "2026-06-14T21:53:39.488Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmutr-5d47253b",
+    "sampleName": "Race Sample 3",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 3",
+    "requestId": "REQ-mqebmutx-b8c44757",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuuh-063b1dd8",
+    "timestamp": "2026-06-14T21:53:39.497Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmuug-da207543",
+    "sampleName": "Race Sample 4",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 4",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuuo-dcef6f52",
+    "timestamp": "2026-06-14T21:53:39.504Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmuug-da207543",
+    "sampleName": "Race Sample 4",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 4",
+    "requestId": "REQ-mqebmuum-9c963453",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 4"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuux-152df3cb",
+    "timestamp": "2026-06-14T21:53:39.513Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmuug-da207543",
+    "sampleName": "Race Sample 4",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 4",
+    "requestId": "REQ-mqebmuum-9c963453",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuv6-8db28494",
+    "timestamp": "2026-06-14T21:53:39.522Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmuv5-917f4dfd",
+    "sampleName": "Race Sample 5",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 5",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuvd-e7b0d1c8",
+    "timestamp": "2026-06-14T21:53:39.529Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmuv5-917f4dfd",
+    "sampleName": "Race Sample 5",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 5",
+    "requestId": "REQ-mqebmuvb-45779ebe",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 5"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuvl-39b963e5",
+    "timestamp": "2026-06-14T21:53:39.537Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmuv5-917f4dfd",
+    "sampleName": "Race Sample 5",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 5",
+    "requestId": "REQ-mqebmuvb-45779ebe",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuvv-4780bc0b",
+    "timestamp": "2026-06-14T21:53:39.547Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmuvu-e78a13ee",
+    "sampleName": "Race Sample 6",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 6",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuw3-e397c68a",
+    "timestamp": "2026-06-14T21:53:39.555Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmuvu-e78a13ee",
+    "sampleName": "Race Sample 6",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 6",
+    "requestId": "REQ-mqebmuw1-34a6c154",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 6"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuwb-a2d575e2",
+    "timestamp": "2026-06-14T21:53:39.563Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmuvu-e78a13ee",
+    "sampleName": "Race Sample 6",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 6",
+    "requestId": "REQ-mqebmuw1-34a6c154",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuwk-0f427a23",
+    "timestamp": "2026-06-14T21:53:39.572Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmuwj-803029b7",
+    "sampleName": "Race Sample 7",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 7",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuwr-610d2273",
+    "timestamp": "2026-06-14T21:53:39.579Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmuwj-803029b7",
+    "sampleName": "Race Sample 7",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 7",
+    "requestId": "REQ-mqebmuwp-706086bd",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 7"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuwz-1bf87fcd",
+    "timestamp": "2026-06-14T21:53:39.587Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmuwj-803029b7",
+    "sampleName": "Race Sample 7",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 7",
+    "requestId": "REQ-mqebmuwp-706086bd",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmux9-98e02fa8",
+    "timestamp": "2026-06-14T21:53:39.597Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmux7-135f2d59",
+    "sampleName": "Race Sample 8",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 8",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuxg-d7295dc8",
+    "timestamp": "2026-06-14T21:53:39.604Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmux7-135f2d59",
+    "sampleName": "Race Sample 8",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 8",
+    "requestId": "REQ-mqebmuxe-04f48a40",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 8"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuxo-68909df9",
+    "timestamp": "2026-06-14T21:53:39.612Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmux7-135f2d59",
+    "sampleName": "Race Sample 8",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 8",
+    "requestId": "REQ-mqebmuxe-04f48a40",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuxy-801e0636",
+    "timestamp": "2026-06-14T21:53:39.622Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmuxw-bf2ff22d",
+    "sampleName": "Race Sample 9",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 9",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuy5-6d98294c",
+    "timestamp": "2026-06-14T21:53:39.629Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmuxw-bf2ff22d",
+    "sampleName": "Race Sample 9",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 9",
+    "requestId": "REQ-mqebmuy3-96a678ca",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 9"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuyd-b76829ad",
+    "timestamp": "2026-06-14T21:53:39.637Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmuxw-bf2ff22d",
+    "sampleName": "Race Sample 9",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 9",
+    "requestId": "REQ-mqebmuy3-96a678ca",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuyn-237ffe2f",
+    "timestamp": "2026-06-14T21:53:39.647Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmuyl-c6d2ae29",
+    "sampleName": "Race Sample 10",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 10",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuyt-b5aabb54",
+    "timestamp": "2026-06-14T21:53:39.653Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmuyl-c6d2ae29",
+    "sampleName": "Race Sample 10",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 10",
+    "requestId": "REQ-mqebmuyr-a9caa2f4",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 10"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuz1-026fea36",
+    "timestamp": "2026-06-14T21:53:39.661Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmuyl-c6d2ae29",
+    "sampleName": "Race Sample 10",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 10",
+    "requestId": "REQ-mqebmuyr-a9caa2f4",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuza-3d22c52a",
+    "timestamp": "2026-06-14T21:53:39.670Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmuz9-21565817",
+    "sampleName": "Race Sample 11",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 11",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuzi-34ba9286",
+    "timestamp": "2026-06-14T21:53:39.678Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmuz9-21565817",
+    "sampleName": "Race Sample 11",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 11",
+    "requestId": "REQ-mqebmuzg-b4063087",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 11"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuzq-8b644bc9",
+    "timestamp": "2026-06-14T21:53:39.686Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmuz9-21565817",
+    "sampleName": "Race Sample 11",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 11",
+    "requestId": "REQ-mqebmuzg-b4063087",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmuzz-29eb999f",
+    "timestamp": "2026-06-14T21:53:39.695Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmuzy-68d472d3",
+    "sampleName": "Race Sample 12",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 12",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv06-aa7a81c4",
+    "timestamp": "2026-06-14T21:53:39.702Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmuzy-68d472d3",
+    "sampleName": "Race Sample 12",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 12",
+    "requestId": "REQ-mqebmv04-d4b91745",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 12"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv0e-fed6979c",
+    "timestamp": "2026-06-14T21:53:39.710Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmuzy-68d472d3",
+    "sampleName": "Race Sample 12",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 12",
+    "requestId": "REQ-mqebmv04-d4b91745",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv0n-733d8de4",
+    "timestamp": "2026-06-14T21:53:39.719Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv0m-d5963079",
+    "sampleName": "Race Sample 13",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 13",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv0u-764b6268",
+    "timestamp": "2026-06-14T21:53:39.726Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv0m-d5963079",
+    "sampleName": "Race Sample 13",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 13",
+    "requestId": "REQ-mqebmv0s-13d62ac5",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 13"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv12-8c72435a",
+    "timestamp": "2026-06-14T21:53:39.734Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv0m-d5963079",
+    "sampleName": "Race Sample 13",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 13",
+    "requestId": "REQ-mqebmv0s-13d62ac5",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv1b-ee7f62d6",
+    "timestamp": "2026-06-14T21:53:39.743Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv1a-32633249",
+    "sampleName": "Race Sample 14",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 14",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv1i-2cbb6ddb",
+    "timestamp": "2026-06-14T21:53:39.750Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv1a-32633249",
+    "sampleName": "Race Sample 14",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 14",
+    "requestId": "REQ-mqebmv1g-fcf8531a",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 14"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv1r-a1293132",
+    "timestamp": "2026-06-14T21:53:39.759Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv1a-32633249",
+    "sampleName": "Race Sample 14",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 14",
+    "requestId": "REQ-mqebmv1g-fcf8531a",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv20-561ba5af",
+    "timestamp": "2026-06-14T21:53:39.768Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv1z-89441b8b",
+    "sampleName": "Race Sample 15",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 15",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv27-07f70b49",
+    "timestamp": "2026-06-14T21:53:39.775Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv1z-89441b8b",
+    "sampleName": "Race Sample 15",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 15",
+    "requestId": "REQ-mqebmv25-ea5c187b",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 15"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv2h-a44a33b3",
+    "timestamp": "2026-06-14T21:53:39.785Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv1z-89441b8b",
+    "sampleName": "Race Sample 15",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 15",
+    "requestId": "REQ-mqebmv25-ea5c187b",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv2r-c2d79d98",
+    "timestamp": "2026-06-14T21:53:39.795Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv2p-fca7b1a8",
+    "sampleName": "Race Sample 16",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 16",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv2y-fcbbfcd5",
+    "timestamp": "2026-06-14T21:53:39.802Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv2p-fca7b1a8",
+    "sampleName": "Race Sample 16",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 16",
+    "requestId": "REQ-mqebmv2w-46472c4d",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 16"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv36-d9094cc3",
+    "timestamp": "2026-06-14T21:53:39.810Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv2p-fca7b1a8",
+    "sampleName": "Race Sample 16",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 16",
+    "requestId": "REQ-mqebmv2w-46472c4d",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv3g-b55f6c66",
+    "timestamp": "2026-06-14T21:53:39.820Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv3e-75153452",
+    "sampleName": "Race Sample 17",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 17",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv3n-6c5dcfe9",
+    "timestamp": "2026-06-14T21:53:39.827Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv3e-75153452",
+    "sampleName": "Race Sample 17",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 17",
+    "requestId": "REQ-mqebmv3l-6cb59ae5",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 17"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv3v-736a91b5",
+    "timestamp": "2026-06-14T21:53:39.835Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv3e-75153452",
+    "sampleName": "Race Sample 17",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 17",
+    "requestId": "REQ-mqebmv3l-6cb59ae5",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv44-ab3a80f9",
+    "timestamp": "2026-06-14T21:53:39.844Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv43-71f788ae",
+    "sampleName": "Race Sample 18",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 18",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv4b-e333609d",
+    "timestamp": "2026-06-14T21:53:39.851Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv43-71f788ae",
+    "sampleName": "Race Sample 18",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 18",
+    "requestId": "REQ-mqebmv49-16607f8a",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 18"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv4j-ddc114f7",
+    "timestamp": "2026-06-14T21:53:39.859Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv43-71f788ae",
+    "sampleName": "Race Sample 18",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 18",
+    "requestId": "REQ-mqebmv49-16607f8a",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv4t-57b8ecff",
+    "timestamp": "2026-06-14T21:53:39.869Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv4r-f220f2c6",
+    "sampleName": "Race Sample 19",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 19",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv50-25f951f9",
+    "timestamp": "2026-06-14T21:53:39.876Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv4r-f220f2c6",
+    "sampleName": "Race Sample 19",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 19",
+    "requestId": "REQ-mqebmv4y-400339d4",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 19"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv58-f00b281e",
+    "timestamp": "2026-06-14T21:53:39.884Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv4r-f220f2c6",
+    "sampleName": "Race Sample 19",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 19",
+    "requestId": "REQ-mqebmv4y-400339d4",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv5i-cb73c930",
+    "timestamp": "2026-06-14T21:53:39.894Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv5g-6e7d474f",
+    "sampleName": "Race Sample 20",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 20",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv5p-b4ee73b0",
+    "timestamp": "2026-06-14T21:53:39.901Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv5g-6e7d474f",
+    "sampleName": "Race Sample 20",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 20",
+    "requestId": "REQ-mqebmv5n-b33bf479",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 20"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv5x-06205ac4",
+    "timestamp": "2026-06-14T21:53:39.909Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv5g-6e7d474f",
+    "sampleName": "Race Sample 20",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 20",
+    "requestId": "REQ-mqebmv5n-b33bf479",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv66-e71be3d4",
+    "timestamp": "2026-06-14T21:53:39.919Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv65-970c3103",
+    "sampleName": "Race Sample 21",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 21",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv6e-598a88dd",
+    "timestamp": "2026-06-14T21:53:39.926Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv65-970c3103",
+    "sampleName": "Race Sample 21",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 21",
+    "requestId": "REQ-mqebmv6c-88acef78",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 21"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv6m-621ae956",
+    "timestamp": "2026-06-14T21:53:39.934Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv65-970c3103",
+    "sampleName": "Race Sample 21",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 21",
+    "requestId": "REQ-mqebmv6c-88acef78",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv6w-bbef751a",
+    "timestamp": "2026-06-14T21:53:39.944Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv6v-965e5a52",
+    "sampleName": "Race Sample 22",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 22",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv73-27c8f2c8",
+    "timestamp": "2026-06-14T21:53:39.951Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv6v-965e5a52",
+    "sampleName": "Race Sample 22",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 22",
+    "requestId": "REQ-mqebmv71-a46af50e",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 22"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv7b-b1bbdceb",
+    "timestamp": "2026-06-14T21:53:39.959Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv6v-965e5a52",
+    "sampleName": "Race Sample 22",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 22",
+    "requestId": "REQ-mqebmv71-a46af50e",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv7l-e5be2ff2",
+    "timestamp": "2026-06-14T21:53:39.969Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv7k-5d550479",
+    "sampleName": "Race Sample 23",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 23",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv7t-56b26ccd",
+    "timestamp": "2026-06-14T21:53:39.977Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv7k-5d550479",
+    "sampleName": "Race Sample 23",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 23",
+    "requestId": "REQ-mqebmv7r-2a3c2385",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 23"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv82-2992b205",
+    "timestamp": "2026-06-14T21:53:39.986Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv7k-5d550479",
+    "sampleName": "Race Sample 23",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 23",
+    "requestId": "REQ-mqebmv7r-2a3c2385",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv8c-2900fb9b",
+    "timestamp": "2026-06-14T21:53:39.996Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv8b-e472a365",
+    "sampleName": "Race Sample 24",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 24",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv8k-4c8cba8f",
+    "timestamp": "2026-06-14T21:53:40.004Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv8b-e472a365",
+    "sampleName": "Race Sample 24",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 24",
+    "requestId": "REQ-mqebmv8i-ebcfb965",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 24"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv8t-1f14f9bb",
+    "timestamp": "2026-06-14T21:53:40.013Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv8b-e472a365",
+    "sampleName": "Race Sample 24",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 24",
+    "requestId": "REQ-mqebmv8i-ebcfb965",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv94-e4576731",
+    "timestamp": "2026-06-14T21:53:40.024Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv92-78a9bb35",
+    "sampleName": "Race Sample 25",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 25",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv9f-f1a77061",
+    "timestamp": "2026-06-14T21:53:40.035Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv92-78a9bb35",
+    "sampleName": "Race Sample 25",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 25",
+    "requestId": "REQ-mqebmv9c-98275f46",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 25"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv9o-3adf16d6",
+    "timestamp": "2026-06-14T21:53:40.044Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv92-78a9bb35",
+    "sampleName": "Race Sample 25",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 25",
+    "requestId": "REQ-mqebmv9c-98275f46",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmv9y-32c55952",
+    "timestamp": "2026-06-14T21:53:40.054Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv9w-65251b19",
+    "sampleName": "Race Sample 26",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 26",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmva6-c0ba9859",
+    "timestamp": "2026-06-14T21:53:40.062Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv9w-65251b19",
+    "sampleName": "Race Sample 26",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 26",
+    "requestId": "REQ-mqebmva4-e3361f5c",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 26"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvae-ff6c6ad9",
+    "timestamp": "2026-06-14T21:53:40.070Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmv9w-65251b19",
+    "sampleName": "Race Sample 26",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 26",
+    "requestId": "REQ-mqebmva4-e3361f5c",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvan-c18c0032",
+    "timestamp": "2026-06-14T21:53:40.079Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvam-04059412",
+    "sampleName": "Race Sample 27",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 27",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvav-68c91b6b",
+    "timestamp": "2026-06-14T21:53:40.087Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvam-04059412",
+    "sampleName": "Race Sample 27",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 27",
+    "requestId": "REQ-mqebmvat-a0d00733",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 27"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvb4-784e07ca",
+    "timestamp": "2026-06-14T21:53:40.096Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvam-04059412",
+    "sampleName": "Race Sample 27",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 27",
+    "requestId": "REQ-mqebmvat-a0d00733",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvbd-15f8ade9",
+    "timestamp": "2026-06-14T21:53:40.105Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvbc-c8da19c9",
+    "sampleName": "Race Sample 28",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 28",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvbl-82bed53d",
+    "timestamp": "2026-06-14T21:53:40.113Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvbc-c8da19c9",
+    "sampleName": "Race Sample 28",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 28",
+    "requestId": "REQ-mqebmvbj-bf73da6e",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 28"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvbu-10a12ce1",
+    "timestamp": "2026-06-14T21:53:40.122Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvbc-c8da19c9",
+    "sampleName": "Race Sample 28",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 28",
+    "requestId": "REQ-mqebmvbj-bf73da6e",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvc3-e40adb60",
+    "timestamp": "2026-06-14T21:53:40.131Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvc2-13f0d5a5",
+    "sampleName": "Race Sample 29",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 29",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvcb-cb66ffcb",
+    "timestamp": "2026-06-14T21:53:40.139Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvc2-13f0d5a5",
+    "sampleName": "Race Sample 29",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 29",
+    "requestId": "REQ-mqebmvc9-5698d6a0",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 29"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvck-63a8b2e2",
+    "timestamp": "2026-06-14T21:53:40.148Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvc2-13f0d5a5",
+    "sampleName": "Race Sample 29",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 29",
+    "requestId": "REQ-mqebmvc9-5698d6a0",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvcu-a3e62c81",
+    "timestamp": "2026-06-14T21:53:40.158Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvct-79267499",
+    "sampleName": "Race Sample 30",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 30",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvd2-001b8dbc",
+    "timestamp": "2026-06-14T21:53:40.166Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvct-79267499",
+    "sampleName": "Race Sample 30",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 30",
+    "requestId": "REQ-mqebmvd0-8d89bf6b",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 30"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvda-56d76dae",
+    "timestamp": "2026-06-14T21:53:40.174Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvct-79267499",
+    "sampleName": "Race Sample 30",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 30",
+    "requestId": "REQ-mqebmvd0-8d89bf6b",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvdk-b1a454cb",
+    "timestamp": "2026-06-14T21:53:40.184Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvdj-72e78a09",
+    "sampleName": "Race Sample 31",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 31",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvds-7ca094c4",
+    "timestamp": "2026-06-14T21:53:40.192Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvdj-72e78a09",
+    "sampleName": "Race Sample 31",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 31",
+    "requestId": "REQ-mqebmvdq-44760bd5",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 31"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmve0-16538c4e",
+    "timestamp": "2026-06-14T21:53:40.200Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvdj-72e78a09",
+    "sampleName": "Race Sample 31",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 31",
+    "requestId": "REQ-mqebmvdq-44760bd5",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvea-d21ba38d",
+    "timestamp": "2026-06-14T21:53:40.210Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmve9-4971f597",
+    "sampleName": "Race Sample 32",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 32",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvei-e66d7206",
+    "timestamp": "2026-06-14T21:53:40.218Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmve9-4971f597",
+    "sampleName": "Race Sample 32",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 32",
+    "requestId": "REQ-mqebmveg-a1cdeb32",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 32"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmver-c9c89756",
+    "timestamp": "2026-06-14T21:53:40.227Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmve9-4971f597",
+    "sampleName": "Race Sample 32",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 32",
+    "requestId": "REQ-mqebmveg-a1cdeb32",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvf1-8b8d620f",
+    "timestamp": "2026-06-14T21:53:40.237Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvez-08447e90",
+    "sampleName": "Race Sample 33",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 33",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvf8-9b810833",
+    "timestamp": "2026-06-14T21:53:40.244Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvez-08447e90",
+    "sampleName": "Race Sample 33",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 33",
+    "requestId": "REQ-mqebmvf6-f002acdf",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 33"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvfh-9e8c7374",
+    "timestamp": "2026-06-14T21:53:40.253Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvez-08447e90",
+    "sampleName": "Race Sample 33",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 33",
+    "requestId": "REQ-mqebmvf6-f002acdf",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvfr-f9c63dcb",
+    "timestamp": "2026-06-14T21:53:40.263Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvfp-be3b2be9",
+    "sampleName": "Race Sample 34",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 34",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvfy-f5581d0a",
+    "timestamp": "2026-06-14T21:53:40.270Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvfp-be3b2be9",
+    "sampleName": "Race Sample 34",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 34",
+    "requestId": "REQ-mqebmvfw-d9f4b464",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 34"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvg7-4fb48de5",
+    "timestamp": "2026-06-14T21:53:40.279Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvfp-be3b2be9",
+    "sampleName": "Race Sample 34",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 34",
+    "requestId": "REQ-mqebmvfw-d9f4b464",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvgh-412f5288",
+    "timestamp": "2026-06-14T21:53:40.289Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvgg-2b1b5298",
+    "sampleName": "Race Sample 35",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 35",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvgp-6ce3cced",
+    "timestamp": "2026-06-14T21:53:40.297Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvgg-2b1b5298",
+    "sampleName": "Race Sample 35",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 35",
+    "requestId": "REQ-mqebmvgn-b2f47005",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 35"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvgy-3f6e0669",
+    "timestamp": "2026-06-14T21:53:40.306Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvgg-2b1b5298",
+    "sampleName": "Race Sample 35",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 35",
+    "requestId": "REQ-mqebmvgn-b2f47005",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvh8-93cd2fb6",
+    "timestamp": "2026-06-14T21:53:40.316Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvh6-3260498f",
+    "sampleName": "Race Sample 36",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 36",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvhf-96aca418",
+    "timestamp": "2026-06-14T21:53:40.323Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvh6-3260498f",
+    "sampleName": "Race Sample 36",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 36",
+    "requestId": "REQ-mqebmvhd-e7428296",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 36"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvho-caa2f5d8",
+    "timestamp": "2026-06-14T21:53:40.333Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvh6-3260498f",
+    "sampleName": "Race Sample 36",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 36",
+    "requestId": "REQ-mqebmvhd-e7428296",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvhy-f752aa29",
+    "timestamp": "2026-06-14T21:53:40.342Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvhx-bba3d14d",
+    "sampleName": "Race Sample 37",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 37",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvi7-c5fa1e0f",
+    "timestamp": "2026-06-14T21:53:40.351Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvhx-bba3d14d",
+    "sampleName": "Race Sample 37",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 37",
+    "requestId": "REQ-mqebmvi4-586f1795",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 37"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvif-7c5ed071",
+    "timestamp": "2026-06-14T21:53:40.359Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvhx-bba3d14d",
+    "sampleName": "Race Sample 37",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 37",
+    "requestId": "REQ-mqebmvi4-586f1795",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmviq-fb605f5a",
+    "timestamp": "2026-06-14T21:53:40.370Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvio-153aad6f",
+    "sampleName": "Race Sample 38",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 38",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvix-49f9dd65",
+    "timestamp": "2026-06-14T21:53:40.377Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvio-153aad6f",
+    "sampleName": "Race Sample 38",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 38",
+    "requestId": "REQ-mqebmviv-80c8fe97",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 38"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvj6-0a28ff28",
+    "timestamp": "2026-06-14T21:53:40.386Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvio-153aad6f",
+    "sampleName": "Race Sample 38",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 38",
+    "requestId": "REQ-mqebmviv-80c8fe97",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvjg-0f624280",
+    "timestamp": "2026-06-14T21:53:40.396Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvjf-fb12a1ee",
+    "sampleName": "Race Sample 39",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 39",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvjo-8435910f",
+    "timestamp": "2026-06-14T21:53:40.404Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvjf-fb12a1ee",
+    "sampleName": "Race Sample 39",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 39",
+    "requestId": "REQ-mqebmvjm-7dca8233",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Race reason 39"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebmvjx-29386b94",
+    "timestamp": "2026-06-14T21:53:40.413Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebmvjf-fb12a1ee",
+    "sampleName": "Race Sample 39",
+    "validityPeriod": "2020-01-03",
+    "storageLocation": "Race Rack 39",
+    "requestId": "REQ-mqebmvjm-7dca8233",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Race cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebpvuz-535bb171",
+    "timestamp": "2026-06-14T21:56:00.779Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebpvux-66713561",
+    "sampleName": "Review Restart Sample",
+    "validityPeriod": "2020-01-04",
+    "storageLocation": "Review Rack B4",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebpvva-2ab3bf9c",
+    "timestamp": "2026-06-14T21:56:00.790Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebpvux-66713561",
+    "sampleName": "Review Restart Sample",
+    "validityPeriod": "2020-01-04",
+    "storageLocation": "Review Rack B4",
+    "requestId": "REQ-mqebpvv7-773bfcf6",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Expired for restart path"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebpvvj-73b084da",
+    "timestamp": "2026-06-14T21:56:00.799Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebpvux-66713561",
+    "sampleName": "Review Restart Sample",
+    "validityPeriod": "2020-01-04",
+    "storageLocation": "Review Rack B4",
+    "requestId": "REQ-mqebpvv7-773bfcf6",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Restart verification cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebrext-0b0c9556",
+    "timestamp": "2026-06-14T21:57:12.161Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebrexr-58ca21df",
+    "sampleName": "Review Restart Sample 2",
+    "validityPeriod": "2020-01-04",
+    "storageLocation": "Review Rack B5",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebreya-9aa3ef59",
+    "timestamp": "2026-06-14T21:57:12.178Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebrexr-58ca21df",
+    "sampleName": "Review Restart Sample 2",
+    "validityPeriod": "2020-01-04",
+    "storageLocation": "Review Rack B5",
+    "requestId": "REQ-mqebrey7-26ad7f66",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Expired for restart chain"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqebreym-2888f379",
+    "timestamp": "2026-06-14T21:57:12.190Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqebrexr-58ca21df",
+    "sampleName": "Review Restart Sample 2",
+    "validityPeriod": "2020-01-04",
+    "storageLocation": "Review Rack B5",
+    "requestId": "REQ-mqebrey7-26ad7f66",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "Restart verification cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Librarian",
+      "creator": "Reviewer Librarian",
+      "creatorRole": "LIBRARIAN",
+      "verifiedIdentity": {
+        "user": "Reviewer Librarian",
+        "userRole": "LIBRARIAN",
+        "creator": "Reviewer Librarian",
+        "creatorRole": "LIBRARIAN",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1q5d-8858c2bf",
+    "timestamp": "2026-06-14T22:05:13.249Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang (Library)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1q4a-e6124416",
+    "sampleName": "COVID-19 Test Sample #001",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Freezer A, Shelf 3",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1q6c-d2b872fe",
+    "timestamp": "2026-06-14T22:05:13.284Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Wang",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqec1q4a-e6124416",
+    "sampleName": "COVID-19 Test Sample #001",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Freezer A, Shelf 3",
+    "requestId": "REQ-mqec1q5x-c5960a33",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "COVID-19 variant analysis"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1q7b-6f39ae96",
+    "timestamp": "2026-06-14T22:05:13.320Z",
+    "action": "SAMPLE_BORROWED",
+    "user": "Researcher Wang",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1q4a-e6124416",
+    "sampleName": "COVID-19 Test Sample #001",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Freezer A, Shelf 3",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "borrower": "Researcher Wang",
+      "dueDate": "2026-06-21T22:05:13.269Z"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1q87-add5e978",
+    "timestamp": "2026-06-14T22:05:13.351Z",
+    "action": "REQUEST_APPROVED",
+    "user": "Dr. Li (Librarian)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1q4a-e6124416",
+    "sampleName": "COVID-19 Test Sample #001",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Freezer A, Shelf 3",
+    "requestId": "REQ-mqec1q5x-c5960a33",
+    "approvalBasis": "Valid research purpose, storage capacity confirmed",
+    "details": {
+      "requestType": "BORROW"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1q97-d62a2c33",
+    "timestamp": "2026-06-14T22:05:13.387Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Wang",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqec1q4a-e6124416",
+    "sampleName": "COVID-19 Test Sample #001",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Freezer A, Shelf 3",
+    "requestId": "REQ-mqec1q8s-d9275140",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "RENEW",
+      "reason": "Analysis incomplete, need more time"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1qa6-0de030dc",
+    "timestamp": "2026-06-14T22:05:13.422Z",
+    "action": "SAMPLE_RENEWED",
+    "user": "Dr. Li (Librarian)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1q4a-e6124416",
+    "sampleName": "COVID-19 Test Sample #001",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Freezer A, Shelf 3",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "newDueDate": "2026-06-28T22:05:13.372Z"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1qb2-605fea1e",
+    "timestamp": "2026-06-14T22:05:13.454Z",
+    "action": "REQUEST_APPROVED",
+    "user": "Dr. Li (Librarian)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1q4a-e6124416",
+    "sampleName": "COVID-19 Test Sample #001",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Freezer A, Shelf 3",
+    "requestId": "REQ-mqec1q8s-d9275140",
+    "approvalBasis": "Research progress verified, extension approved",
+    "details": {
+      "requestType": "RENEW"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1qc2-f09e4f49",
+    "timestamp": "2026-06-14T22:05:13.491Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Wang",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqec1q4a-e6124416",
+    "sampleName": "COVID-19 Test Sample #001",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Freezer A, Shelf 3",
+    "requestId": "REQ-mqec1qbo-d649b0b0",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "RETURN",
+      "reason": "Return sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1qd5-f813130e",
+    "timestamp": "2026-06-14T22:05:13.529Z",
+    "action": "SAMPLE_RETURNED",
+    "user": "Dr. Li (Librarian)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1q4a-e6124416",
+    "sampleName": "COVID-19 Test Sample #001",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Freezer A, Shelf 3",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "returnedBy": "Dr. Li (Librarian)"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1qe0-280c850e",
+    "timestamp": "2026-06-14T22:05:13.560Z",
+    "action": "REQUEST_APPROVED",
+    "user": "Dr. Li (Librarian)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1q4a-e6124416",
+    "sampleName": "COVID-19 Test Sample #001",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Freezer A, Shelf 3",
+    "requestId": "REQ-mqec1qbo-d649b0b0",
+    "approvalBasis": "Sample returned in good condition",
+    "details": {
+      "requestType": "RETURN"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1qex-df3f7c8f",
+    "timestamp": "2026-06-14T22:05:13.593Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang (Library)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1qek-dc80b07b",
+    "sampleName": "Expired Chemical Sample #002",
+    "validityPeriod": "2020-01-01",
+    "storageLocation": "Cabinet B, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1qfy-603cbe01",
+    "timestamp": "2026-06-14T22:05:13.630Z",
+    "action": "REQUEST_CREATED",
+    "user": "Dr. Zhang (Library)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1qek-dc80b07b",
+    "sampleName": "Expired Chemical Sample #002",
+    "validityPeriod": "2020-01-01",
+    "storageLocation": "Cabinet B, Shelf 1",
+    "requestId": "REQ-mqec1qfk-c7e875e1",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Sample expired on 2020-01-01"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1qgz-01487b55",
+    "timestamp": "2026-06-14T22:05:13.667Z",
+    "action": "SAMPLE_DESTROYED",
+    "user": "Prof. Chen (Supervisor)",
+    "role": "SUPERVISOR",
+    "sampleId": "SMP-mqec1qek-dc80b07b",
+    "sampleName": "Expired Chemical Sample #002",
+    "validityPeriod": "2020-01-01",
+    "storageLocation": "Cabinet B, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Marked for destruction"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1qhs-bbd00ea8",
+    "timestamp": "2026-06-14T22:05:13.696Z",
+    "action": "SAMPLE_DESTROYED",
+    "user": "Prof. Chen (Supervisor)",
+    "role": "SUPERVISOR",
+    "sampleId": "SMP-mqec1qek-dc80b07b",
+    "sampleName": "Expired Chemical Sample #002",
+    "validityPeriod": "2020-01-01",
+    "storageLocation": "Cabinet B, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Final destruction"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1qip-4f8c608e",
+    "timestamp": "2026-06-14T22:05:13.729Z",
+    "action": "REQUEST_APPROVED",
+    "user": "Prof. Chen (Supervisor)",
+    "role": "SUPERVISOR",
+    "sampleId": "SMP-mqec1qek-dc80b07b",
+    "sampleName": "Expired Chemical Sample #002",
+    "validityPeriod": "2020-01-01",
+    "storageLocation": "Cabinet B, Shelf 1",
+    "requestId": "REQ-mqec1qfk-c7e875e1",
+    "approvalBasis": "Confirmed expired, disposal protocol followed",
+    "details": {
+      "requestType": "DESTRUCTION"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1qjp-08fe127b",
+    "timestamp": "2026-06-14T22:05:13.765Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang (Library)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1qjb-1eebc25e",
+    "sampleName": "Concurrent Destruction Sample",
+    "validityPeriod": "2020-01-01",
+    "storageLocation": "Cabinet C, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1ql5-c2d0474f",
+    "timestamp": "2026-06-14T22:05:13.817Z",
+    "action": "REQUEST_CREATED",
+    "user": "Dr. Zhang (Library)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1qjb-1eebc25e",
+    "sampleName": "Concurrent Destruction Sample",
+    "validityPeriod": "2020-01-01",
+    "storageLocation": "Cabinet C, Shelf 1",
+    "requestId": "REQ-mqec1qkn-65842197",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Expired sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1qm9-b47f2eee",
+    "timestamp": "2026-06-14T22:05:13.857Z",
+    "action": "SAMPLE_DESTROYED",
+    "user": "Prof. Chen (Supervisor)",
+    "role": "SUPERVISOR",
+    "sampleId": "SMP-mqec1qjb-1eebc25e",
+    "sampleName": "Concurrent Destruction Sample",
+    "validityPeriod": "2020-01-01",
+    "storageLocation": "Cabinet C, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Marked for destruction"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1qne-d2f9e280",
+    "timestamp": "2026-06-14T22:05:13.899Z",
+    "action": "SAMPLE_DESTROYED",
+    "user": "Prof. Chen (Supervisor)",
+    "role": "SUPERVISOR",
+    "sampleId": "SMP-mqec1qjb-1eebc25e",
+    "sampleName": "Concurrent Destruction Sample",
+    "validityPeriod": "2020-01-01",
+    "storageLocation": "Cabinet C, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Final destruction"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1qob-264c1271",
+    "timestamp": "2026-06-14T22:05:13.931Z",
+    "action": "REQUEST_APPROVED",
+    "user": "Prof. Chen (Supervisor)",
+    "role": "SUPERVISOR",
+    "sampleId": "SMP-mqec1qjb-1eebc25e",
+    "sampleName": "Concurrent Destruction Sample",
+    "validityPeriod": "2020-01-01",
+    "storageLocation": "Cabinet C, Shelf 1",
+    "requestId": "REQ-mqec1qkn-65842197",
+    "approvalBasis": "First approval",
+    "details": {
+      "requestType": "DESTRUCTION"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1qp9-8d2ade68",
+    "timestamp": "2026-06-14T22:05:13.965Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang (Library)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1qow-b3a33e46",
+    "sampleName": "Frozen Sample #003",
+    "validityPeriod": "2028-06-30",
+    "storageLocation": "Freezer B, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1qq5-de755028",
+    "timestamp": "2026-06-14T22:05:13.997Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Liu",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqec1qow-b3a33e46",
+    "sampleName": "Frozen Sample #003",
+    "validityPeriod": "2028-06-30",
+    "storageLocation": "Freezer B, Shelf 1",
+    "requestId": "REQ-mqec1qpq-536fbe3d",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Testing"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1qr4-017615d2",
+    "timestamp": "2026-06-14T22:05:14.032Z",
+    "action": "SAMPLE_BORROWED",
+    "user": "Researcher Liu",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1qow-b3a33e46",
+    "sampleName": "Frozen Sample #003",
+    "validityPeriod": "2028-06-30",
+    "storageLocation": "Freezer B, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "borrower": "Researcher Liu",
+      "dueDate": "2026-06-21T22:05:13.982Z"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1qs1-97e5b1b7",
+    "timestamp": "2026-06-14T22:05:14.065Z",
+    "action": "REQUEST_APPROVED",
+    "user": "Dr. Li (Librarian)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1qow-b3a33e46",
+    "sampleName": "Frozen Sample #003",
+    "validityPeriod": "2028-06-30",
+    "storageLocation": "Freezer B, Shelf 1",
+    "requestId": "REQ-mqec1qpq-536fbe3d",
+    "approvalBasis": "Approved",
+    "details": {
+      "requestType": "BORROW"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1qsz-5a6e8589",
+    "timestamp": "2026-06-14T22:05:14.099Z",
+    "action": "SAMPLE_FROZEN",
+    "user": "Dr. Li (Librarian)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1qow-b3a33e46",
+    "sampleName": "Frozen Sample #003",
+    "validityPeriod": "2028-06-30",
+    "storageLocation": "Freezer B, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "reason": "Quality inspection required"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1qtz-1c734aa0",
+    "timestamp": "2026-06-14T22:05:14.135Z",
+    "action": "SAMPLE_UNFROZEN",
+    "user": "Prof. Chen (Supervisor)",
+    "role": "SUPERVISOR",
+    "sampleId": "SMP-mqec1qow-b3a33e46",
+    "sampleName": "Frozen Sample #003",
+    "validityPeriod": "2028-06-30",
+    "storageLocation": "Freezer B, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "reason": "Inspection complete, no issues found",
+      "previousStatus": "FROZEN"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1quy-65710754",
+    "timestamp": "2026-06-14T22:05:14.170Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Liu",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqec1qow-b3a33e46",
+    "sampleName": "Frozen Sample #003",
+    "validityPeriod": "2028-06-30",
+    "storageLocation": "Freezer B, Shelf 1",
+    "requestId": "REQ-mqec1quk-a048a46b",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "RETURN",
+      "reason": "Return sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1qvw-c8d9ba74",
+    "timestamp": "2026-06-14T22:05:14.204Z",
+    "action": "SAMPLE_RETURNED",
+    "user": "Dr. Li (Librarian)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1qow-b3a33e46",
+    "sampleName": "Frozen Sample #003",
+    "validityPeriod": "2028-06-30",
+    "storageLocation": "Freezer B, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "returnedBy": "Dr. Li (Librarian)"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1qws-3b432d96",
+    "timestamp": "2026-06-14T22:05:14.236Z",
+    "action": "REQUEST_APPROVED",
+    "user": "Dr. Li (Librarian)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1qow-b3a33e46",
+    "sampleName": "Frozen Sample #003",
+    "validityPeriod": "2028-06-30",
+    "storageLocation": "Freezer B, Shelf 1",
+    "requestId": "REQ-mqec1quk-a048a46b",
+    "approvalBasis": "Sample returned",
+    "details": {
+      "requestType": "RETURN"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1qxp-b454cd5a",
+    "timestamp": "2026-06-14T22:05:14.269Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang (Library)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1qxb-986ec0f0",
+    "sampleName": "Cancel Test Sample #004",
+    "validityPeriod": "2028-12-31",
+    "storageLocation": "Freezer C, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1qyn-0619427e",
+    "timestamp": "2026-06-14T22:05:14.303Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Zhao",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqec1qxb-986ec0f0",
+    "sampleName": "Cancel Test Sample #004",
+    "validityPeriod": "2028-12-31",
+    "storageLocation": "Freezer C, Shelf 1",
+    "requestId": "REQ-mqec1qy8-9ac2901d",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Testing cancellation"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1r00-c76c462b",
+    "timestamp": "2026-06-14T22:05:14.352Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Researcher Zhao",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqec1qxb-986ec0f0",
+    "sampleName": "Cancel Test Sample #004",
+    "validityPeriod": "2028-12-31",
+    "storageLocation": "Freezer C, Shelf 1",
+    "requestId": "REQ-mqec1qy8-9ac2901d",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "cancelReason": "Changed research direction",
+      "previousStatus": "PENDING",
+      "applicant": "Researcher Zhao",
+      "creator": "Researcher Zhao"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1r12-afa164cb",
+    "timestamp": "2026-06-14T22:05:14.390Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang (Library)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1r0l-3c7df468",
+    "sampleName": "Unauthorized Cancel Sample #006",
+    "validityPeriod": "2028-12-31",
+    "storageLocation": "Freezer D, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1r25-2a6acb82",
+    "timestamp": "2026-06-14T22:05:14.429Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Wang",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqec1r0l-3c7df468",
+    "sampleName": "Unauthorized Cancel Sample #006",
+    "validityPeriod": "2028-12-31",
+    "storageLocation": "Freezer D, Shelf 1",
+    "requestId": "REQ-mqec1r1n-97502cc8",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Creator authorization test"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1r38-4f93994a",
+    "timestamp": "2026-06-14T22:05:14.468Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Researcher Wang",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1r0l-3c7df468",
+    "sampleName": "Unauthorized Cancel Sample #006",
+    "validityPeriod": "2028-12-31",
+    "storageLocation": "Freezer D, Shelf 1",
+    "requestId": "REQ-mqec1r1n-97502cc8",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "cancelReason": "Creator (with Librarian role) cancelling",
+      "previousStatus": "PENDING",
+      "applicant": "Researcher Wang",
+      "creator": "Researcher Wang"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1r44-02981818",
+    "timestamp": "2026-06-14T22:05:14.500Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang (Library)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1r3q-d399789e",
+    "sampleName": "Non-Creator Cancel Sample #007",
+    "validityPeriod": "2028-12-31",
+    "storageLocation": "Freezer E, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1r55-3cf6199b",
+    "timestamp": "2026-06-14T22:05:14.537Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Liu",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqec1r3q-d399789e",
+    "sampleName": "Non-Creator Cancel Sample #007",
+    "validityPeriod": "2028-12-31",
+    "storageLocation": "Freezer E, Shelf 1",
+    "requestId": "REQ-mqec1r4o-aecd8cf8",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Non-creator test"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1r6b-f4f3c4e9",
+    "timestamp": "2026-06-14T22:05:14.579Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang (Library)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1r5w-ec949622",
+    "sampleName": "Reject Cancel Sample #005",
+    "validityPeriod": "2028-12-31",
+    "storageLocation": "Cabinet D, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1r7c-5d95d4cb",
+    "timestamp": "2026-06-14T22:05:14.616Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Wang",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqec1r5w-ec949622",
+    "sampleName": "Reject Cancel Sample #005",
+    "validityPeriod": "2028-12-31",
+    "storageLocation": "Cabinet D, Shelf 1",
+    "requestId": "REQ-mqec1r6v-52de5dc7",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Test rejection then cancel"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1r8g-b3315916",
+    "timestamp": "2026-06-14T22:05:14.656Z",
+    "action": "REQUEST_REJECTED",
+    "user": "Dr. Li (Librarian)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1r5w-ec949622",
+    "sampleName": "Reject Cancel Sample #005",
+    "validityPeriod": "2028-12-31",
+    "storageLocation": "Cabinet D, Shelf 1",
+    "requestId": "REQ-mqec1r6v-52de5dc7",
+    "approvalBasis": "Insufficient justification",
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Insufficient justification"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1r9o-037b11b4",
+    "timestamp": "2026-06-14T22:05:14.700Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang (Library)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1r9a-cac3a039",
+    "sampleName": "Destruction Cancel Test Sample",
+    "validityPeriod": "2020-01-01",
+    "storageLocation": "Cabinet E, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1ral-6930eabc",
+    "timestamp": "2026-06-14T22:05:14.733Z",
+    "action": "REQUEST_CREATED",
+    "user": "Dr. Zhang (Library)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1r9a-cac3a039",
+    "sampleName": "Destruction Cancel Test Sample",
+    "validityPeriod": "2020-01-01",
+    "storageLocation": "Cabinet E, Shelf 1",
+    "requestId": "REQ-mqec1ra6-1e564a62",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Sample expired - cancellation test"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1rbo-c9e8e237",
+    "timestamp": "2026-06-14T22:05:14.772Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Dr. Zhang (Library)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1r9a-cac3a039",
+    "sampleName": "Destruction Cancel Test Sample",
+    "validityPeriod": "2020-01-01",
+    "storageLocation": "Cabinet E, Shelf 1",
+    "requestId": "REQ-mqec1ra6-1e564a62",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "cancelReason": "No longer needed for disposal",
+      "previousStatus": "PENDING",
+      "applicant": "Dr. Zhang (Library)",
+      "creator": "Dr. Zhang (Library)"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1rcm-91386552",
+    "timestamp": "2026-06-14T22:05:14.806Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang (Library)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1rc7-7e77ed90",
+    "sampleName": "Another Destruction Cancel Sample",
+    "validityPeriod": "2020-01-01",
+    "storageLocation": "Cabinet F, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqec1rdm-e20ba56b",
+    "timestamp": "2026-06-14T22:05:14.842Z",
+    "action": "REQUEST_CREATED",
+    "user": "Dr. Zhang (Library)",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqec1rc7-7e77ed90",
+    "sampleName": "Another Destruction Cancel Sample",
+    "validityPeriod": "2020-01-01",
+    "storageLocation": "Cabinet F, Shelf 1",
+    "requestId": "REQ-mqec1rd6-8c7aac2b",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Sample expired - non-creator test"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
   }
 ]
