@@ -354,28 +354,59 @@ async function runTests() {
     assert(sampleAfterCancel.data.data.currentHolder === null, 'Sample holder unchanged after cancellation',
            { expected: null, actual: sampleAfterCancel.data.data?.currentHolder });
 
-    console.log('\n[10/12] Cancel Request - Unauthorized Cancellation');
+    console.log('\n[10/12] Cancel Request - Creator Authorization (New Logic)');
     
-    const unauthorizedCancelByLibrarian = await request('POST', `/api/requests/${cancelReqId}/cancel`, {
-      user: 'Researcher Zhao',
-      reason: 'Librarian trying to cancel'
-    }, getHeaders(USER_ROLES.LIBRARIAN));
-    assert(unauthorizedCancelByLibrarian.status === 403, 'Librarian cannot cancel request (returns 403)',
-           { expected: 403, actual: unauthorizedCancelByLibrarian.status, error: unauthorizedCancelByLibrarian.data?.error });
-    
-    const unauthorizedCancelBySupervisor = await request('POST', `/api/requests/${cancelReqId}/cancel`, {
-      user: 'Researcher Zhao',
-      reason: 'Supervisor trying to cancel'
-    }, getHeaders(USER_ROLES.SUPERVISOR));
-    assert(unauthorizedCancelBySupervisor.status === 403, 'Supervisor cannot cancel request (returns 403)',
-           { expected: 403, actual: unauthorizedCancelBySupervisor.status, error: unauthorizedCancelBySupervisor.data?.error });
-    
-    const unauthorizedCancelByOtherApplicant = await request('POST', `/api/requests/${cancelReqId}/cancel`, {
+    const unauthorizedCancelSampleData = {
+      name: 'Unauthorized Cancel Sample #006',
+      category: 'Biological',
+      validityPeriod: '2028-12-31',
+      storageLocation: 'Freezer D, Shelf 1',
+      registrant: 'Dr. Zhang (Library)'
+    };
+    const unauthorizedCancelSampleCreate = await request('POST', '/api/samples', unauthorizedCancelSampleData, getHeaders(USER_ROLES.LIBRARIAN));
+    const unauthorizedCancelSampleId = unauthorizedCancelSampleCreate.data.data.id;
+
+    const unauthorizedBorrowReq = {
+      sampleId: unauthorizedCancelSampleId,
+      applicant: 'Researcher Wang',
+      reason: 'Creator authorization test',
+      duration: 7
+    };
+    const unauthorizedBorrowResult = await request('POST', '/api/requests/borrow', unauthorizedBorrowReq, getHeaders(USER_ROLES.APPLICANT));
+    const unauthorizedReqId = unauthorizedBorrowResult.data.data.id;
+
+    const creatorCancelByLibrarian = await request('POST', `/api/requests/${unauthorizedReqId}/cancel`, {
       user: 'Researcher Wang',
-      reason: 'Other applicant trying to cancel'
+      reason: 'Creator (with Librarian role) cancelling'
+    }, getHeaders(USER_ROLES.LIBRARIAN));
+    assert(creatorCancelByLibrarian.status === 200, 'Creator can cancel even with Librarian role (returns 200)',
+           { expected: 200, actual: creatorCancelByLibrarian.status, success: creatorCancelByLibrarian.data?.success });
+    
+    const cancelSample2Data = {
+      name: 'Non-Creator Cancel Sample #007',
+      category: 'Biological',
+      validityPeriod: '2028-12-31',
+      storageLocation: 'Freezer E, Shelf 1',
+      registrant: 'Dr. Zhang (Library)'
+    };
+    const cancelSample2Create = await request('POST', '/api/samples', cancelSample2Data, getHeaders(USER_ROLES.LIBRARIAN));
+    const cancelSample2Id = cancelSample2Create.data.data.id;
+
+    const borrowReq2 = {
+      sampleId: cancelSample2Id,
+      applicant: 'Researcher Liu',
+      reason: 'Non-creator test',
+      duration: 7
+    };
+    const borrowResult2 = await request('POST', '/api/requests/borrow', borrowReq2, getHeaders(USER_ROLES.APPLICANT));
+    const reqId2 = borrowResult2.data.data.id;
+
+    const nonCreatorCancelByWang = await request('POST', `/api/requests/${reqId2}/cancel`, {
+      user: 'Researcher Wang',
+      reason: 'Non-creator trying to cancel'
     }, getHeaders(USER_ROLES.APPLICANT));
-    assert(unauthorizedCancelByOtherApplicant.status === 403, 'Other applicant cannot cancel (returns 403)',
-           { expected: 403, actual: unauthorizedCancelByOtherApplicant.status, error: unauthorizedCancelByOtherApplicant.data?.error });
+    assert(nonCreatorCancelByWang.status === 403, 'Non-creator (Researcher Wang) cannot cancel others request (returns 403)',
+           { expected: 403, actual: nonCreatorCancelByWang.status, error: nonCreatorCancelByWang.data?.error });
 
     console.log('\n[11/12] Cancel Request - Conflict Scenarios');
     
@@ -427,22 +458,22 @@ async function runTests() {
            { expected: 409, actual: cancelRejectedRequest.status, error: cancelRejectedRequest.data?.error });
 
     console.log('\n[12/12] Cancel Request - Audit Log Verification');
-    const cancelAuditLogs = await request('GET', '/api/audit-logs?action=REQUEST_CANCELLED', null, getHeaders(USER_ROLES.LIBRARIAN));
+    const cancelAuditLogs = await request('GET', `/api/audit-logs?action=REQUEST_CANCELLED&requestId=${cancelReqId}`, null, getHeaders(USER_ROLES.LIBRARIAN));
     assert(cancelAuditLogs.status === 200 && cancelAuditLogs.data.success === true, 'Cancel audit logs retrieved', cancelAuditLogs.data);
-    assert(cancelAuditLogs.data.data.total > 0, 'Cancel audit logs contain records',
+    assert(cancelAuditLogs.data.data.total > 0, 'Cancel audit logs contain records for the cancelled request',
            { total: cancelAuditLogs.data.data.total });
     
     const cancelAudit = cancelAuditLogs.data.data.logs[0];
     assert(cancelAudit.action === 'REQUEST_CANCELLED', 'Audit action is REQUEST_CANCELLED',
            { expected: 'REQUEST_CANCELLED', actual: cancelAudit.action });
-    assert(cancelAudit.user === 'Researcher Zhao', 'Audit user is the applicant',
+    assert(cancelAudit.user === 'Researcher Zhao', 'Audit user is the creator',
            { expected: 'Researcher Zhao', actual: cancelAudit.user });
-    assert(cancelAudit.role === 'APPLICANT', 'Audit role is APPLICANT',
+    assert(cancelAudit.role === 'APPLICANT', 'Audit role matches actual role',
            { expected: 'APPLICANT', actual: cancelAudit.role });
     assert(cancelAudit.result === 'SUCCESS', 'Audit result is SUCCESS',
            { expected: 'SUCCESS', actual: cancelAudit.result });
-    assert(cancelAudit.details.reason === 'Changed research direction', 'Audit details include cancel reason',
-           { expected: 'Changed research direction', actual: cancelAudit.details?.reason });
+    assert(cancelAudit.details.cancelReason === 'Changed research direction', 'Audit details include cancel reason',
+           { expected: 'Changed research direction', actual: cancelAudit.details?.cancelReason });
     assert(cancelAudit.details.previousStatus === 'PENDING', 'Audit details include previous status',
            { expected: 'PENDING', actual: cancelAudit.details?.previousStatus });
 
@@ -475,6 +506,92 @@ async function runTests() {
              'Approved request audit log has approvalBasis',
              { approvalBasis: approvedLog.approvalBasis });
     }
+
+    console.log('\n[15/16] Destruction Request Cancellation by Creator');
+    const destCancelSampleData = {
+      name: 'Destruction Cancel Test Sample',
+      category: 'Chemical',
+      validityPeriod: '2020-01-01',
+      storageLocation: 'Cabinet E, Shelf 1',
+      registrant: 'Dr. Zhang (Library)'
+    };
+    const destCancelSampleCreate = await request('POST', '/api/samples', destCancelSampleData, getHeaders(USER_ROLES.LIBRARIAN));
+    const destCancelSampleId = destCancelSampleCreate.data.data.id;
+
+    const librarianDestructionReq = {
+      sampleId: destCancelSampleId,
+      applicant: 'Dr. Zhang (Library)',
+      reason: 'Sample expired - cancellation test',
+      approvalBasis: 'Safety regulation'
+    };
+    const librarianDestructionResult = await request('POST', '/api/requests/destruction', librarianDestructionReq, getHeaders(USER_ROLES.LIBRARIAN));
+    assert(librarianDestructionResult.status === 201 && librarianDestructionResult.data.success === true, 
+           'Librarian created destruction request', librarianDestructionResult.data);
+    const libDestReqId = librarianDestructionResult.data.data.id;
+
+    const libDestReqCheck = await request('GET', `/api/requests/${libDestReqId}`, null, getHeaders(USER_ROLES.LIBRARIAN));
+    assert(libDestReqCheck.data.data.creator === 'Dr. Zhang (Library)', 'Creator is the librarian who created the request',
+           { expected: 'Dr. Zhang (Library)', actual: libDestReqCheck.data.data?.creator });
+    assert(libDestReqCheck.data.data.creatorRole === 'LIBRARIAN', 'Creator role is LIBRARIAN',
+           { expected: 'LIBRARIAN', actual: libDestReqCheck.data.data?.creatorRole });
+
+    const librarianCancelSuccess = await request('POST', `/api/requests/${libDestReqId}/cancel`, {
+      user: 'Dr. Zhang (Library)',
+      reason: 'No longer needed for disposal'
+    }, getHeaders(USER_ROLES.LIBRARIAN));
+    assert(librarianCancelSuccess.status === 200 && librarianCancelSuccess.data.success === true, 
+           'Creator (Librarian) can cancel own destruction request', librarianCancelSuccess.data);
+    assert(librarianCancelSuccess.data.data.status === 'CANCELLED', 'Request status is CANCELLED',
+           { expected: 'CANCELLED', actual: librarianCancelSuccess.data.data?.status });
+    assert(librarianCancelSuccess.data.data.cancelledAt !== null, 'Cancelled timestamp is recorded',
+           { cancelledAt: librarianCancelSuccess.data.data?.cancelledAt });
+
+    const destSampleAfterCancel = await request('GET', `/api/samples/${destCancelSampleId}`, null, getHeaders(USER_ROLES.LIBRARIAN));
+    assert(destSampleAfterCancel.data.data.status === 'AVAILABLE', 'Sample status unchanged after destruction cancellation (still AVAILABLE)',
+           { expected: 'AVAILABLE', actual: destSampleAfterCancel.data.data?.status });
+
+    console.log('\n[16/16] Destruction Request - Unauthorized Cancellation by Non-Creator');
+    const anotherDestCancelSampleData = {
+      name: 'Another Destruction Cancel Sample',
+      category: 'Chemical',
+      validityPeriod: '2020-01-01',
+      storageLocation: 'Cabinet F, Shelf 1',
+      registrant: 'Dr. Zhang (Library)'
+    };
+    const anotherDestCancelSampleCreate = await request('POST', '/api/samples', anotherDestCancelSampleData, getHeaders(USER_ROLES.LIBRARIAN));
+    const anotherDestCancelSampleId = anotherDestCancelSampleCreate.data.data.id;
+
+    const anotherDestructionReq = {
+      sampleId: anotherDestCancelSampleId,
+      applicant: 'Dr. Zhang (Library)',
+      reason: 'Sample expired - non-creator test',
+      approvalBasis: 'Safety regulation'
+    };
+    const anotherDestructionResult = await request('POST', '/api/requests/destruction', anotherDestructionReq, getHeaders(USER_ROLES.LIBRARIAN));
+    const anotherDestReqId = anotherDestructionResult.data.data.id;
+
+    const supervisorCancelAttempt = await request('POST', `/api/requests/${anotherDestReqId}/cancel`, {
+      user: 'Prof. Chen (Supervisor)',
+      reason: 'Supervisor trying to cancel'
+    }, getHeaders(USER_ROLES.SUPERVISOR));
+    assert(supervisorCancelAttempt.status === 403, 'Non-creator (Supervisor) cannot cancel destruction request (returns 403)',
+           { expected: 403, actual: supervisorCancelAttempt.status, error: supervisorCancelAttempt.data?.error });
+    assert(supervisorCancelAttempt.data.error.includes('Only the creator'), 'Error message indicates creator-only restriction',
+           { error: supervisorCancelAttempt.data?.error });
+
+    const anotherApplicantCancelAttempt = await request('POST', `/api/requests/${anotherDestReqId}/cancel`, {
+      user: 'Researcher Wang',
+      reason: 'Applicant trying to cancel'
+    }, getHeaders(USER_ROLES.APPLICANT));
+    assert(anotherApplicantCancelAttempt.status === 403, 'Non-creator (Applicant) cannot cancel destruction request (returns 403)',
+           { expected: 403, actual: anotherApplicantCancelAttempt.status, error: anotherApplicantCancelAttempt.data?.error });
+
+    const alreadyCancelledAttempt = await request('POST', `/api/requests/${libDestReqId}/cancel`, {
+      user: 'Dr. Zhang (Library)',
+      reason: 'Try to cancel again'
+    }, getHeaders(USER_ROLES.LIBRARIAN));
+    assert(alreadyCancelledAttempt.status === 409, 'Cannot cancel already cancelled request (returns 409)',
+           { expected: 409, actual: alreadyCancelledAttempt.status, error: alreadyCancelledAttempt.data?.error });
 
     console.log('\n' + '='.repeat(60));
     console.log(`Test Results: ${passed} passed, ${failed} failed`);

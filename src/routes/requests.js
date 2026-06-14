@@ -145,6 +145,8 @@ router.post('/destruction', requireRole(USER_ROLE.APPLICANT, USER_ROLE.LIBRARIAN
       sampleId,
       type: REQUEST_TYPE.DESTRUCTION,
       applicant,
+      creator: applicant,
+      creatorRole: req.userRole,
       applicantRole: req.userRole,
       reason,
       approvalBasis
@@ -287,21 +289,22 @@ router.post('/:id/reject', requireRole(USER_ROLE.LIBRARIAN, USER_ROLE.SUPERVISOR
   }
 });
 
-router.post('/:id/cancel', requireRole(USER_ROLE.APPLICANT), async (req, res) => {
+router.post('/:id/cancel', async (req, res) => {
   try {
     const { user, reason } = req.body;
+    const userRole = req.headers['x-user-role'] || 'APPLICANT';
     
     if (!user) {
       return res.status(400).json(buildResponse(false, null, 'User is required'));
     }
 
-    const result = await requestService.cancel(req.params.id, user, reason);
+    const result = await requestService.cancel(req.params.id, user, userRole, reason);
     res.json(buildResponse(true, result));
   } catch (error) {
     if (error.message.includes('not found')) {
       return res.status(404).json(buildResponse(false, null, error.message));
     }
-    if (error.message.includes('Only the applicant')) {
+    if (error.message.includes('Only the creator')) {
       return res.status(403).json(buildResponse(false, null, error.message));
     }
     if (error.message.includes('not pending')) {

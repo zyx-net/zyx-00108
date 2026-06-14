@@ -26,7 +26,7 @@ class AuditService {
   }
 
   async query(filters = {}) {
-    const { sampleId, user, action, startDate, endDate, page = 1, limit = 20 } = filters;
+    const { sampleId, user, action, startDate, endDate, requestId, result, page = 1, limit = 20 } = filters;
     
     let logs = await dataStore.read('audit-logs');
     
@@ -48,6 +48,14 @@ class AuditService {
     
     if (endDate) {
       logs = logs.filter(log => new Date(log.timestamp) <= new Date(endDate));
+    }
+    
+    if (requestId) {
+      logs = logs.filter(log => log.requestId === requestId);
+    }
+    
+    if (result) {
+      logs = logs.filter(log => log.result === result);
     }
     
     logs.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));

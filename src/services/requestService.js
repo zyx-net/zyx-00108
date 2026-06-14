@@ -11,6 +11,8 @@ class RequestService {
       sampleId: requestData.sampleId,
       type: requestData.type,
       applicant: requestData.applicant,
+      creator: requestData.creator || requestData.applicant,
+      creatorRole: requestData.creatorRole || requestData.applicantRole || 'APPLICANT',
       status: REQUEST_STATUS.PENDING,
       approvalBasis: requestData.approvalBasis || null,
       approver: null,
@@ -212,20 +214,22 @@ class RequestService {
     return updatedRequest;
   }
 
-  async cancel(requestId, user, reason = null) {
+  async cancel(requestId, user, userRole = 'APPLICANT', reason = null) {
     const request = await this.findById(requestId);
     
     if (!request) {
       throw new Error('Request not found');
     }
 
-    if (request.applicant !== user) {
-      throw new Error('Only the applicant can cancel the request');
+    if (request.creator !== user) {
+      throw new Error('Only the creator can cancel the request');
     }
 
     if (request.status !== REQUEST_STATUS.PENDING) {
       throw new Error(`Request is not pending, current status: ${request.status}`);
     }
+
+    const previousStatus = request.status;
 
     await dataStore.update('requests', requestId, {
       status: REQUEST_STATUS.CANCELLED,
@@ -234,13 +238,20 @@ class RequestService {
     });
 
     const updatedRequest = await this.findById(requestId);
+    const sample = await sampleService.findById(request.sampleId);
 
     await auditService.log(
       ACTION_TYPE.REQUEST_CANCELLED,
       user,
-      'APPLICANT',
-      null,
-      { requestType: request.type, reason: reason || null, previousStatus: 'PENDING' },
+      userRole,
+      sample,
+      { 
+        requestType: request.type, 
+        cancelReason: reason || null, 
+        previousStatus,
+        applicant: request.applicant,
+        creator: request.creator
+      },
       'SUCCESS',
       null,
       request.id

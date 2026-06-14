@@ -18,18 +18,20 @@ function requireRole(...allowedRoles) {
 
 router.get('/', requireRole(USER_ROLE.LIBRARIAN, USER_ROLE.SUPERVISOR), async (req, res) => {
   try {
-    const { sampleId, user, action, startDate, endDate, page, limit } = req.query;
-    const result = await auditService.query({
+    const { sampleId, user, action, startDate, endDate, requestId, result, page, limit } = req.query;
+    const result_data = await auditService.query({
       sampleId,
       user,
       action,
       startDate,
       endDate,
+      requestId,
+      result,
       page: parseQueryInt(page, 1),
       limit: parseQueryInt(limit, 20)
     });
 
-    res.json(buildResponse(true, result));
+    res.json(buildResponse(true, result_data));
   } catch (error) {
     res.status(500).json(buildResponse(false, null, error.message));
   }
@@ -37,8 +39,8 @@ router.get('/', requireRole(USER_ROLE.LIBRARIAN, USER_ROLE.SUPERVISOR), async (r
 
 router.get('/export', requireRole(USER_ROLE.LIBRARIAN, USER_ROLE.SUPERVISOR), async (req, res) => {
   try {
-    const { format = 'json', startDate, endDate, sampleId } = req.query;
-    const filters = { startDate, endDate, sampleId };
+    const { format = 'json', startDate, endDate, sampleId, action, user, requestId, result } = req.query;
+    const filters = { startDate, endDate, sampleId, action, user, requestId, result };
 
     if (format === 'csv') {
       const csv = await auditService.exportToCsv(filters);
