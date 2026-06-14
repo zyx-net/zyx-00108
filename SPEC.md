@@ -85,7 +85,7 @@ ANY ──[销毁审批通过]──> DESTROYED
 ```
 PENDING ──[审批通过]──> APPROVED
 PENDING ──[审批拒绝]──> REJECTED
-PENDING ──[申请人取消]──> CANCELLED
+PENDING ──[申请人撤销]──> CANCELLED
 ```
 
 ## 4. API 接口
@@ -135,14 +135,32 @@ Body: { approver, approvalBasis }
 Response: { success, data: { request, sample } }
 ```
 
-#### 4.2.3 申请归还 (申请人)
+#### 4.2.3 撤销申请 (仅申请人)
+```
+POST /api/requests/:id/cancel
+Body: { user, reason? }
+Response: { success, data: Request }
+```
+
+**约束**：
+- 只有申请人本人可以撤销自己的申请
+- 只有 PENDING 状态的申请可以撤销
+- 撤销后申请状态变为 CANCELLED
+- 样本状态、持有人、到期时间不受影响
+
+**错误码**：
+- 404: 申请不存在
+- 403: 非申请人或非本人申请
+- 409: 申请状态不是 PENDING
+
+#### 4.2.4 申请归还 (申请人)
 ```
 POST /api/requests/return
 Body: { sampleId, applicant }
 Response: { success, data: Request }
 ```
 
-#### 4.2.4 申请续借 (申请人)
+#### 4.2.5 申请续借 (申请人)
 ```
 POST /api/requests/renew
 Body: { sampleId, applicant, reason, newDuration }
@@ -269,6 +287,7 @@ data/
 |------|--------|------|------|
 | 登记样本 | ❌ | ✅ | ❌ |
 | 申请借出/归还/续借 | ✅ | ❌ | ❌ |
+| 撤销自己的待审批申请 | ✅ | ❌ | ❌ |
 | 审批借出/归还 | ❌ | ✅ | ❌ |
 | 审批续借 | ❌ | ✅ | ❌ |
 | 冻结样本 | ❌ | ✅ | ❌ |
@@ -288,14 +307,20 @@ data/
 - [ ] 销毁申请和审批成功
 - [ ] 审计日志完整记录
 - [ ] 审计导出功能正常
+- [ ] 申请人撤销自己的待审批申请成功
+- [ ] 撤销后样本状态不受影响
 
 ### 9.2 异常流程验证
 - [ ] 冻结样本续借被拒绝
 - [ ] 已销毁样本归还被拒绝
 - [ ] 并发销毁审批只有一个成功
 - [ ] 权限错误被正确返回
+- [ ] 撤销非待审批申请返回 409 冲突
+- [ ] 非申请人撤销申请返回 403 权限错误
+- [ ] 库管或主管不能替申请人撤销
 
 ### 9.3 数据一致性验证
 - [ ] 失败请求无脏数据
 - [ ] 重启后状态正确恢复
 - [ ] 审计日志与接口返回一致
+- [ ] 撤销操作的审计日志包含操作者、角色、原因、原状态和结果

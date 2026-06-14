@@ -289,20 +289,23 @@ router.post('/:id/reject', requireRole(USER_ROLE.LIBRARIAN, USER_ROLE.SUPERVISOR
 
 router.post('/:id/cancel', requireRole(USER_ROLE.APPLICANT), async (req, res) => {
   try {
-    const { user } = req.body;
+    const { user, reason } = req.body;
     
     if (!user) {
       return res.status(400).json(buildResponse(false, null, 'User is required'));
     }
 
-    const request = await requestService.cancel(req.params.id, user);
-    res.json(buildResponse(true, request));
+    const result = await requestService.cancel(req.params.id, user, reason);
+    res.json(buildResponse(true, result));
   } catch (error) {
     if (error.message.includes('not found')) {
       return res.status(404).json(buildResponse(false, null, error.message));
     }
-    if (error.message.includes('not pending') || error.message.includes('Only the applicant')) {
-      return res.status(400).json(buildResponse(false, null, error.message));
+    if (error.message.includes('Only the applicant')) {
+      return res.status(403).json(buildResponse(false, null, error.message));
+    }
+    if (error.message.includes('not pending')) {
+      return res.status(409).json(buildResponse(false, null, error.message));
     }
     res.status(500).json(buildResponse(false, null, error.message));
   }

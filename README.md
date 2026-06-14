@@ -22,9 +22,24 @@ npm test
 
 | 角色 | 说明 | Header |
 |------|------|--------|
-| APPLICANT | 申请人 - 申请借用、归还、续借样本 | X-User-Role: APPLICANT |
-| LIBRARIAN | 库管 - 管理样本、审批借出/归还/续借申请 | X-User-Role: LIBRARIAN |
+| APPLICANT | 申请人 - 申请借用、归还、续借、销毁样本，撤销自己的待审批申请 | X-User-Role: APPLICANT |
+| LIBRARIAN | 库管 - 管理样本、审批借出/归还/续借申请、申请销毁 | X-User-Role: LIBRARIAN |
 | SUPERVISOR | 主管 - 审批销毁申请、解冻样本 | X-User-Role: SUPERVISOR |
+
+## 角色权限矩阵
+
+| 操作 | 申请人 | 库管 | 主管 |
+|------|--------|------|------|
+| 登记样本 | ❌ | ✅ | ❌ |
+| 申请借出/归还/续借 | ✅ | ❌ | ❌ |
+| 撤销自己的待审批申请 | ✅ | ❌ | ❌ |
+| 审批借出/归还 | ❌ | ✅ | ❌ |
+| 审批续借 | ❌ | ✅ | ❌ |
+| 冻结样本 | ❌ | ✅ | ❌ |
+| 解冻样本 | ❌ | ❌ | ✅ |
+| 申请销毁 | ✅ | ✅ | ❌ |
+| 审批销毁 | ❌ | ❌ | ✅ |
+| 导出审计日志 | ❌ | ✅ | ✅ |
 
 ## 成功链路示例
 
@@ -89,6 +104,40 @@ curl -X POST http://localhost:3000/api/requests/borrow \
   }
 }
 ```
+
+### 2.1 撤销申请 (Applicant)
+
+申请人可以在申请仍处于 PENDING 状态时撤销自己的申请：
+
+```bash
+curl -X POST http://localhost:3000/api/requests/REQ-xxx-xxx/cancel \
+  -H "Content-Type: application/json" \
+  -H "X-User-Role: APPLICANT" \
+  -d '{
+    "user": "Researcher Wang",
+    "reason": "Changed research plan"
+  }'
+```
+
+响应：
+```json
+{
+  "success": true,
+  "data": {
+    "id": "REQ-xxx-xxx",
+    "status": "CANCELLED",
+    "cancelledAt": "2026-06-15T01:00:00.000Z",
+    "cancelReason": "Changed research plan"
+  }
+}
+```
+
+**注意**：
+- 只有申请人本人可以撤销自己的申请
+- 库管和主管不能替申请人撤销
+- 只有 PENDING 状态的申请可以撤销
+- 撤销成功后，申请状态变为 CANCELLED
+- 样本状态、持有人、到期时间不会被改变
 
 ### 3. 审批借出 (Librarian)
 
@@ -389,6 +438,75 @@ curl -X POST http://localhost:3000/api/requests/REQ-xxx-xxx/approve \
 }
 ```
 
+### 8. 撤销已审批的申请
+
+尝试撤销已 APPROVED、REJECTED 或 CANCELLED 的申请会返回 409 冲突错误：
+
+```bash
+# 撤销已审批通过的申请
+curl -X POST http://localhost:3000/api/requests/REQ-xxx-xxx/cancel \
+  -H "Content-Type: application/json" \
+  -H "X-User-Role: APPLICANT" \
+  -d '{
+    "user": "Researcher Wang",
+    "reason": "Changed plan"
+  }'
+```
+
+响应 (409):
+```json
+{
+  "success": false,
+  "error": "Request is not pending, current status: APPROVED"
+}
+```
+
+### 9. 非申请人尝试撤销
+
+库管或主管尝试撤销申请人的申请会返回 403 权限错误：
+
+```bash
+# 库管尝试撤销申请人的借出申请
+curl -X POST http://localhost:3000/api/requests/REQ-xxx-xxx/cancel \
+  -H "Content-Type: application/json" \
+  -H "X-User-Role: LIBRARIAN" \
+  -d '{
+    "user": "Researcher Wang",
+    "reason": "Helper cancellation"
+  }'
+```
+
+响应 (403):
+```json
+{
+  "success": false,
+  "error": "Only the applicant can cancel the request"
+}
+```
+
+### 10. 撤销其他申请人的申请
+
+申请人尝试撤销其他申请人的申请会返回 403 权限错误：
+
+```bash
+# Researcher Wang 尝试撤销 Researcher Liu 的申请
+curl -X POST http://localhost:3000/api/requests/REQ-xxx-xxx/cancel \
+  -H "Content-Type: application/json" \
+  -H "X-User-Role: APPLICANT" \
+  -d '{
+    "user": "Researcher Wang",
+    "reason": "Helper cancellation"
+  }'
+```
+
+响应 (403):
+```json
+{
+  "success": false,
+  "error": "Only the applicant can cancel the request"
+}
+```
+
 ## 其他 API 接口
 
 ### 查询样本
@@ -482,12 +600,22 @@ curl -X GET http://localhost:3000/api/samples/overdue/mark \
 
 ## 状态机
 
+### 样本状态转换
 ```
 AVAILABLE ──[借出审批通过]──> BORROWED
 BORROWED ──[归还审批通过]──> AVAILABLE
 BORROWED ──[逾期]──> OVERDUE
 BORROWED ──[续借审批通过]──> BORROWED (更新 dueDate)
 BORROWED ──[库管冻结]──> FROZEN
-FROZEN ──[主管解冻]──> AVAILABLE 或 BORROWED
+FROZEN ──[主管解冻]──> AVAILABLE (若未借出) 或 BORROWED (若已借出)
 ANY ──[销毁审批通过]──> DESTROYED
 ```
+
+### 申请状态转换
+```
+PENDING ──[审批通过]──> APPROVED
+PENDING ──[审批拒绝]──> REJECTED
+PENDING ──[申请人撤销]──> CANCELLED
+```
+
+**注意**：撤销申请不会改变样本状态、持有人或到期时间。

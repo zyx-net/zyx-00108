@@ -212,25 +212,25 @@ class RequestService {
     return updatedRequest;
   }
 
-  async cancel(requestId, user) {
+  async cancel(requestId, user, reason = null) {
     const request = await this.findById(requestId);
     
     if (!request) {
       throw new Error('Request not found');
     }
 
-    if (request.status !== REQUEST_STATUS.PENDING) {
-      throw new Error(`Request is not pending, current status: ${request.status}`);
-    }
-
     if (request.applicant !== user) {
       throw new Error('Only the applicant can cancel the request');
     }
 
-    const sample = await sampleService.findById(request.sampleId);
+    if (request.status !== REQUEST_STATUS.PENDING) {
+      throw new Error(`Request is not pending, current status: ${request.status}`);
+    }
 
     await dataStore.update('requests', requestId, {
-      status: REQUEST_STATUS.CANCELLED
+      status: REQUEST_STATUS.CANCELLED,
+      cancelledAt: now(),
+      cancelReason: reason || null
     });
 
     const updatedRequest = await this.findById(requestId);
@@ -239,8 +239,8 @@ class RequestService {
       ACTION_TYPE.REQUEST_CANCELLED,
       user,
       'APPLICANT',
-      sample,
-      { requestType: request.type },
+      null,
+      { requestType: request.type, reason: reason || null, previousStatus: 'PENDING' },
       'SUCCESS',
       null,
       request.id
