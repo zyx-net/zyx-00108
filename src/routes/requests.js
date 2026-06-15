@@ -302,89 +302,21 @@ router.post('/:id/cancel', async (req, res) => {
       return res.status(400).json(buildResponse(false, null, 'User is required'));
     }
 
-    let existingRequest;
-    try {
-      existingRequest = await requestService.findById(req.params.id);
-    } catch (findError) {}
-
-    try {
-      const result = await requestService.cancel(req.params.id, user, userRole, reason);
-      res.json(buildResponse(true, result));
-    } catch (error) {
-      if (error.message.includes('not found')) {
-        return res.status(404).json(buildResponse(false, null, error.message));
-      }
-      if (error.message.includes('Name mismatch')) {
-        if (existingRequest) {
-          timelineService.recordIdentityMismatch(
-            req.params.id,
-            existingRequest?.sampleId,
-            user,
-            userRole,
-            existingRequest?.creator,
-            existingRequest?.creatorRole,
-            { attemptedAction: 'CANCEL_REQUEST', error: error.message }
-          );
-        }
-        return res.status(403).json(buildResponse(false, null, error.message));
-      }
-      if (error.message.includes('Role mismatch')) {
-        if (existingRequest) {
-          timelineService.recordIdentityMismatch(
-            req.params.id,
-            existingRequest?.sampleId,
-            user,
-            userRole,
-            existingRequest?.creator,
-            existingRequest?.creatorRole,
-            { attemptedAction: 'CANCEL_REQUEST', error: error.message }
-          );
-        }
-        return res.status(403).json(buildResponse(false, null, error.message));
-      }
-      if (error.message.includes('Identity mismatch')) {
-        if (existingRequest) {
-          timelineService.recordIdentityMismatch(
-            req.params.id,
-            existingRequest?.sampleId,
-            user,
-            userRole,
-            existingRequest?.creator,
-            existingRequest?.creatorRole,
-            { attemptedAction: 'CANCEL_REQUEST', error: error.message }
-          );
-        }
-        return res.status(403).json(buildResponse(false, null, error.message));
-      }
-      if (error.message.includes('not pending')) {
-        if (existingRequest) {
-          timelineService.recordDuplicateOperation(
-            req.params.id,
-            existingRequest?.sampleId,
-            user,
-            userRole,
-            'CANCEL_REQUEST',
-            existingRequest?.status
-          );
-        }
-        return res.status(409).json(buildResponse(false, null, error.message));
-      }
-      if (error.message.includes('retry') || error.message.includes('was modified')) {
-        if (existingRequest) {
-          timelineService.recordVersionConflict(
-            req.params.id,
-            existingRequest?.sampleId,
-            user,
-            userRole,
-            'CANCEL_REQUEST',
-            existingRequest?.version || 0
-          );
-        }
-        return res.status(409).json(buildResponse(false, null, error.message));
-      }
-      res.status(500).json(buildResponse(false, null, error.message));
-    }
+    const result = await requestService.cancel(req.params.id, user, userRole, reason);
+    res.json(buildResponse(true, result));
   } catch (error) {
+    if (error.message.includes('not found')) {
+      return res.status(404).json(buildResponse(false, null, error.message));
+    }
+    if (error.message.includes('mismatch') || error.message.includes('Identity mismatch')) {
+      return res.status(403).json(buildResponse(false, null, error.message));
+    }
+    if (error.message.includes('not pending')) {
+      return res.status(409).json(buildResponse(false, null, error.message));
+    }
+    if (error.message.includes('retry') || error.message.includes('was modified')) {
+      return res.status(409).json(buildResponse(false, null, error.message));
+    }
     res.status(500).json(buildResponse(false, null, error.message));
   }
 });

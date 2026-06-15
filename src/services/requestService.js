@@ -2,6 +2,7 @@ const dataStore = require('../utils/dataStore');
 const auditService = require('./auditService');
 const sampleService = require('./sampleService');
 const timelineService = require('./timelineService');
+const auditFactSource = require('../utils/auditFactSource');
 const { generateId, now, addDays } = require('../utils/helpers');
 const { SAMPLE_STATUS, REQUEST_TYPE, REQUEST_STATUS, ACTION_TYPE } = require('../utils/constants');
 const crypto = require('crypto');
@@ -9,9 +10,10 @@ const crypto = require('crypto');
 class RequestService {
   constructor() {
     this.operationLocks = new Map();
+    this.pendingOperations = new Map();
   }
 
-  async acquireOperationLock(requestId, operation, timeout = 5000) {
+  async acquireOperationLock(requestId, operation, user, userRole, timeout = 5000) {
     const lockKey = `${requestId}:${operation}`;
     const lockId = crypto.randomUUID();
     const startTime = Date.now();
@@ -23,15 +25,37 @@ class RequestService {
       await new Promise(resolve => setTimeout(resolve, 20));
     }
 
-    this.operationLocks.set(lockKey, lockId);
+    this.operationLocks.set(lockKey, { lockId, user, userRole, startTime: Date.now() });
+    
+    this.pendingOperations.set(lockId, {
+      requestId,
+      operation,
+      user,
+      userRole,
+      startTime: Date.now()
+    });
+
     return lockId;
   }
 
   async releaseOperationLock(requestId, operation, lockId) {
     const lockKey = `${requestId}:${operation}`;
-    if (this.operationLocks.get(lockKey) === lockId) {
+    const lockInfo = this.operationLocks.get(lockKey);
+    
+    if (lockInfo && lockInfo.lockId === lockId) {
       this.operationLocks.delete(lockKey);
     }
+    
+    this.pendingOperations.delete(lockId);
+  }
+
+  getPendingOperation(requestId) {
+    for (const [lockId, info] of this.pendingOperations) {
+      if (info.requestId === requestId) {
+        return info;
+      }
+    }
+    return null;
   }
 
   verifyCreatorIdentity(request, user, userRole) {
@@ -147,7 +171,7 @@ class RequestService {
   }
 
   async approve(requestId, approver, approverRole, approvalBasis) {
-    const lockId = await this.acquireOperationLock(requestId, 'approve');
+    const lockId = await this.acquireOperationLock(requestId, 'approve', approver, approverRole);
 
     try {
       const request = await this.findById(requestId);
@@ -166,6 +190,7 @@ class RequestService {
       }
 
       const currentVersion = request.version;
+      const fact = auditFactSource.buildApproveFact(request, sample, approver, approverRole, approvalBasis);
 
       let updatedSample;
 
@@ -246,6 +271,14 @@ class RequestService {
 
       if (!updateResult.success) {
         if (updateResult.error === 'VERSION_CONFLICT') {
+          const pendingCancel = this.getPendingOperation(requestId);
+          if (pendingCancel && pendingCancel.operation === 'cancel') {
+            await this._recordRaceCondition(
+              request, sample,
+              pendingCancel.user, pendingCancel.userRole, 'CANCEL',
+              approver, approverRole, 'APPROVE'
+            );
+          }
           throw new Error('Request was modified by another operation. Please retry.');
         }
         throw new Error('Failed to update request');
@@ -269,7 +302,8 @@ class RequestService {
         updatedRequest,
         updatedSample,
         approver,
-        approverRole
+        approverRole,
+        fact
       );
 
       return { request: updatedRequest, sample: updatedSample };
@@ -279,7 +313,7 @@ class RequestService {
   }
 
   async reject(requestId, approver, approverRole, reason) {
-    const lockId = await this.acquireOperationLock(requestId, 'reject');
+    const lockId = await this.acquireOperationLock(requestId, 'reject', approver, approverRole);
 
     try {
       const request = await this.findById(requestId);
@@ -348,7 +382,7 @@ class RequestService {
   }
 
   async cancel(requestId, user, userRole = 'APPLICANT', reason = null) {
-    const lockId = await this.acquireOperationLock(requestId, 'cancel');
+    const lockId = await this.acquireOperationLock(requestId, 'cancel', user, userRole);
 
     try {
       const request = await this.findById(requestId);
@@ -357,19 +391,30 @@ class RequestService {
         throw new Error('Request not found');
       }
 
+      const sample = await sampleService.findById(request.sampleId);
+      const fact = auditFactSource.buildCancelFact(request, sample, user, userRole, reason);
+
       const identityCheck = this.verifyCreatorIdentity(request, user, userRole);
       if (!identityCheck.valid) {
+        const mismatchFact = auditFactSource.buildIdentityMismatchFact(
+          request, sample, user, userRole,
+          fact.identity.violationType
+        );
+        
+        await timelineService.recordIdentityMismatch(request, sample, user, userRole, mismatchFact);
+        
         await auditService.log(
           ACTION_TYPE.ERROR_OCCURRED,
           user,
           userRole,
-          null,
+          sample,
           {
             action: 'CANCEL_REQUEST',
             requestId: request.id,
             requestCreator: request.creator,
             requestCreatorRole: request.creatorRole,
-            reason: identityCheck.reason
+            reason: identityCheck.reason,
+            factId: mismatchFact.factId
           },
           'FAILURE',
           identityCheck.reason,
@@ -379,6 +424,14 @@ class RequestService {
       }
 
       if (request.status !== REQUEST_STATUS.PENDING) {
+        await timelineService.recordDuplicateOperation(
+          requestId,
+          request.sampleId,
+          user,
+          userRole,
+          'CANCEL_REQUEST',
+          request.status
+        );
         throw new Error(`Request is not pending, current status: ${request.status}`);
       }
 
@@ -405,13 +458,32 @@ class RequestService {
 
       if (!updateResult.success) {
         if (updateResult.error === 'VERSION_CONFLICT') {
+          const pendingApprove = this.getPendingOperation(requestId);
+          if (pendingApprove && pendingApprove.operation === 'approve') {
+            await this._recordRaceCondition(
+              request, sample,
+              user, userRole, 'CANCEL',
+              pendingApprove.user, pendingApprove.userRole, 'APPROVE'
+            );
+          }
+          
+          const versionConflictFact = auditFactSource.buildVersionConflictFact(
+            request, sample, user, userRole, 'CANCEL_REQUEST',
+            currentVersion, updateResult.current?.version || currentVersion + 1
+          );
+          
+          await timelineService.recordVersionConflict(
+            request, sample, user, userRole, 'CANCEL_REQUEST',
+            currentVersion, updateResult.current?.version || currentVersion + 1,
+            versionConflictFact
+          );
+          
           throw new Error('Request was modified by another operation (possibly approved or rejected). Please retry.');
         }
         throw new Error('Failed to cancel request');
       }
 
       const updatedRequest = await this.findById(requestId);
-      const sample = await sampleService.findById(request.sampleId);
 
       await auditService.log(
         ACTION_TYPE.REQUEST_CANCELLED,
@@ -425,6 +497,7 @@ class RequestService {
           applicant: request.applicant,
           creator: request.creator,
           creatorRole: request.creatorRole,
+          factId: fact.factId,
           verifiedIdentity: {
             user: user,
             userRole: userRole,
@@ -444,13 +517,45 @@ class RequestService {
         sample,
         user,
         userRole,
-        reason
+        reason,
+        fact
       );
 
       return updatedRequest;
     } finally {
       await this.releaseOperationLock(requestId, 'cancel', lockId);
     }
+  }
+
+  async _recordRaceCondition(request, sample, cancelUser, cancelRole, approveUser, approveRole, winnerOperation) {
+    let winnerUser, winnerRole, loserUser, loserRole, loserOperation;
+
+    if (winnerOperation === 'CANCEL') {
+      winnerUser = cancelUser;
+      winnerRole = cancelRole;
+      loserUser = approveUser;
+      loserRole = approveRole;
+      loserOperation = 'APPROVE';
+    } else {
+      winnerUser = approveUser;
+      winnerRole = approveRole;
+      loserUser = cancelUser;
+      loserRole = cancelRole;
+      loserOperation = 'CANCEL';
+    }
+
+    const raceFact = auditFactSource.buildRaceConditionFact(
+      request, sample,
+      winnerUser, winnerRole, winnerOperation,
+      loserUser, loserRole, loserOperation
+    );
+
+    await timelineService.recordApprovalCancelRace(
+      request, sample,
+      winnerUser, winnerRole, winnerOperation,
+      loserUser, loserRole, loserOperation,
+      raceFact
+    );
   }
 }
 

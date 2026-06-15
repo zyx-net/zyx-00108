@@ -51,6 +51,36 @@ router.get('/request/:requestId', requireRole(USER_ROLE.LIBRARIAN, USER_ROLE.SUP
   }
 });
 
+router.get('/violator/:requestId', requireRole(USER_ROLE.LIBRARIAN, USER_ROLE.SUPERVISOR), async (req, res) => {
+  try {
+    const { requestId } = req.params;
+    const violatorInfo = await timelineService.identifyViolator(requestId);
+
+    if (!violatorInfo) {
+      return res.status(404).json(buildResponse(false, null, 'No identity mismatch events found for this request'));
+    }
+
+    res.json(buildResponse(true, violatorInfo));
+  } catch (error) {
+    res.status(500).json(buildResponse(false, null, error.message));
+  }
+});
+
+router.get('/replay/:requestId', requireRole(USER_ROLE.LIBRARIAN, USER_ROLE.SUPERVISOR), async (req, res) => {
+  try {
+    const { requestId } = req.params;
+    const raceInfo = await timelineService.replayRaceCondition(requestId);
+
+    if (!raceInfo) {
+      return res.status(404).json(buildResponse(false, null, 'No race condition events found for this request'));
+    }
+
+    res.json(buildResponse(true, raceInfo));
+  } catch (error) {
+    res.status(500).json(buildResponse(false, null, error.message));
+  }
+});
+
 router.get('/export', requireRole(USER_ROLE.LIBRARIAN, USER_ROLE.SUPERVISOR), async (req, res) => {
   try {
     const { format = 'json', requestId, sampleId, user, userRole, eventType, startDate, endDate, result } = req.query;

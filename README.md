@@ -648,6 +648,8 @@ PENDING ──[申请人撤销]──> CANCELLED
 | DUPLICATE_OPERATION | 重复操作（非待审批状态撤销）|
 | VERSION_CONFLICT | 版本冲突（并发修改）|
 | APPROVAL_CANCEL_RACE | 审批与撤销竞争 |
+| RACE_LOSER_RECORDED | 竞争失败方记录 |
+| OPERATION_FAILED | 操作失败记录 |
 
 ### API 接口
 
@@ -750,6 +752,73 @@ curl -X POST "http://localhost:3000/api/timeline/config/reset" \
   -H "X-User-Role: SUPERVISOR"
 ```
 
+#### 越权者身份识别
+
+当发生越权撤销尝试时，可通过以下接口识别越权者：
+
+```bash
+# 识别越权者
+curl -X GET "http://localhost:3000/api/timeline/violator/REQ-xxx-xxx" \
+  -H "X-User-Role: LIBRARIAN"
+```
+
+响应示例：
+```json
+{
+  "success": true,
+  "data": {
+    "requestId": "REQ-xxx-xxx",
+    "violatorIdentified": true,
+    "violator": {
+      "user": "Different User",
+      "role": "APPLICANT"
+    },
+    "expected": {
+      "user": "Researcher Wang",
+      "role": "APPLICANT"
+    },
+    "violationType": "NAME_MISMATCH",
+    "timestamp": "2026-06-15T10:30:00.000Z",
+    "canReconstruct": true
+  }
+}
+```
+
+#### 竞争条件回放
+
+当审批和撤销同时发生时，可通过以下接口回放竞争过程：
+
+```bash
+# 回放竞争条件
+curl -X GET "http://localhost:3000/api/timeline/replay/REQ-xxx-xxx" \
+  -H "X-User-Role: LIBRARIAN"
+```
+
+响应示例：
+```json
+{
+  "success": true,
+  "data": {
+    "requestId": "REQ-xxx-xxx",
+    "raceDetected": true,
+    "winner": {
+      "user": "Researcher Zhao",
+      "role": "APPLICANT",
+      "operation": "CANCEL",
+      "timestamp": "2026-06-15T10:30:00.000Z"
+    },
+    "loser": {
+      "user": "Dr. Li",
+      "role": "LIBRARIAN",
+      "operation": "APPROVE",
+      "timestamp": "2026-06-15T10:30:00.100Z"
+    },
+    "finalStatus": "CANCELLED",
+    "canReconstruct": true
+  }
+}
+```
+
 ### 配置项说明
 
 | 配置项 | 类型 | 默认值 | 说明 |
@@ -813,6 +882,9 @@ curl -X POST "http://localhost:3000/api/timeline/config/reset" \
 ```bash
 # 运行时间线模块测试
 node src/test-timeline.js
+
+# 运行审计重构专项测试（越权撤销、竞争条件、审计回放）
+node src/test-audit-refactor.js
 ```
 
 测试覆盖场景：
@@ -827,3 +899,73 @@ node src/test-timeline.js
 9. 服务重启后数据一致性
 10. 审计开关切换
 11. 配置重置
+12. 越权者身份识别与回放
+13. 审批撤销竞争条件完整记录
+14. 审计日志与时间线一致性验证
+
+## 审计事实源模块
+
+### 概述
+
+审计事实源模块 (`src/utils/auditFactSource.js`) 是审计系统的核心，确保所有审计记录从同一份事实源生成，避免字段临时拼凑导致的数据不一致问题。
+
+### 主要功能
+
+1. **统一事实生成**：操作者身份、当时角色、目标对象和关联明细从同一份事实源生成
+2. **可追溯性**：每条审计记录包含 `factId` 和 `factSource`，可还原操作现场
+3. **身份验证**：自动计算身份匹配状态，识别越权类型
+
+### 事实类型
+
+| 事实类型 | 说明 |
+|---------|------|
+| buildCancelFact | 撤销操作事实 |
+| buildApproveFact | 审批操作事实 |
+| buildRaceConditionFact | 竞争条件事实 |
+| buildIdentityMismatchFact | 身份不匹配事实 |
+| buildVersionConflictFact | 版本冲突事实 |
+
+### 事实结构
+
+```json
+{
+  "factId": "FACT-xxx-xxx",
+  "generatedAt": "2026-06-15T10:30:00.000Z",
+  "operation": "CANCEL_REQUEST",
+  "operator": {
+    "user": "Researcher Wang",
+    "role": "APPLICANT",
+    "isCreator": true,
+    "isCreatorRole": true
+  },
+  "target": {
+    "requestId": "REQ-xxx-xxx",
+    "requestType": "BORROW",
+    "requestStatus": "PENDING",
+    "sampleId": "SMP-xxx-xxx"
+  },
+  "identity": {
+    "verified": true,
+    "nameMatch": true,
+    "roleMatch": true,
+    "violationType": null
+  },
+  "auditTrail": {
+    "factSource": "CANCEL_OPERATION",
+    "canReconstruct": true,
+    "reconstructKeys": ["request.id", "operator.user", "operator.role"]
+  }
+}
+```
+
+### 审计定位入口
+
+当需要排查问题时，可通过以下入口快速定位：
+
+| 场景 | 入口 | 说明 |
+|------|------|------|
+| 查看申请完整时间线 | `/api/timeline/request/{requestId}` | 查看申请的所有事件 |
+| 识别越权者 | `/api/timeline/violator/{requestId}` | 查看谁尝试越权撤销 |
+| 回放竞争条件 | `/api/timeline/replay/{requestId}` | 查看审批撤销竞争详情 |
+| 查看审计日志 | `/api/audit-logs?requestId={requestId}` | 查看传统审计日志 |
+| 导出审计数据 | `/api/timeline/export?format=json` | 导出完整审计数据 |

@@ -1,5 +1,6 @@
 const dataStore = require('../utils/dataStore');
 const auditConfig = require('../utils/auditConfig');
+const auditFactSource = require('../utils/auditFactSource');
 const { generateId, now } = require('../utils/helpers');
 const { REQUEST_STATUS } = require('../utils/constants');
 const crypto = require('crypto');
@@ -16,7 +17,9 @@ const TIMELINE_EVENT_TYPE = {
   APPROVAL_CANCEL_RACE: 'APPROVAL_CANCEL_RACE',
   VERSION_CONFLICT: 'VERSION_CONFLICT',
   TIMELINE_QUERIED: 'TIMELINE_QUERIED',
-  EXPORT_GENERATED: 'EXPORT_GENERATED'
+  EXPORT_GENERATED: 'EXPORT_GENERATED',
+  RACE_LOSER_RECORDED: 'RACE_LOSER_RECORDED',
+  OPERATION_FAILED: 'OPERATION_FAILED'
 };
 
 class TimelineService {
@@ -50,6 +53,7 @@ class TimelineService {
       result: eventData.result || 'SUCCESS',
       errorMessage: eventData.errorMessage || null,
       conflictInfo: eventData.conflictInfo || null,
+      factSource: eventData.factSource || null,
       metadata: {
         recordedAt: now(),
         auditEnabled: auditConfig.isEnabled(),
@@ -79,13 +83,14 @@ class TimelineService {
         requestType: request.type,
         reason: request.reason,
         applicant: request.applicant,
-        creator: request.creator
+        creator: request.creator,
+        creatorRole: request.creatorRole
       },
       result: 'SUCCESS'
     });
   }
 
-  async recordRequestApproved(request, sample, approver, approverRole) {
+  async recordRequestApproved(request, sample, approver, approverRole, fact = null) {
     return await this.recordEvent({
       eventType: TIMELINE_EVENT_TYPE.REQUEST_APPROVED,
       requestId: request.id,
@@ -100,7 +105,8 @@ class TimelineService {
         requestType: request.type,
         approvalBasis: request.approvalBasis
       },
-      result: 'SUCCESS'
+      result: 'SUCCESS',
+      factSource: fact
     });
   }
 
@@ -119,7 +125,7 @@ class TimelineService {
     });
   }
 
-  async recordRequestCancelled(request, sample, user, userRole, reason) {
+  async recordRequestCancelled(request, sample, user, userRole, reason, fact = null) {
     return await this.recordEvent({
       eventType: TIMELINE_EVENT_TYPE.REQUEST_CANCELLED,
       requestId: request.id,
@@ -133,9 +139,11 @@ class TimelineService {
         requestType: request.type,
         cancelReason: reason,
         creator: request.creator,
-        creatorRole: request.creatorRole
+        creatorRole: request.creatorRole,
+        identityVerified: fact?.identity?.verified ?? true
       },
-      result: 'SUCCESS'
+      result: 'SUCCESS',
+      factSource: fact
     });
   }
 
@@ -179,23 +187,32 @@ class TimelineService {
     });
   }
 
-  async recordIdentityMismatch(requestId, user, userRole, expectedUser, expectedRole, details) {
+  async recordIdentityMismatch(request, sample, attemptedUser, attemptedRole, fact = null) {
     if (!auditConfig.shouldRecordSecurityEvents()) {
       return null;
     }
 
+    const violationType = fact?.violation?.type || 
+      this._determineViolationType(request, attemptedUser, attemptedRole);
+
     return await this.recordEvent({
       eventType: TIMELINE_EVENT_TYPE.IDENTITY_MISMATCH,
-      requestId,
-      user,
-      userRole,
+      requestId: request.id,
+      sampleId: sample?.id || request.sampleId,
+      user: attemptedUser,
+      userRole: attemptedRole,
       details: {
-        expectedUser,
-        expectedRole,
-        ...details
+        attemptedAction: 'CANCEL_REQUEST',
+        expectedUser: request.creator,
+        expectedRole: request.creatorRole,
+        violationType,
+        nameMismatch: request.creator !== attemptedUser,
+        roleMismatch: request.creatorRole !== attemptedRole,
+        canIdentifyViolator: true
       },
       result: 'FAILURE',
-      errorMessage: 'Identity mismatch: user or role does not match'
+      errorMessage: `Identity mismatch: user '${attemptedUser}' with role '${attemptedRole}' cannot cancel request created by '${request.creator}' (role: ${request.creatorRole})`,
+      factSource: fact
     });
   }
 
@@ -215,45 +232,119 @@ class TimelineService {
     });
   }
 
-  async recordApprovalCancelRace(requestId, sampleId, winner, loser, winnerRole, loserRole, operation, details) {
-    return await this.recordEvent({
+  async recordApprovalCancelRace(request, sample, winner, winnerRole, winnerOperation, loser, loserRole, loserOperation, fact = null) {
+    const event = await this.recordEvent({
       eventType: TIMELINE_EVENT_TYPE.APPROVAL_CANCEL_RACE,
-      requestId,
-      sampleId,
+      requestId: request.id,
+      sampleId: sample?.id || request.sampleId,
       user: winner,
       userRole: winnerRole,
+      previousStatus: REQUEST_STATUS.PENDING,
+      newStatus: winnerOperation === 'CANCEL' ? REQUEST_STATUS.CANCELLED : REQUEST_STATUS.APPROVED,
       details: {
+        winnerOperation,
         loser,
         loserRole,
-        winnerOperation: operation,
-        ...details
+        loserOperation,
+        raceDetectedAt: now(),
+        finalStatus: winnerOperation === 'CANCEL' ? 'CANCELLED' : 'APPROVED',
+        bothAttempted: true,
+        canReplay: true
       },
       result: 'SUCCESS',
       conflictInfo: {
         raceCondition: true,
         winner,
         winnerRole,
+        winnerOperation,
         loser,
-        loserRole
+        loserRole,
+        loserOperation
+      },
+      factSource: fact
+    });
+
+    await this.recordRaceLoser(request, sample, loser, loserRole, loserOperation, winner, winnerRole, winnerOperation);
+
+    return event;
+  }
+
+  async recordRaceLoser(request, sample, loserUser, loserRole, loserOperation, winnerUser, winnerRole, winnerOperation) {
+    return await this.recordEvent({
+      eventType: TIMELINE_EVENT_TYPE.RACE_LOSER_RECORDED,
+      requestId: request.id,
+      sampleId: sample?.id || request.sampleId,
+      user: loserUser,
+      userRole: loserRole,
+      previousStatus: REQUEST_STATUS.PENDING,
+      newStatus: winnerOperation === 'CANCEL' ? REQUEST_STATUS.CANCELLED : REQUEST_STATUS.APPROVED,
+      details: {
+        attemptedOperation: loserOperation,
+        failedDueTo: 'RACE_CONDITION',
+        winnerUser,
+        winnerRole,
+        winnerOperation,
+        loserOperation,
+        timestamp: now()
+      },
+      result: 'FAILURE',
+      errorMessage: `Race condition: ${loserOperation} by ${loserUser} lost to ${winnerOperation} by ${winnerUser}`,
+      conflictInfo: {
+        raceCondition: true,
+        wasLoser: true,
+        winnerUser,
+        winnerRole,
+        winnerOperation
       }
     });
   }
 
-  async recordVersionConflict(requestId, sampleId, user, userRole, operation, currentVersion) {
+  async recordVersionConflict(request, sample, attemptedUser, attemptedRole, operation, expectedVersion, actualVersion, fact = null) {
     return await this.recordEvent({
       eventType: TIMELINE_EVENT_TYPE.VERSION_CONFLICT,
+      requestId: request.id,
+      sampleId: sample?.id || request.sampleId,
+      user: attemptedUser,
+      userRole: attemptedRole,
+      details: {
+        operation,
+        expectedVersion,
+        actualVersion,
+        versionDiff: actualVersion - expectedVersion
+      },
+      result: 'FAILURE',
+      errorMessage: `Version conflict: expected version ${expectedVersion}, actual version ${actualVersion}`,
+      factSource: fact
+    });
+  }
+
+  async recordOperationFailed(requestId, sampleId, user, userRole, operation, errorMessage, details = {}) {
+    return await this.recordEvent({
+      eventType: TIMELINE_EVENT_TYPE.OPERATION_FAILED,
       requestId,
       sampleId,
       user,
       userRole,
       details: {
         operation,
-        expectedVersion: currentVersion - 1,
-        currentVersion
+        ...details
       },
       result: 'FAILURE',
-      errorMessage: 'Version conflict: request was modified by another operation'
+      errorMessage
     });
+  }
+
+  _determineViolationType(request, attemptedUser, attemptedRole) {
+    const isCreator = request.creator === attemptedUser;
+    const isCreatorRole = request.creatorRole === attemptedRole;
+
+    if (!isCreator && !isCreatorRole) {
+      return 'FULL_IDENTITY_MISMATCH';
+    }
+    if (!isCreator) {
+      return 'NAME_MISMATCH';
+    }
+    return 'ROLE_MISMATCH';
   }
 
   snapshotRequest(request) {
@@ -349,6 +440,73 @@ class TimelineService {
     return { events, total };
   }
 
+  async replayRaceCondition(requestId) {
+    const events = await dataStore.read('timeline-events');
+    const raceEvents = events.filter(e => 
+      e.requestId === requestId && 
+      (e.eventType === TIMELINE_EVENT_TYPE.APPROVAL_CANCEL_RACE || 
+       e.eventType === TIMELINE_EVENT_TYPE.RACE_LOSER_RECORDED)
+    );
+
+    if (raceEvents.length === 0) {
+      return null;
+    }
+
+    const winnerEvent = raceEvents.find(e => e.eventType === TIMELINE_EVENT_TYPE.APPROVAL_CANCEL_RACE);
+    const loserEvent = raceEvents.find(e => e.eventType === TIMELINE_EVENT_TYPE.RACE_LOSER_RECORDED);
+
+    return {
+      requestId,
+      raceDetected: true,
+      winner: winnerEvent ? {
+        user: winnerEvent.user,
+        role: winnerEvent.userRole,
+        operation: winnerEvent.details.winnerOperation,
+        timestamp: winnerEvent.timestamp
+      } : null,
+      loser: loserEvent ? {
+        user: loserEvent.user,
+        role: loserEvent.userRole,
+        operation: loserEvent.details.loserOperation,
+        timestamp: loserEvent.timestamp
+      } : null,
+      finalStatus: winnerEvent?.newStatus || null,
+      canReconstruct: true
+    };
+  }
+
+  async identifyViolator(requestId) {
+    const events = await dataStore.read('timeline-events');
+    const mismatchEvents = events.filter(e => 
+      e.requestId === requestId && 
+      e.eventType === TIMELINE_EVENT_TYPE.IDENTITY_MISMATCH
+    );
+
+    if (mismatchEvents.length === 0) {
+      return null;
+    }
+
+    const latestEvent = mismatchEvents.sort((a, b) => 
+      new Date(b.timestamp) - new Date(a.timestamp)
+    )[0];
+
+    return {
+      requestId,
+      violatorIdentified: true,
+      violator: {
+        user: latestEvent.user,
+        role: latestEvent.userRole
+      },
+      expected: {
+        user: latestEvent.details.expectedUser,
+        role: latestEvent.details.expectedRole
+      },
+      violationType: latestEvent.details.violationType,
+      timestamp: latestEvent.timestamp,
+      canReconstruct: true
+    };
+  }
+
   async exportToJson(filters = {}) {
     const { events } = await this.query({ ...filters, page: 1, limit: 100000 });
 
@@ -378,7 +536,7 @@ class TimelineService {
     const headers = [
       'ID', 'Timestamp', 'Event Type', 'Request ID', 'Sample ID',
       'User', 'User Role', 'Previous Status', 'New Status',
-      'Result', 'Error Message', 'Details', 'Conflict Info'
+      'Result', 'Error Message', 'Details', 'Conflict Info', 'Fact Source'
     ];
 
     const escapeCsv = (value) => {
@@ -403,7 +561,8 @@ class TimelineService {
       escapeCsv(event.result),
       escapeCsv(event.errorMessage),
       escapeCsv(JSON.stringify(event.details)),
-      escapeCsv(event.conflictInfo ? JSON.stringify(event.conflictInfo) : '')
+      escapeCsv(event.conflictInfo ? JSON.stringify(event.conflictInfo) : ''),
+      escapeCsv(event.factSource ? JSON.stringify(event.factSource) : '')
     ].join(','));
 
     const csvContent = [headers.join(','), ...rows].join('\n');
@@ -459,6 +618,7 @@ class TimelineService {
       concurrencyConflicts: events.filter(e => e.eventType === TIMELINE_EVENT_TYPE.CONCURRENCY_CONFLICT).length,
       securityEvents: events.filter(e => e.eventType === TIMELINE_EVENT_TYPE.UNAUTHORIZED_ACCESS || e.eventType === TIMELINE_EVENT_TYPE.IDENTITY_MISMATCH).length,
       raceConditions: events.filter(e => e.eventType === TIMELINE_EVENT_TYPE.APPROVAL_CANCEL_RACE).length,
+      raceLosers: events.filter(e => e.eventType === TIMELINE_EVENT_TYPE.RACE_LOSER_RECORDED).length,
       config: {
         auditEnabled: auditConfig.isEnabled(),
         retentionMaxDays: auditConfig.get('retentionMaxDays'),
