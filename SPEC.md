@@ -326,3 +326,151 @@ data/
 - [ ] 重启后状态正确恢复
 - [ ] 审计日志与接口返回一致
 - [ ] 撤销操作的审计日志包含操作者、角色、原因、原状态和结果
+
+## 10. 申请时间线模块
+
+### 10.1 功能概述
+
+申请时间线模块为所有申请（借出、归还、续借、销毁）提供完整的生命周期追踪，记录从创建、审批、撤销到冲突失败的每一步。
+
+### 10.2 数据模型
+
+#### 10.2.1 时间线事件 (TimelineEvent)
+```json
+{
+  "id": "string",                    // 事件唯一标识
+  "timestamp": "string",            // 时间戳
+  "eventType": "string",           // 事件类型
+  "requestId": "string|null",      // 相关申请ID
+  "sampleId": "string|null",       // 样本ID
+  "user": "string|null",           // 操作者
+  "userRole": "string|null",       // 操作者角色
+  "previousStatus": "string|null",  // 操作前状态
+  "newStatus": "string|null",      // 操作后状态
+  "requestSnapshot": "object|null", // 申请快照
+  "sampleSnapshot": "object|null",  // 样本快照
+  "details": "object",              // 详细信息
+  "result": "string",               // 结果: SUCCESS, FAILURE
+  "errorMessage": "string|null",    // 错误信息
+  "conflictInfo": "object|null",    // 冲突信息
+  "metadata": "object"              // 元数据
+}
+```
+
+### 10.3 事件类型
+
+| 事件类型 | 说明 |
+|---------|------|
+| REQUEST_CREATED | 申请创建 |
+| REQUEST_APPROVED | 申请审批通过 |
+| REQUEST_REJECTED | 申请审批拒绝 |
+| REQUEST_CANCELLED | 申请被撤销 |
+| IDENTITY_MISMATCH | 身份不匹配 |
+| DUPLICATE_OPERATION | 重复操作 |
+| VERSION_CONFLICT | 版本冲突 |
+| APPROVAL_CANCEL_RACE | 审批与撤销竞争 |
+
+### 10.4 API 接口
+
+#### 10.4.1 查询时间线事件
+```
+GET /api/timeline
+Query: { requestId?, sampleId?, user?, userRole?, eventType?, startDate?, endDate?, result?, page?, limit? }
+Response: { success, data: { events, total, page, limit, totalPages } }
+```
+
+#### 10.4.2 按申请查询时间线
+```
+GET /api/timeline/request/:requestId
+Response: { success, data: { events, total } }
+```
+
+#### 10.4.3 导出时间线
+```
+GET /api/timeline/export
+Query: { format?, requestId?, sampleId?, user?, userRole?, eventType?, startDate?, endDate?, result? }
+Response: File download (JSON/CSV)
+```
+
+#### 10.4.4 查询统计
+```
+GET /api/timeline/stats
+Response: { success, data: Statistics }
+```
+
+#### 10.4.5 查询审计配置
+```
+GET /api/timeline/config
+Response: { success, data: AuditConfig }
+```
+
+#### 10.4.6 更新审计配置
+```
+PUT /api/timeline/config
+Body: AuditConfig
+Response: { success, data: AuditConfig }
+```
+
+#### 10.4.7 重置审计配置
+```
+POST /api/timeline/config/reset
+Response: { success, data: AuditConfig }
+```
+
+### 10.5 审计配置
+
+| 配置项 | 类型 | 默认值 | 说明 |
+|--------|------|--------|------|
+| auditEnabled | boolean | true | 是否启用审计 |
+| retentionMaxDays | number | 365 | 数据保留天数 |
+| retentionMaxRecords | number | 100000 | 最大记录数 |
+| captureRequestSnapshots | boolean | true | 是否捕获申请快照 |
+| captureSampleSnapshots | boolean | true | 是否捕获样本快照 |
+| recordSecurityEvents | boolean | true | 是否记录安全事件 |
+| recordConcurrencyConflicts | boolean | true | 是否记录并发冲突 |
+
+### 10.6 数据持久化
+
+```
+data/
+├── samples.json            # 样本数据
+├── requests.json           # 申请记录
+├── audit-logs.json         # 审计日志
+└── timeline-events.json    # 时间线事件
+```
+
+### 10.7 验收标准
+
+#### 10.7.1 功能验证
+- [ ] 申请创建时记录时间线事件
+- [ ] 申请审批通过时记录时间线事件
+- [ ] 申请审批拒绝时记录时间线事件
+- [ ] 申请撤销时记录时间线事件
+- [ ] 越权撤销尝试记录为安全事件
+- [ ] 重复撤销尝试记录为重复操作事件
+- [ ] 并发冲突记录为版本冲突或竞争条件事件
+
+#### 10.7.2 查询验证
+- [ ] 支持按申请ID查询
+- [ ] 支持按样本ID查询
+- [ ] 支持按操作者查询
+- [ ] 支持按角色查询
+- [ ] 支持按事件类型查询
+- [ ] 支持按时间范围查询
+- [ ] 支持分页查询
+
+#### 10.7.3 导出验证
+- [ ] JSON导出包含校验和
+- [ ] CSV导出包含元数据
+- [ ] 导出文件可验证完整性
+
+#### 10.7.4 配置验证
+- [ ] 审计开关可动态切换
+- [ ] 关闭审计不影响主流程
+- [ ] 数据保留策略生效
+- [ ] 配置可重置为默认值
+
+#### 10.7.5 持久化验证
+- [ ] 服务重启后时间线数据完整
+- [ ] 重启后查询结果一致
+- [ ] 重启后导出结果一致

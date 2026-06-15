@@ -1,0 +1,2613 @@
+[
+  {
+    "id": "TLE-mqecx692-0346e92d",
+    "timestamp": "2026-06-14T22:29:40.454Z",
+    "eventType": "REQUEST_CREATED",
+    "requestId": "REQ-mqecx67y-bdfb38eb",
+    "sampleId": "SMP-mqecx669-16fd107b",
+    "user": "Researcher Wang",
+    "userRole": "APPLICANT",
+    "previousStatus": null,
+    "newStatus": "PENDING",
+    "requestSnapshot": {
+      "id": "REQ-mqecx67y-bdfb38eb",
+      "sampleId": "SMP-mqecx669-16fd107b",
+      "type": "BORROW",
+      "status": "PENDING",
+      "applicant": "Researcher Wang",
+      "creator": "Researcher Wang",
+      "creatorRole": "APPLICANT",
+      "reason": "Need for research",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 1,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-14T22:29:40.414Z",
+          "actor": "Researcher Wang",
+          "actorRole": "APPLICANT"
+        }
+      ],
+      "createdAt": "2026-06-14T22:29:40.414Z",
+      "updatedAt": "2026-06-14T22:29:40.414Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqecx669-16fd107b",
+      "name": "Test Borrow Sample",
+      "category": "Chemical",
+      "status": "AVAILABLE",
+      "currentHolder": null,
+      "storageLocation": "Cabinet A, Shelf 1",
+      "validityPeriod": "2027-12-31",
+      "version": 1
+    },
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Need for research",
+      "applicant": "Researcher Wang",
+      "creator": "Researcher Wang"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-14T22:29:40.454Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 30,
+      "retentionMaxRecords": 5000
+    }
+  },
+  {
+    "id": "TLE-mqecx6bs-6678a4d5",
+    "timestamp": "2026-06-14T22:29:40.552Z",
+    "eventType": "REQUEST_APPROVED",
+    "requestId": "REQ-mqecx67y-bdfb38eb",
+    "sampleId": "SMP-mqecx669-16fd107b",
+    "user": "Dr. Li",
+    "userRole": "LIBRARIAN",
+    "previousStatus": "PENDING",
+    "newStatus": "APPROVED",
+    "requestSnapshot": {
+      "id": "REQ-mqecx67y-bdfb38eb",
+      "sampleId": "SMP-mqecx669-16fd107b",
+      "type": "BORROW",
+      "status": "APPROVED",
+      "applicant": "Researcher Wang",
+      "creator": "Researcher Wang",
+      "creatorRole": "APPLICANT",
+      "reason": "Need for research",
+      "approvalBasis": "Research purpose verified",
+      "approver": "Dr. Li",
+      "approverRole": "LIBRARIAN",
+      "approveDate": "2026-06-14T22:29:40.513Z",
+      "version": 2,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-14T22:29:40.414Z",
+          "actor": "Researcher Wang",
+          "actorRole": "APPLICANT"
+        },
+        {
+          "status": "APPROVED",
+          "timestamp": "2026-06-14T22:29:40.513Z",
+          "actor": "Dr. Li",
+          "actorRole": "LIBRARIAN"
+        }
+      ],
+      "createdAt": "2026-06-14T22:29:40.414Z",
+      "updatedAt": "2026-06-14T22:29:40.514Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqecx669-16fd107b",
+      "name": "Test Borrow Sample",
+      "category": "Chemical",
+      "status": "BORROWED",
+      "currentHolder": "Researcher Wang",
+      "storageLocation": "Cabinet A, Shelf 1",
+      "validityPeriod": "2027-12-31",
+      "version": 2
+    },
+    "details": {
+      "requestType": "BORROW",
+      "approvalBasis": "Research purpose verified"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-14T22:29:40.552Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 30,
+      "retentionMaxRecords": 5000
+    }
+  },
+  {
+    "id": "TLE-mqecx6f2-995ddcf5",
+    "timestamp": "2026-06-14T22:29:40.670Z",
+    "eventType": "REQUEST_CREATED",
+    "requestId": "REQ-mqecx6dn-fa595528",
+    "sampleId": "SMP-mqecx6ca-16696b0a",
+    "user": "Dr. Li",
+    "userRole": "LIBRARIAN",
+    "previousStatus": null,
+    "newStatus": "PENDING",
+    "requestSnapshot": {
+      "id": "REQ-mqecx6dn-fa595528",
+      "sampleId": "SMP-mqecx6ca-16696b0a",
+      "type": "DESTRUCTION",
+      "status": "PENDING",
+      "applicant": "Dr. Li",
+      "creator": "Dr. Li",
+      "creatorRole": "LIBRARIAN",
+      "reason": "Sample expired",
+      "approvalBasis": "Safety regulation",
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 1,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-14T22:29:40.619Z",
+          "actor": "Dr. Li",
+          "actorRole": "LIBRARIAN"
+        }
+      ],
+      "createdAt": "2026-06-14T22:29:40.619Z",
+      "updatedAt": "2026-06-14T22:29:40.619Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqecx6ca-16696b0a",
+      "name": "Test Destruction Sample",
+      "category": "Biological",
+      "status": "AVAILABLE",
+      "currentHolder": null,
+      "storageLocation": "Freezer B, Shelf 2",
+      "validityPeriod": "2025-01-01",
+      "version": 1
+    },
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Sample expired",
+      "applicant": "Dr. Li",
+      "creator": "Dr. Li"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-14T22:29:40.670Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 30,
+      "retentionMaxRecords": 5000
+    }
+  },
+  {
+    "id": "TLE-mqecx6ju-1f99db74",
+    "timestamp": "2026-06-14T22:29:40.842Z",
+    "eventType": "REQUEST_APPROVED",
+    "requestId": "REQ-mqecx6dn-fa595528",
+    "sampleId": "SMP-mqecx6ca-16696b0a",
+    "user": "Prof. Chen",
+    "userRole": "SUPERVISOR",
+    "previousStatus": "PENDING",
+    "newStatus": "APPROVED",
+    "requestSnapshot": {
+      "id": "REQ-mqecx6dn-fa595528",
+      "sampleId": "SMP-mqecx6ca-16696b0a",
+      "type": "DESTRUCTION",
+      "status": "APPROVED",
+      "applicant": "Dr. Li",
+      "creator": "Dr. Li",
+      "creatorRole": "LIBRARIAN",
+      "reason": "Sample expired",
+      "approvalBasis": "Confirmed expired",
+      "approver": "Prof. Chen",
+      "approverRole": "SUPERVISOR",
+      "approveDate": "2026-06-14T22:29:40.798Z",
+      "version": 2,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-14T22:29:40.619Z",
+          "actor": "Dr. Li",
+          "actorRole": "LIBRARIAN"
+        },
+        {
+          "status": "APPROVED",
+          "timestamp": "2026-06-14T22:29:40.798Z",
+          "actor": "Prof. Chen",
+          "actorRole": "SUPERVISOR"
+        }
+      ],
+      "createdAt": "2026-06-14T22:29:40.619Z",
+      "updatedAt": "2026-06-14T22:29:40.800Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqecx6ca-16696b0a",
+      "name": "Test Destruction Sample",
+      "category": "Biological",
+      "status": "DESTROYED",
+      "currentHolder": null,
+      "storageLocation": "Freezer B, Shelf 2",
+      "validityPeriod": "2025-01-01",
+      "version": 3
+    },
+    "details": {
+      "requestType": "DESTRUCTION",
+      "approvalBasis": "Confirmed expired"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-14T22:29:40.842Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 30,
+      "retentionMaxRecords": 5000
+    }
+  },
+  {
+    "id": "TLE-mqecx6mp-e6719437",
+    "timestamp": "2026-06-14T22:29:40.945Z",
+    "eventType": "REQUEST_CREATED",
+    "requestId": "REQ-mqecx6l8-58e98747",
+    "sampleId": "SMP-mqecx6ka-e3bde81a",
+    "user": "Researcher Liu",
+    "userRole": "APPLICANT",
+    "previousStatus": null,
+    "newStatus": "PENDING",
+    "requestSnapshot": {
+      "id": "REQ-mqecx6l8-58e98747",
+      "sampleId": "SMP-mqecx6ka-e3bde81a",
+      "type": "BORROW",
+      "status": "PENDING",
+      "applicant": "Researcher Liu",
+      "creator": "Researcher Liu",
+      "creatorRole": "APPLICANT",
+      "reason": "Need for analysis",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 1,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-14T22:29:40.892Z",
+          "actor": "Researcher Liu",
+          "actorRole": "APPLICANT"
+        }
+      ],
+      "createdAt": "2026-06-14T22:29:40.892Z",
+      "updatedAt": "2026-06-14T22:29:40.892Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqecx6ka-e3bde81a",
+      "name": "Test Cancel Sample",
+      "category": "Chemical",
+      "status": "AVAILABLE",
+      "currentHolder": null,
+      "storageLocation": "Cabinet C, Shelf 1",
+      "validityPeriod": "2027-12-31",
+      "version": 1
+    },
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Need for analysis",
+      "applicant": "Researcher Liu",
+      "creator": "Researcher Liu"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-14T22:29:40.945Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 30,
+      "retentionMaxRecords": 5000
+    }
+  },
+  {
+    "id": "TLE-mqecx6or-64f00da9",
+    "timestamp": "2026-06-14T22:29:41.019Z",
+    "eventType": "REQUEST_CANCELLED",
+    "requestId": "REQ-mqecx6l8-58e98747",
+    "sampleId": "SMP-mqecx6ka-e3bde81a",
+    "user": "Researcher Liu",
+    "userRole": "APPLICANT",
+    "previousStatus": "PENDING",
+    "newStatus": "CANCELLED",
+    "requestSnapshot": {
+      "id": "REQ-mqecx6l8-58e98747",
+      "sampleId": "SMP-mqecx6ka-e3bde81a",
+      "type": "BORROW",
+      "status": "CANCELLED",
+      "applicant": "Researcher Liu",
+      "creator": "Researcher Liu",
+      "creatorRole": "APPLICANT",
+      "reason": "Need for analysis",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 2,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-14T22:29:40.892Z",
+          "actor": "Researcher Liu",
+          "actorRole": "APPLICANT"
+        },
+        {
+          "status": "CANCELLED",
+          "timestamp": "2026-06-14T22:29:40.974Z",
+          "actor": "Researcher Liu",
+          "actorRole": "APPLICANT",
+          "reason": "Changed plan"
+        }
+      ],
+      "createdAt": "2026-06-14T22:29:40.892Z",
+      "updatedAt": "2026-06-14T22:29:40.976Z"
+    },
+    "sampleSnapshot": null,
+    "details": {
+      "requestType": "BORROW",
+      "cancelReason": "Changed plan",
+      "creator": "Researcher Liu",
+      "creatorRole": "APPLICANT"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-14T22:29:41.019Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 30,
+      "retentionMaxRecords": 5000
+    }
+  },
+  {
+    "id": "TLE-mqecx6ru-18be970c",
+    "timestamp": "2026-06-14T22:29:41.130Z",
+    "eventType": "REQUEST_CREATED",
+    "requestId": "REQ-mqecx6qn-40a4431f",
+    "sampleId": "SMP-mqecx6pa-88780026",
+    "user": "Researcher Wang",
+    "userRole": "APPLICANT",
+    "previousStatus": null,
+    "newStatus": "PENDING",
+    "requestSnapshot": {
+      "id": "REQ-mqecx6qn-40a4431f",
+      "sampleId": "SMP-mqecx6pa-88780026",
+      "type": "BORROW",
+      "status": "PENDING",
+      "applicant": "Researcher Wang",
+      "creator": "Researcher Wang",
+      "creatorRole": "APPLICANT",
+      "reason": "Research",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 1,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-14T22:29:41.087Z",
+          "actor": "Researcher Wang",
+          "actorRole": "APPLICANT"
+        }
+      ],
+      "createdAt": "2026-06-14T22:29:41.087Z",
+      "updatedAt": "2026-06-14T22:29:41.087Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqecx6pa-88780026",
+      "name": "Test Unauthorized Sample",
+      "category": "Chemical",
+      "status": "AVAILABLE",
+      "currentHolder": null,
+      "storageLocation": "Cabinet D, Shelf 1",
+      "validityPeriod": "2027-12-31",
+      "version": 1
+    },
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Research",
+      "applicant": "Researcher Wang",
+      "creator": "Researcher Wang"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-14T22:29:41.130Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 30,
+      "retentionMaxRecords": 5000
+    }
+  },
+  {
+    "id": "TLE-mqecx6su-4eec3bdc",
+    "timestamp": "2026-06-14T22:29:41.166Z",
+    "eventType": "IDENTITY_MISMATCH",
+    "requestId": "REQ-mqecx6qn-40a4431f",
+    "sampleId": null,
+    "user": "SMP-mqecx6pa-88780026",
+    "userRole": "Researcher Wang",
+    "previousStatus": null,
+    "newStatus": null,
+    "requestSnapshot": null,
+    "sampleSnapshot": null,
+    "details": {
+      "0": "A",
+      "1": "P",
+      "2": "P",
+      "3": "L",
+      "4": "I",
+      "5": "C",
+      "6": "A",
+      "7": "N",
+      "8": "T",
+      "expectedUser": "LIBRARIAN",
+      "expectedRole": "Researcher Wang"
+    },
+    "result": "FAILURE",
+    "errorMessage": "Identity mismatch: user or role does not match",
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-14T22:29:41.166Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 30,
+      "retentionMaxRecords": 5000
+    }
+  },
+  {
+    "id": "TLE-mqecx6tu-d3c0eade",
+    "timestamp": "2026-06-14T22:29:41.202Z",
+    "eventType": "IDENTITY_MISMATCH",
+    "requestId": "REQ-mqecx6qn-40a4431f",
+    "sampleId": null,
+    "user": "SMP-mqecx6pa-88780026",
+    "userRole": "Different User",
+    "previousStatus": null,
+    "newStatus": null,
+    "requestSnapshot": null,
+    "sampleSnapshot": null,
+    "details": {
+      "0": "A",
+      "1": "P",
+      "2": "P",
+      "3": "L",
+      "4": "I",
+      "5": "C",
+      "6": "A",
+      "7": "N",
+      "8": "T",
+      "expectedUser": "APPLICANT",
+      "expectedRole": "Researcher Wang"
+    },
+    "result": "FAILURE",
+    "errorMessage": "Identity mismatch: user or role does not match",
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-14T22:29:41.202Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 30,
+      "retentionMaxRecords": 5000
+    }
+  },
+  {
+    "id": "TLE-mqecx7b3-360b3fc0",
+    "timestamp": "2026-06-14T22:29:41.823Z",
+    "eventType": "REQUEST_CREATED",
+    "requestId": "REQ-mqecx7a2-b85b325d",
+    "sampleId": "SMP-mqecx77u-7fc8ade2",
+    "user": "Researcher Wang",
+    "userRole": "APPLICANT",
+    "previousStatus": null,
+    "newStatus": "PENDING",
+    "requestSnapshot": {
+      "id": "REQ-mqecx7a2-b85b325d",
+      "sampleId": "SMP-mqecx77u-7fc8ade2",
+      "type": "BORROW",
+      "status": "PENDING",
+      "applicant": "Researcher Wang",
+      "creator": "Researcher Wang",
+      "creatorRole": "APPLICANT",
+      "reason": "Research",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 1,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-14T22:29:41.786Z",
+          "actor": "Researcher Wang",
+          "actorRole": "APPLICANT"
+        }
+      ],
+      "createdAt": "2026-06-14T22:29:41.786Z",
+      "updatedAt": "2026-06-14T22:29:41.786Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqecx77u-7fc8ade2",
+      "name": "Test Duplicate Sample",
+      "category": "Chemical",
+      "status": "AVAILABLE",
+      "currentHolder": null,
+      "storageLocation": "Cabinet E, Shelf 1",
+      "validityPeriod": "2027-12-31",
+      "version": 1
+    },
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Research",
+      "applicant": "Researcher Wang",
+      "creator": "Researcher Wang"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-14T22:29:41.823Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 30,
+      "retentionMaxRecords": 5000
+    }
+  },
+  {
+    "id": "TLE-mqecx7cq-c5e83da3",
+    "timestamp": "2026-06-14T22:29:41.882Z",
+    "eventType": "REQUEST_CANCELLED",
+    "requestId": "REQ-mqecx7a2-b85b325d",
+    "sampleId": "SMP-mqecx77u-7fc8ade2",
+    "user": "Researcher Wang",
+    "userRole": "APPLICANT",
+    "previousStatus": "PENDING",
+    "newStatus": "CANCELLED",
+    "requestSnapshot": {
+      "id": "REQ-mqecx7a2-b85b325d",
+      "sampleId": "SMP-mqecx77u-7fc8ade2",
+      "type": "BORROW",
+      "status": "CANCELLED",
+      "applicant": "Researcher Wang",
+      "creator": "Researcher Wang",
+      "creatorRole": "APPLICANT",
+      "reason": "Research",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 2,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-14T22:29:41.786Z",
+          "actor": "Researcher Wang",
+          "actorRole": "APPLICANT"
+        },
+        {
+          "status": "CANCELLED",
+          "timestamp": "2026-06-14T22:29:41.840Z",
+          "actor": "Researcher Wang",
+          "actorRole": "APPLICANT",
+          "reason": "First cancel"
+        }
+      ],
+      "createdAt": "2026-06-14T22:29:41.786Z",
+      "updatedAt": "2026-06-14T22:29:41.841Z"
+    },
+    "sampleSnapshot": null,
+    "details": {
+      "requestType": "BORROW",
+      "cancelReason": "First cancel",
+      "creator": "Researcher Wang",
+      "creatorRole": "APPLICANT"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-14T22:29:41.882Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 30,
+      "retentionMaxRecords": 5000
+    }
+  },
+  {
+    "id": "TLE-mqecx7d9-2f13ec70",
+    "timestamp": "2026-06-14T22:29:41.901Z",
+    "eventType": "DUPLICATE_OPERATION",
+    "requestId": "REQ-mqecx7a2-b85b325d",
+    "sampleId": "SMP-mqecx77u-7fc8ade2",
+    "user": "Researcher Wang",
+    "userRole": "APPLICANT",
+    "previousStatus": null,
+    "newStatus": null,
+    "requestSnapshot": null,
+    "sampleSnapshot": null,
+    "details": {
+      "attemptedOperation": "CANCEL_REQUEST",
+      "currentStatus": "CANCELLED"
+    },
+    "result": "FAILURE",
+    "errorMessage": "Duplicate operation on non-pending request",
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-14T22:29:41.901Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 30,
+      "retentionMaxRecords": 5000
+    }
+  },
+  {
+    "id": "TLE-mqecx7u8-e180052d",
+    "timestamp": "2026-06-14T22:29:42.512Z",
+    "eventType": "REQUEST_CREATED",
+    "requestId": "REQ-mqecx7t9-503a08ee",
+    "sampleId": "SMP-mqecx7r9-dae80cd2",
+    "user": "Researcher Wang",
+    "userRole": "APPLICANT",
+    "previousStatus": null,
+    "newStatus": "PENDING",
+    "requestSnapshot": {
+      "id": "REQ-mqecx7t9-503a08ee",
+      "sampleId": "SMP-mqecx7r9-dae80cd2",
+      "type": "BORROW",
+      "status": "PENDING",
+      "applicant": "Researcher Wang",
+      "creator": "Researcher Wang",
+      "creatorRole": "APPLICANT",
+      "reason": "Concurrent test",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 1,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-14T22:29:42.477Z",
+          "actor": "Researcher Wang",
+          "actorRole": "APPLICANT"
+        }
+      ],
+      "createdAt": "2026-06-14T22:29:42.477Z",
+      "updatedAt": "2026-06-14T22:29:42.477Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqecx7r9-dae80cd2",
+      "name": "Test Concurrent Sample",
+      "category": "Chemical",
+      "status": "AVAILABLE",
+      "currentHolder": null,
+      "storageLocation": "Cabinet F, Shelf 1",
+      "validityPeriod": "2027-12-31",
+      "version": 1
+    },
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Concurrent test",
+      "applicant": "Researcher Wang",
+      "creator": "Researcher Wang"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-14T22:29:42.512Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 30,
+      "retentionMaxRecords": 5000
+    }
+  },
+  {
+    "id": "TLE-mqecx7w8-128f11fe",
+    "timestamp": "2026-06-14T22:29:42.584Z",
+    "eventType": "REQUEST_CANCELLED",
+    "requestId": "REQ-mqecx7t9-503a08ee",
+    "sampleId": "SMP-mqecx7r9-dae80cd2",
+    "user": "Researcher Wang",
+    "userRole": "APPLICANT",
+    "previousStatus": "PENDING",
+    "newStatus": "CANCELLED",
+    "requestSnapshot": {
+      "id": "REQ-mqecx7t9-503a08ee",
+      "sampleId": "SMP-mqecx7r9-dae80cd2",
+      "type": "BORROW",
+      "status": "CANCELLED",
+      "applicant": "Researcher Wang",
+      "creator": "Researcher Wang",
+      "creatorRole": "APPLICANT",
+      "reason": "Concurrent test",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 2,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-14T22:29:42.477Z",
+          "actor": "Researcher Wang",
+          "actorRole": "APPLICANT"
+        },
+        {
+          "status": "CANCELLED",
+          "timestamp": "2026-06-14T22:29:42.531Z",
+          "actor": "Researcher Wang",
+          "actorRole": "APPLICANT",
+          "reason": "Creator cancels"
+        }
+      ],
+      "createdAt": "2026-06-14T22:29:42.477Z",
+      "updatedAt": "2026-06-14T22:29:42.533Z"
+    },
+    "sampleSnapshot": null,
+    "details": {
+      "requestType": "BORROW",
+      "cancelReason": "Creator cancels",
+      "creator": "Researcher Wang",
+      "creatorRole": "APPLICANT"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-14T22:29:42.584Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 30,
+      "retentionMaxRecords": 5000
+    }
+  },
+  {
+    "id": "TLE-mqeimr8d-62d85942",
+    "timestamp": "2026-06-15T01:09:32.126Z",
+    "eventType": "REQUEST_CREATED",
+    "requestId": "REQ-mqeimr79-4ca498a8",
+    "sampleId": "SMP-mqeimr4d-fe0ff303",
+    "user": "Reviewer Applicant",
+    "userRole": "APPLICANT",
+    "previousStatus": null,
+    "newStatus": "PENDING",
+    "requestSnapshot": {
+      "id": "REQ-mqeimr79-4ca498a8",
+      "sampleId": "SMP-mqeimr4d-fe0ff303",
+      "type": "BORROW",
+      "status": "PENDING",
+      "applicant": "Reviewer Applicant",
+      "creator": "Reviewer Applicant",
+      "creatorRole": "APPLICANT",
+      "reason": "review success chain",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 1,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:09:32.086Z",
+          "actor": "Reviewer Applicant",
+          "actorRole": "APPLICANT"
+        }
+      ],
+      "createdAt": "2026-06-15T01:09:32.086Z",
+      "updatedAt": "2026-06-15T01:09:32.086Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqeimr4d-fe0ff303",
+      "name": "Review Sample Success 2a4d37b7",
+      "category": "Biological",
+      "status": "AVAILABLE",
+      "currentHolder": null,
+      "storageLocation": "Review Rack A",
+      "validityPeriod": "2027-12-31",
+      "version": 1
+    },
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review success chain",
+      "applicant": "Reviewer Applicant",
+      "creator": "Reviewer Applicant"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:09:32.126Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqeimrbk-44d2f62e",
+    "timestamp": "2026-06-15T01:09:32.240Z",
+    "eventType": "REQUEST_APPROVED",
+    "requestId": "REQ-mqeimr79-4ca498a8",
+    "sampleId": "SMP-mqeimr4d-fe0ff303",
+    "user": "Reviewer Librarian",
+    "userRole": "LIBRARIAN",
+    "previousStatus": "PENDING",
+    "newStatus": "APPROVED",
+    "requestSnapshot": {
+      "id": "REQ-mqeimr79-4ca498a8",
+      "sampleId": "SMP-mqeimr4d-fe0ff303",
+      "type": "BORROW",
+      "status": "APPROVED",
+      "applicant": "Reviewer Applicant",
+      "creator": "Reviewer Applicant",
+      "creatorRole": "APPLICANT",
+      "reason": "review success chain",
+      "approvalBasis": "review approval",
+      "approver": "Reviewer Librarian",
+      "approverRole": "LIBRARIAN",
+      "approveDate": "2026-06-15T01:09:32.196Z",
+      "version": 2,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:09:32.086Z",
+          "actor": "Reviewer Applicant",
+          "actorRole": "APPLICANT"
+        },
+        {
+          "status": "APPROVED",
+          "timestamp": "2026-06-15T01:09:32.196Z",
+          "actor": "Reviewer Librarian",
+          "actorRole": "LIBRARIAN"
+        }
+      ],
+      "createdAt": "2026-06-15T01:09:32.086Z",
+      "updatedAt": "2026-06-15T01:09:32.197Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqeimr4d-fe0ff303",
+      "name": "Review Sample Success 2a4d37b7",
+      "category": "Biological",
+      "status": "BORROWED",
+      "currentHolder": "Reviewer Applicant",
+      "storageLocation": "Review Rack A",
+      "validityPeriod": "2027-12-31",
+      "version": 2
+    },
+    "details": {
+      "requestType": "BORROW",
+      "approvalBasis": "review approval"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:09:32.240Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqeimri6-dfd15b54",
+    "timestamp": "2026-06-15T01:09:32.478Z",
+    "eventType": "REQUEST_CREATED",
+    "requestId": "REQ-mqeimrgi-98570589",
+    "sampleId": "SMP-mqeimrez-371d487a",
+    "user": "Reviewer Owner",
+    "userRole": "APPLICANT",
+    "previousStatus": null,
+    "newStatus": "PENDING",
+    "requestSnapshot": {
+      "id": "REQ-mqeimrgi-98570589",
+      "sampleId": "SMP-mqeimrez-371d487a",
+      "type": "BORROW",
+      "status": "PENDING",
+      "applicant": "Reviewer Owner",
+      "creator": "Reviewer Owner",
+      "creatorRole": "APPLICANT",
+      "reason": "review cancel chain",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 1,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:09:32.418Z",
+          "actor": "Reviewer Owner",
+          "actorRole": "APPLICANT"
+        }
+      ],
+      "createdAt": "2026-06-15T01:09:32.418Z",
+      "updatedAt": "2026-06-15T01:09:32.418Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqeimrez-371d487a",
+      "name": "Review Sample Cancel 2a4d37b7",
+      "category": "Chemical",
+      "status": "AVAILABLE",
+      "currentHolder": null,
+      "storageLocation": "Review Rack B",
+      "validityPeriod": "2027-12-31",
+      "version": 1
+    },
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review cancel chain",
+      "applicant": "Reviewer Owner",
+      "creator": "Reviewer Owner"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:09:32.478Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqeimrkp-6e4f25f4",
+    "timestamp": "2026-06-15T01:09:32.569Z",
+    "eventType": "REQUEST_CANCELLED",
+    "requestId": "REQ-mqeimrgi-98570589",
+    "sampleId": "SMP-mqeimrez-371d487a",
+    "user": "Reviewer Owner",
+    "userRole": "APPLICANT",
+    "previousStatus": "PENDING",
+    "newStatus": "CANCELLED",
+    "requestSnapshot": {
+      "id": "REQ-mqeimrgi-98570589",
+      "sampleId": "SMP-mqeimrez-371d487a",
+      "type": "BORROW",
+      "status": "CANCELLED",
+      "applicant": "Reviewer Owner",
+      "creator": "Reviewer Owner",
+      "creatorRole": "APPLICANT",
+      "reason": "review cancel chain",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 2,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:09:32.418Z",
+          "actor": "Reviewer Owner",
+          "actorRole": "APPLICANT"
+        },
+        {
+          "status": "CANCELLED",
+          "timestamp": "2026-06-15T01:09:32.518Z",
+          "actor": "Reviewer Owner",
+          "actorRole": "APPLICANT",
+          "reason": "review cancel"
+        }
+      ],
+      "createdAt": "2026-06-15T01:09:32.418Z",
+      "updatedAt": "2026-06-15T01:09:32.519Z"
+    },
+    "sampleSnapshot": null,
+    "details": {
+      "requestType": "BORROW",
+      "cancelReason": "review cancel",
+      "creator": "Reviewer Owner",
+      "creatorRole": "APPLICANT"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:09:32.569Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqeimrzw-b9ea3d1d",
+    "timestamp": "2026-06-15T01:09:33.116Z",
+    "eventType": "REQUEST_CREATED",
+    "requestId": "REQ-mqeimryy-a2a34644",
+    "sampleId": "SMP-mqeimrwz-1715fc3a",
+    "user": "Reviewer Real Owner",
+    "userRole": "APPLICANT",
+    "previousStatus": null,
+    "newStatus": "PENDING",
+    "requestSnapshot": {
+      "id": "REQ-mqeimryy-a2a34644",
+      "sampleId": "SMP-mqeimrwz-1715fc3a",
+      "type": "BORROW",
+      "status": "PENDING",
+      "applicant": "Reviewer Real Owner",
+      "creator": "Reviewer Real Owner",
+      "creatorRole": "APPLICANT",
+      "reason": "review identity chain",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 1,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:09:33.082Z",
+          "actor": "Reviewer Real Owner",
+          "actorRole": "APPLICANT"
+        }
+      ],
+      "createdAt": "2026-06-15T01:09:33.082Z",
+      "updatedAt": "2026-06-15T01:09:33.082Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqeimrwz-1715fc3a",
+      "name": "Review Sample Identity 2a4d37b7",
+      "category": "Chemical",
+      "status": "AVAILABLE",
+      "currentHolder": null,
+      "storageLocation": "Review Rack C",
+      "validityPeriod": "2027-12-31",
+      "version": 1
+    },
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review identity chain",
+      "applicant": "Reviewer Real Owner",
+      "creator": "Reviewer Real Owner"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:09:33.116Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqeims1b-1edded02",
+    "timestamp": "2026-06-15T01:09:33.167Z",
+    "eventType": "IDENTITY_MISMATCH",
+    "requestId": "REQ-mqeimryy-a2a34644",
+    "sampleId": null,
+    "user": "SMP-mqeimrwz-1715fc3a",
+    "userRole": "Intruder",
+    "previousStatus": null,
+    "newStatus": null,
+    "requestSnapshot": null,
+    "sampleSnapshot": null,
+    "details": {
+      "0": "A",
+      "1": "P",
+      "2": "P",
+      "3": "L",
+      "4": "I",
+      "5": "C",
+      "6": "A",
+      "7": "N",
+      "8": "T",
+      "expectedUser": "APPLICANT",
+      "expectedRole": "Reviewer Real Owner"
+    },
+    "result": "FAILURE",
+    "errorMessage": "Identity mismatch: user or role does not match",
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:09:33.167Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqeimsea-9185eda4",
+    "timestamp": "2026-06-15T01:09:33.634Z",
+    "eventType": "REQUEST_CREATED",
+    "requestId": "REQ-mqeimsdd-42520013",
+    "sampleId": "SMP-mqeimsbh-07418f32",
+    "user": "Reviewer Racer",
+    "userRole": "APPLICANT",
+    "previousStatus": null,
+    "newStatus": "PENDING",
+    "requestSnapshot": {
+      "id": "REQ-mqeimsdd-42520013",
+      "sampleId": "SMP-mqeimsbh-07418f32",
+      "type": "BORROW",
+      "status": "PENDING",
+      "applicant": "Reviewer Racer",
+      "creator": "Reviewer Racer",
+      "creatorRole": "APPLICANT",
+      "reason": "review race chain",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 1,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:09:33.601Z",
+          "actor": "Reviewer Racer",
+          "actorRole": "APPLICANT"
+        }
+      ],
+      "createdAt": "2026-06-15T01:09:33.601Z",
+      "updatedAt": "2026-06-15T01:09:33.601Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqeimsbh-07418f32",
+      "name": "Review Sample Race 2a4d37b7",
+      "category": "Chemical",
+      "status": "AVAILABLE",
+      "currentHolder": null,
+      "storageLocation": "Review Rack D",
+      "validityPeriod": "2027-12-31",
+      "version": 1
+    },
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review race chain",
+      "applicant": "Reviewer Racer",
+      "creator": "Reviewer Racer"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:09:33.634Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqeimstv-4be95bf3",
+    "timestamp": "2026-06-15T01:09:34.195Z",
+    "eventType": "REQUEST_CANCELLED",
+    "requestId": "REQ-mqeimsdd-42520013",
+    "sampleId": "SMP-mqeimsbh-07418f32",
+    "user": "Reviewer Racer",
+    "userRole": "APPLICANT",
+    "previousStatus": "PENDING",
+    "newStatus": "CANCELLED",
+    "requestSnapshot": {
+      "id": "REQ-mqeimsdd-42520013",
+      "sampleId": "SMP-mqeimsbh-07418f32",
+      "type": "BORROW",
+      "status": "CANCELLED",
+      "applicant": "Reviewer Racer",
+      "creator": "Reviewer Racer",
+      "creatorRole": "APPLICANT",
+      "reason": "review race chain",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 2,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:09:33.601Z",
+          "actor": "Reviewer Racer",
+          "actorRole": "APPLICANT"
+        },
+        {
+          "status": "CANCELLED",
+          "timestamp": "2026-06-15T01:09:34.138Z",
+          "actor": "Reviewer Racer",
+          "actorRole": "APPLICANT",
+          "reason": "cancel in race"
+        }
+      ],
+      "createdAt": "2026-06-15T01:09:33.601Z",
+      "updatedAt": "2026-06-15T01:09:34.139Z"
+    },
+    "sampleSnapshot": null,
+    "details": {
+      "requestType": "BORROW",
+      "cancelReason": "cancel in race",
+      "creator": "Reviewer Racer",
+      "creatorRole": "APPLICANT"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:09:34.195Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqeisk8n-c3ccfd22",
+    "timestamp": "2026-06-15T01:14:02.999Z",
+    "eventType": "REQUEST_CREATED",
+    "requestId": "REQ-mqeisk7m-1ee549a9",
+    "sampleId": "SMP-mqeisk4s-14d2c63b",
+    "user": "Reviewer Applicant",
+    "userRole": "APPLICANT",
+    "previousStatus": null,
+    "newStatus": "PENDING",
+    "requestSnapshot": {
+      "id": "REQ-mqeisk7m-1ee549a9",
+      "sampleId": "SMP-mqeisk4s-14d2c63b",
+      "type": "BORROW",
+      "status": "PENDING",
+      "applicant": "Reviewer Applicant",
+      "creator": "Reviewer Applicant",
+      "creatorRole": "APPLICANT",
+      "reason": "review success chain",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 1,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:14:02.962Z",
+          "actor": "Reviewer Applicant",
+          "actorRole": "APPLICANT"
+        }
+      ],
+      "createdAt": "2026-06-15T01:14:02.962Z",
+      "updatedAt": "2026-06-15T01:14:02.962Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqeisk4s-14d2c63b",
+      "name": "Review Sample Success 556841ab",
+      "category": "Biological",
+      "status": "AVAILABLE",
+      "currentHolder": null,
+      "storageLocation": "Review Rack A",
+      "validityPeriod": "2027-12-31",
+      "version": 1
+    },
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review success chain",
+      "applicant": "Reviewer Applicant",
+      "creator": "Reviewer Applicant"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:14:02.999Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqeiskbg-b1adcc1e",
+    "timestamp": "2026-06-15T01:14:03.100Z",
+    "eventType": "REQUEST_APPROVED",
+    "requestId": "REQ-mqeisk7m-1ee549a9",
+    "sampleId": "SMP-mqeisk4s-14d2c63b",
+    "user": "Reviewer Librarian",
+    "userRole": "LIBRARIAN",
+    "previousStatus": "PENDING",
+    "newStatus": "APPROVED",
+    "requestSnapshot": {
+      "id": "REQ-mqeisk7m-1ee549a9",
+      "sampleId": "SMP-mqeisk4s-14d2c63b",
+      "type": "BORROW",
+      "status": "APPROVED",
+      "applicant": "Reviewer Applicant",
+      "creator": "Reviewer Applicant",
+      "creatorRole": "APPLICANT",
+      "reason": "review success chain",
+      "approvalBasis": "review approval",
+      "approver": "Reviewer Librarian",
+      "approverRole": "LIBRARIAN",
+      "approveDate": "2026-06-15T01:14:03.067Z",
+      "version": 2,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:14:02.962Z",
+          "actor": "Reviewer Applicant",
+          "actorRole": "APPLICANT"
+        },
+        {
+          "status": "APPROVED",
+          "timestamp": "2026-06-15T01:14:03.067Z",
+          "actor": "Reviewer Librarian",
+          "actorRole": "LIBRARIAN"
+        }
+      ],
+      "createdAt": "2026-06-15T01:14:02.962Z",
+      "updatedAt": "2026-06-15T01:14:03.069Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqeisk4s-14d2c63b",
+      "name": "Review Sample Success 556841ab",
+      "category": "Biological",
+      "status": "BORROWED",
+      "currentHolder": "Reviewer Applicant",
+      "storageLocation": "Review Rack A",
+      "validityPeriod": "2027-12-31",
+      "version": 2
+    },
+    "details": {
+      "requestType": "BORROW",
+      "approvalBasis": "review approval"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:14:03.100Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqeiskfj-c3d56a5a",
+    "timestamp": "2026-06-15T01:14:03.247Z",
+    "eventType": "REQUEST_CREATED",
+    "requestId": "REQ-mqeiskem-566dc6a0",
+    "sampleId": "SMP-mqeiskd8-58af474d",
+    "user": "Reviewer Owner",
+    "userRole": "APPLICANT",
+    "previousStatus": null,
+    "newStatus": "PENDING",
+    "requestSnapshot": {
+      "id": "REQ-mqeiskem-566dc6a0",
+      "sampleId": "SMP-mqeiskd8-58af474d",
+      "type": "BORROW",
+      "status": "PENDING",
+      "applicant": "Reviewer Owner",
+      "creator": "Reviewer Owner",
+      "creatorRole": "APPLICANT",
+      "reason": "review cancel chain",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 1,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:14:03.214Z",
+          "actor": "Reviewer Owner",
+          "actorRole": "APPLICANT"
+        }
+      ],
+      "createdAt": "2026-06-15T01:14:03.214Z",
+      "updatedAt": "2026-06-15T01:14:03.214Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqeiskd8-58af474d",
+      "name": "Review Sample Cancel 556841ab",
+      "category": "Chemical",
+      "status": "AVAILABLE",
+      "currentHolder": null,
+      "storageLocation": "Review Rack B",
+      "validityPeriod": "2027-12-31",
+      "version": 1
+    },
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review cancel chain",
+      "applicant": "Reviewer Owner",
+      "creator": "Reviewer Owner"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:14:03.247Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqeiskhl-a64ea454",
+    "timestamp": "2026-06-15T01:14:03.321Z",
+    "eventType": "REQUEST_CANCELLED",
+    "requestId": "REQ-mqeiskem-566dc6a0",
+    "sampleId": "SMP-mqeiskd8-58af474d",
+    "user": "Reviewer Owner",
+    "userRole": "APPLICANT",
+    "previousStatus": "PENDING",
+    "newStatus": "CANCELLED",
+    "requestSnapshot": {
+      "id": "REQ-mqeiskem-566dc6a0",
+      "sampleId": "SMP-mqeiskd8-58af474d",
+      "type": "BORROW",
+      "status": "CANCELLED",
+      "applicant": "Reviewer Owner",
+      "creator": "Reviewer Owner",
+      "creatorRole": "APPLICANT",
+      "reason": "review cancel chain",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 2,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:14:03.214Z",
+          "actor": "Reviewer Owner",
+          "actorRole": "APPLICANT"
+        },
+        {
+          "status": "CANCELLED",
+          "timestamp": "2026-06-15T01:14:03.283Z",
+          "actor": "Reviewer Owner",
+          "actorRole": "APPLICANT",
+          "reason": "review cancel"
+        }
+      ],
+      "createdAt": "2026-06-15T01:14:03.214Z",
+      "updatedAt": "2026-06-15T01:14:03.284Z"
+    },
+    "sampleSnapshot": null,
+    "details": {
+      "requestType": "BORROW",
+      "cancelReason": "review cancel",
+      "creator": "Reviewer Owner",
+      "creatorRole": "APPLICANT"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:14:03.321Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqeiskvt-b4d92329",
+    "timestamp": "2026-06-15T01:14:03.833Z",
+    "eventType": "REQUEST_CREATED",
+    "requestId": "REQ-mqeiskux-d9034970",
+    "sampleId": "SMP-mqeisksz-9f2a955d",
+    "user": "Reviewer Real Owner",
+    "userRole": "APPLICANT",
+    "previousStatus": null,
+    "newStatus": "PENDING",
+    "requestSnapshot": {
+      "id": "REQ-mqeiskux-d9034970",
+      "sampleId": "SMP-mqeisksz-9f2a955d",
+      "type": "BORROW",
+      "status": "PENDING",
+      "applicant": "Reviewer Real Owner",
+      "creator": "Reviewer Real Owner",
+      "creatorRole": "APPLICANT",
+      "reason": "review identity chain",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 1,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:14:03.801Z",
+          "actor": "Reviewer Real Owner",
+          "actorRole": "APPLICANT"
+        }
+      ],
+      "createdAt": "2026-06-15T01:14:03.801Z",
+      "updatedAt": "2026-06-15T01:14:03.801Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqeisksz-9f2a955d",
+      "name": "Review Sample Identity 556841ab",
+      "category": "Chemical",
+      "status": "AVAILABLE",
+      "currentHolder": null,
+      "storageLocation": "Review Rack C",
+      "validityPeriod": "2027-12-31",
+      "version": 1
+    },
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review identity chain",
+      "applicant": "Reviewer Real Owner",
+      "creator": "Reviewer Real Owner"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:14:03.833Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqeiskx8-2bf6df29",
+    "timestamp": "2026-06-15T01:14:03.884Z",
+    "eventType": "IDENTITY_MISMATCH",
+    "requestId": "REQ-mqeiskux-d9034970",
+    "sampleId": null,
+    "user": "SMP-mqeisksz-9f2a955d",
+    "userRole": "Intruder",
+    "previousStatus": null,
+    "newStatus": null,
+    "requestSnapshot": null,
+    "sampleSnapshot": null,
+    "details": {
+      "0": "A",
+      "1": "P",
+      "2": "P",
+      "3": "L",
+      "4": "I",
+      "5": "C",
+      "6": "A",
+      "7": "N",
+      "8": "T",
+      "expectedUser": "APPLICANT",
+      "expectedRole": "Reviewer Real Owner"
+    },
+    "result": "FAILURE",
+    "errorMessage": "Identity mismatch: user or role does not match",
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:14:03.884Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqeisl9k-3f189c63",
+    "timestamp": "2026-06-15T01:14:04.328Z",
+    "eventType": "REQUEST_CREATED",
+    "requestId": "REQ-mqeisl8m-594d22a0",
+    "sampleId": "SMP-mqeisl6n-98c4a022",
+    "user": "Reviewer Racer",
+    "userRole": "APPLICANT",
+    "previousStatus": null,
+    "newStatus": "PENDING",
+    "requestSnapshot": {
+      "id": "REQ-mqeisl8m-594d22a0",
+      "sampleId": "SMP-mqeisl6n-98c4a022",
+      "type": "BORROW",
+      "status": "PENDING",
+      "applicant": "Reviewer Racer",
+      "creator": "Reviewer Racer",
+      "creatorRole": "APPLICANT",
+      "reason": "review race chain",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 1,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:14:04.295Z",
+          "actor": "Reviewer Racer",
+          "actorRole": "APPLICANT"
+        }
+      ],
+      "createdAt": "2026-06-15T01:14:04.295Z",
+      "updatedAt": "2026-06-15T01:14:04.295Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqeisl6n-98c4a022",
+      "name": "Review Sample Race 556841ab",
+      "category": "Chemical",
+      "status": "AVAILABLE",
+      "currentHolder": null,
+      "storageLocation": "Review Rack D",
+      "validityPeriod": "2027-12-31",
+      "version": 1
+    },
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review race chain",
+      "applicant": "Reviewer Racer",
+      "creator": "Reviewer Racer"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:14:04.328Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqeislo7-864bfe17",
+    "timestamp": "2026-06-15T01:14:04.855Z",
+    "eventType": "REQUEST_CANCELLED",
+    "requestId": "REQ-mqeisl8m-594d22a0",
+    "sampleId": "SMP-mqeisl6n-98c4a022",
+    "user": "Reviewer Racer",
+    "userRole": "APPLICANT",
+    "previousStatus": "PENDING",
+    "newStatus": "CANCELLED",
+    "requestSnapshot": {
+      "id": "REQ-mqeisl8m-594d22a0",
+      "sampleId": "SMP-mqeisl6n-98c4a022",
+      "type": "BORROW",
+      "status": "CANCELLED",
+      "applicant": "Reviewer Racer",
+      "creator": "Reviewer Racer",
+      "creatorRole": "APPLICANT",
+      "reason": "review race chain",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 2,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:14:04.295Z",
+          "actor": "Reviewer Racer",
+          "actorRole": "APPLICANT"
+        },
+        {
+          "status": "CANCELLED",
+          "timestamp": "2026-06-15T01:14:04.799Z",
+          "actor": "Reviewer Racer",
+          "actorRole": "APPLICANT",
+          "reason": "cancel in race"
+        }
+      ],
+      "createdAt": "2026-06-15T01:14:04.295Z",
+      "updatedAt": "2026-06-15T01:14:04.800Z"
+    },
+    "sampleSnapshot": null,
+    "details": {
+      "requestType": "BORROW",
+      "cancelReason": "cancel in race",
+      "creator": "Reviewer Racer",
+      "creatorRole": "APPLICANT"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:14:04.855Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqek7pwd-ff70961d",
+    "timestamp": "2026-06-15T01:53:49.789Z",
+    "eventType": "REQUEST_CREATED",
+    "requestId": "REQ-mqek7pw3-c2cfc58f",
+    "sampleId": "SMP-mqek7pvm-c8fc0b20",
+    "user": "Reviewer Alice 20260615095349669",
+    "userRole": "APPLICANT",
+    "previousStatus": null,
+    "newStatus": "PENDING",
+    "requestSnapshot": {
+      "id": "REQ-mqek7pw3-c2cfc58f",
+      "sampleId": "SMP-mqek7pvm-c8fc0b20",
+      "type": "BORROW",
+      "status": "PENDING",
+      "applicant": "Reviewer Alice 20260615095349669",
+      "creator": "Reviewer Alice 20260615095349669",
+      "creatorRole": "APPLICANT",
+      "reason": "review success chain",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 1,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:53:49.779Z",
+          "actor": "Reviewer Alice 20260615095349669",
+          "actorRole": "APPLICANT"
+        }
+      ],
+      "createdAt": "2026-06-15T01:53:49.779Z",
+      "updatedAt": "2026-06-15T01:53:49.779Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqek7pvm-c8fc0b20",
+      "name": "Reviewer Success 20260615095349669",
+      "category": "review",
+      "status": "AVAILABLE",
+      "currentHolder": null,
+      "storageLocation": "Shelf R",
+      "validityPeriod": "2027-12-31",
+      "version": 1
+    },
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review success chain",
+      "applicant": "Reviewer Alice 20260615095349669",
+      "creator": "Reviewer Alice 20260615095349669"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:53:49.789Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqek7px5-f79e5400",
+    "timestamp": "2026-06-15T01:53:49.817Z",
+    "eventType": "REQUEST_APPROVED",
+    "requestId": "REQ-mqek7pw3-c2cfc58f",
+    "sampleId": "SMP-mqek7pvm-c8fc0b20",
+    "user": "Reviewer Librarian",
+    "userRole": "LIBRARIAN",
+    "previousStatus": "PENDING",
+    "newStatus": "APPROVED",
+    "requestSnapshot": {
+      "id": "REQ-mqek7pw3-c2cfc58f",
+      "sampleId": "SMP-mqek7pvm-c8fc0b20",
+      "type": "BORROW",
+      "status": "APPROVED",
+      "applicant": "Reviewer Alice 20260615095349669",
+      "creator": "Reviewer Alice 20260615095349669",
+      "creatorRole": "APPLICANT",
+      "reason": "review success chain",
+      "approvalBasis": "review approval",
+      "approver": "Reviewer Librarian",
+      "approverRole": "LIBRARIAN",
+      "approveDate": "2026-06-15T01:53:49.807Z",
+      "version": 2,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:53:49.779Z",
+          "actor": "Reviewer Alice 20260615095349669",
+          "actorRole": "APPLICANT"
+        },
+        {
+          "status": "APPROVED",
+          "timestamp": "2026-06-15T01:53:49.807Z",
+          "actor": "Reviewer Librarian",
+          "actorRole": "LIBRARIAN"
+        }
+      ],
+      "createdAt": "2026-06-15T01:53:49.779Z",
+      "updatedAt": "2026-06-15T01:53:49.808Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqek7pvm-c8fc0b20",
+      "name": "Reviewer Success 20260615095349669",
+      "category": "review",
+      "status": "BORROWED",
+      "currentHolder": "Reviewer Alice 20260615095349669",
+      "storageLocation": "Shelf R",
+      "validityPeriod": "2027-12-31",
+      "version": 2
+    },
+    "details": {
+      "requestType": "BORROW",
+      "approvalBasis": "review approval"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:53:49.817Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqek7pyr-cf798829",
+    "timestamp": "2026-06-15T01:53:49.875Z",
+    "eventType": "REQUEST_CREATED",
+    "requestId": "REQ-mqek7pyh-601d1fc3",
+    "sampleId": "SMP-mqek7py6-d96a2c67",
+    "user": "Reviewer Bob 20260615095349669",
+    "userRole": "APPLICANT",
+    "previousStatus": null,
+    "newStatus": "PENDING",
+    "requestSnapshot": {
+      "id": "REQ-mqek7pyh-601d1fc3",
+      "sampleId": "SMP-mqek7py6-d96a2c67",
+      "type": "BORROW",
+      "status": "PENDING",
+      "applicant": "Reviewer Bob 20260615095349669",
+      "creator": "Reviewer Bob 20260615095349669",
+      "creatorRole": "APPLICANT",
+      "reason": "review cancel",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 1,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:53:49.865Z",
+          "actor": "Reviewer Bob 20260615095349669",
+          "actorRole": "APPLICANT"
+        }
+      ],
+      "createdAt": "2026-06-15T01:53:49.865Z",
+      "updatedAt": "2026-06-15T01:53:49.865Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqek7py6-d96a2c67",
+      "name": "Reviewer Cancel 20260615095349669",
+      "category": "review",
+      "status": "AVAILABLE",
+      "currentHolder": null,
+      "storageLocation": "Shelf C",
+      "validityPeriod": "2027-12-31",
+      "version": 1
+    },
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review cancel",
+      "applicant": "Reviewer Bob 20260615095349669",
+      "creator": "Reviewer Bob 20260615095349669"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:53:49.875Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqek7pz5-ca8cfab6",
+    "timestamp": "2026-06-15T01:53:49.889Z",
+    "eventType": "IDENTITY_MISMATCH",
+    "requestId": "REQ-mqek7pyh-601d1fc3",
+    "sampleId": null,
+    "user": "SMP-mqek7py6-d96a2c67",
+    "userRole": "Reviewer Mallory 20260615095349669",
+    "previousStatus": null,
+    "newStatus": null,
+    "requestSnapshot": null,
+    "sampleSnapshot": null,
+    "details": {
+      "0": "A",
+      "1": "P",
+      "2": "P",
+      "3": "L",
+      "4": "I",
+      "5": "C",
+      "6": "A",
+      "7": "N",
+      "8": "T",
+      "expectedUser": "APPLICANT",
+      "expectedRole": "Reviewer Bob 20260615095349669"
+    },
+    "result": "FAILURE",
+    "errorMessage": "Identity mismatch: user or role does not match",
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:53:49.889Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqek7pzm-95d3347d",
+    "timestamp": "2026-06-15T01:53:49.906Z",
+    "eventType": "REQUEST_CANCELLED",
+    "requestId": "REQ-mqek7pyh-601d1fc3",
+    "sampleId": "SMP-mqek7py6-d96a2c67",
+    "user": "Reviewer Bob 20260615095349669",
+    "userRole": "APPLICANT",
+    "previousStatus": "PENDING",
+    "newStatus": "CANCELLED",
+    "requestSnapshot": {
+      "id": "REQ-mqek7pyh-601d1fc3",
+      "sampleId": "SMP-mqek7py6-d96a2c67",
+      "type": "BORROW",
+      "status": "CANCELLED",
+      "applicant": "Reviewer Bob 20260615095349669",
+      "creator": "Reviewer Bob 20260615095349669",
+      "creatorRole": "APPLICANT",
+      "reason": "review cancel",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 2,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:53:49.865Z",
+          "actor": "Reviewer Bob 20260615095349669",
+          "actorRole": "APPLICANT"
+        },
+        {
+          "status": "CANCELLED",
+          "timestamp": "2026-06-15T01:53:49.897Z",
+          "actor": "Reviewer Bob 20260615095349669",
+          "actorRole": "APPLICANT",
+          "reason": "self cancel after bad attempt"
+        }
+      ],
+      "createdAt": "2026-06-15T01:53:49.865Z",
+      "updatedAt": "2026-06-15T01:53:49.898Z"
+    },
+    "sampleSnapshot": null,
+    "details": {
+      "requestType": "BORROW",
+      "cancelReason": "self cancel after bad attempt",
+      "creator": "Reviewer Bob 20260615095349669",
+      "creatorRole": "APPLICANT"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:53:49.906Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqek7pzt-3e1d608f",
+    "timestamp": "2026-06-15T01:53:49.913Z",
+    "eventType": "DUPLICATE_OPERATION",
+    "requestId": "REQ-mqek7pyh-601d1fc3",
+    "sampleId": "SMP-mqek7py6-d96a2c67",
+    "user": "Reviewer Bob 20260615095349669",
+    "userRole": "APPLICANT",
+    "previousStatus": null,
+    "newStatus": null,
+    "requestSnapshot": null,
+    "sampleSnapshot": null,
+    "details": {
+      "attemptedOperation": "CANCEL_REQUEST",
+      "currentStatus": "CANCELLED"
+    },
+    "result": "FAILURE",
+    "errorMessage": "Duplicate operation on non-pending request",
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:53:49.913Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqek7q0j-528aaa46",
+    "timestamp": "2026-06-15T01:53:49.939Z",
+    "eventType": "REQUEST_CREATED",
+    "requestId": "REQ-mqek7q0a-960a20f3",
+    "sampleId": "SMP-mqek7q00-5189c80f",
+    "user": "Reviewer RaceUser 20260615095349669",
+    "userRole": "APPLICANT",
+    "previousStatus": null,
+    "newStatus": "PENDING",
+    "requestSnapshot": {
+      "id": "REQ-mqek7q0a-960a20f3",
+      "sampleId": "SMP-mqek7q00-5189c80f",
+      "type": "BORROW",
+      "status": "PENDING",
+      "applicant": "Reviewer RaceUser 20260615095349669",
+      "creator": "Reviewer RaceUser 20260615095349669",
+      "creatorRole": "APPLICANT",
+      "reason": "review race",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 1,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:53:49.930Z",
+          "actor": "Reviewer RaceUser 20260615095349669",
+          "actorRole": "APPLICANT"
+        }
+      ],
+      "createdAt": "2026-06-15T01:53:49.930Z",
+      "updatedAt": "2026-06-15T01:53:49.930Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqek7q00-5189c80f",
+      "name": "Reviewer Race 20260615095349669",
+      "category": "review",
+      "status": "AVAILABLE",
+      "currentHolder": null,
+      "storageLocation": "Shelf X",
+      "validityPeriod": "2027-12-31",
+      "version": 1
+    },
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review race",
+      "applicant": "Reviewer RaceUser 20260615095349669",
+      "creator": "Reviewer RaceUser 20260615095349669"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:53:49.939Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqek7qds-40eca31e",
+    "timestamp": "2026-06-15T01:53:50.416Z",
+    "eventType": "REQUEST_APPROVED",
+    "requestId": "REQ-mqek7q0a-960a20f3",
+    "sampleId": "SMP-mqek7q00-5189c80f",
+    "user": "Reviewer Librarian",
+    "userRole": "LIBRARIAN",
+    "previousStatus": "PENDING",
+    "newStatus": "APPROVED",
+    "requestSnapshot": {
+      "id": "REQ-mqek7q0a-960a20f3",
+      "sampleId": "SMP-mqek7q00-5189c80f",
+      "type": "BORROW",
+      "status": "APPROVED",
+      "applicant": "Reviewer RaceUser 20260615095349669",
+      "creator": "Reviewer RaceUser 20260615095349669",
+      "creatorRole": "APPLICANT",
+      "reason": "review race",
+      "approvalBasis": "race approve",
+      "approver": "Reviewer Librarian",
+      "approverRole": "LIBRARIAN",
+      "approveDate": "2026-06-15T01:53:50.407Z",
+      "version": 2,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:53:49.930Z",
+          "actor": "Reviewer RaceUser 20260615095349669",
+          "actorRole": "APPLICANT"
+        },
+        {
+          "status": "APPROVED",
+          "timestamp": "2026-06-15T01:53:50.407Z",
+          "actor": "Reviewer Librarian",
+          "actorRole": "LIBRARIAN"
+        }
+      ],
+      "createdAt": "2026-06-15T01:53:49.930Z",
+      "updatedAt": "2026-06-15T01:53:50.408Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqek7q00-5189c80f",
+      "name": "Reviewer Race 20260615095349669",
+      "category": "review",
+      "status": "BORROWED",
+      "currentHolder": "Reviewer RaceUser 20260615095349669",
+      "storageLocation": "Shelf X",
+      "validityPeriod": "2027-12-31",
+      "version": 2
+    },
+    "details": {
+      "requestType": "BORROW",
+      "approvalBasis": "race approve"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:53:50.416Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqek7qfy-55b57467",
+    "timestamp": "2026-06-15T01:53:50.494Z",
+    "eventType": "DUPLICATE_OPERATION",
+    "requestId": "REQ-mqek7q0a-960a20f3",
+    "sampleId": "SMP-mqek7q00-5189c80f",
+    "user": "Reviewer RaceUser 20260615095349669",
+    "userRole": "APPLICANT",
+    "previousStatus": null,
+    "newStatus": null,
+    "requestSnapshot": null,
+    "sampleSnapshot": null,
+    "details": {
+      "attemptedOperation": "CANCEL_REQUEST",
+      "currentStatus": "APPROVED"
+    },
+    "result": "FAILURE",
+    "errorMessage": "Duplicate operation on non-pending request",
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:53:50.494Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqek99ua-41ff7672",
+    "timestamp": "2026-06-15T01:55:02.290Z",
+    "eventType": "REQUEST_CREATED",
+    "requestId": "REQ-mqek99u2-f7e80c0e",
+    "sampleId": "SMP-mqek99ts-52b17ef8",
+    "user": "Reviewer Alice 20260615015502243",
+    "userRole": "APPLICANT",
+    "previousStatus": null,
+    "newStatus": "PENDING",
+    "requestSnapshot": {
+      "id": "REQ-mqek99u2-f7e80c0e",
+      "sampleId": "SMP-mqek99ts-52b17ef8",
+      "type": "BORROW",
+      "status": "PENDING",
+      "applicant": "Reviewer Alice 20260615015502243",
+      "creator": "Reviewer Alice 20260615015502243",
+      "creatorRole": "APPLICANT",
+      "reason": "review success chain",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 1,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:55:02.282Z",
+          "actor": "Reviewer Alice 20260615015502243",
+          "actorRole": "APPLICANT"
+        }
+      ],
+      "createdAt": "2026-06-15T01:55:02.282Z",
+      "updatedAt": "2026-06-15T01:55:02.282Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqek99ts-52b17ef8",
+      "name": "Reviewer Success 20260615015502243",
+      "category": "review",
+      "status": "AVAILABLE",
+      "currentHolder": null,
+      "storageLocation": "Shelf R",
+      "validityPeriod": "2027-12-31",
+      "version": 1
+    },
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review success chain",
+      "applicant": "Reviewer Alice 20260615015502243",
+      "creator": "Reviewer Alice 20260615015502243"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:55:02.290Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqek99uw-76be5078",
+    "timestamp": "2026-06-15T01:55:02.312Z",
+    "eventType": "REQUEST_APPROVED",
+    "requestId": "REQ-mqek99u2-f7e80c0e",
+    "sampleId": "SMP-mqek99ts-52b17ef8",
+    "user": "Reviewer Librarian",
+    "userRole": "LIBRARIAN",
+    "previousStatus": "PENDING",
+    "newStatus": "APPROVED",
+    "requestSnapshot": {
+      "id": "REQ-mqek99u2-f7e80c0e",
+      "sampleId": "SMP-mqek99ts-52b17ef8",
+      "type": "BORROW",
+      "status": "APPROVED",
+      "applicant": "Reviewer Alice 20260615015502243",
+      "creator": "Reviewer Alice 20260615015502243",
+      "creatorRole": "APPLICANT",
+      "reason": "review success chain",
+      "approvalBasis": "review approval",
+      "approver": "Reviewer Librarian",
+      "approverRole": "LIBRARIAN",
+      "approveDate": "2026-06-15T01:55:02.304Z",
+      "version": 2,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:55:02.282Z",
+          "actor": "Reviewer Alice 20260615015502243",
+          "actorRole": "APPLICANT"
+        },
+        {
+          "status": "APPROVED",
+          "timestamp": "2026-06-15T01:55:02.304Z",
+          "actor": "Reviewer Librarian",
+          "actorRole": "LIBRARIAN"
+        }
+      ],
+      "createdAt": "2026-06-15T01:55:02.282Z",
+      "updatedAt": "2026-06-15T01:55:02.305Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqek99ts-52b17ef8",
+      "name": "Reviewer Success 20260615015502243",
+      "category": "review",
+      "status": "BORROWED",
+      "currentHolder": "Reviewer Alice 20260615015502243",
+      "storageLocation": "Shelf R",
+      "validityPeriod": "2027-12-31",
+      "version": 2
+    },
+    "details": {
+      "requestType": "BORROW",
+      "approvalBasis": "review approval"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:55:02.312Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqek99vk-ec246b20",
+    "timestamp": "2026-06-15T01:55:02.336Z",
+    "eventType": "REQUEST_CREATED",
+    "requestId": "REQ-mqek99vb-dc0d39d5",
+    "sampleId": "SMP-mqek99v2-940bac48",
+    "user": "Reviewer Bob 20260615015502243",
+    "userRole": "APPLICANT",
+    "previousStatus": null,
+    "newStatus": "PENDING",
+    "requestSnapshot": {
+      "id": "REQ-mqek99vb-dc0d39d5",
+      "sampleId": "SMP-mqek99v2-940bac48",
+      "type": "BORROW",
+      "status": "PENDING",
+      "applicant": "Reviewer Bob 20260615015502243",
+      "creator": "Reviewer Bob 20260615015502243",
+      "creatorRole": "APPLICANT",
+      "reason": "review cancel",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 1,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:55:02.327Z",
+          "actor": "Reviewer Bob 20260615015502243",
+          "actorRole": "APPLICANT"
+        }
+      ],
+      "createdAt": "2026-06-15T01:55:02.327Z",
+      "updatedAt": "2026-06-15T01:55:02.327Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqek99v2-940bac48",
+      "name": "Reviewer Cancel 20260615015502243",
+      "category": "review",
+      "status": "AVAILABLE",
+      "currentHolder": null,
+      "storageLocation": "Shelf C",
+      "validityPeriod": "2027-12-31",
+      "version": 1
+    },
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review cancel",
+      "applicant": "Reviewer Bob 20260615015502243",
+      "creator": "Reviewer Bob 20260615015502243"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:55:02.336Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqek99vv-1a897ff8",
+    "timestamp": "2026-06-15T01:55:02.347Z",
+    "eventType": "IDENTITY_MISMATCH",
+    "requestId": "REQ-mqek99vb-dc0d39d5",
+    "sampleId": null,
+    "user": "SMP-mqek99v2-940bac48",
+    "userRole": "Reviewer Mallory 20260615015502243",
+    "previousStatus": null,
+    "newStatus": null,
+    "requestSnapshot": null,
+    "sampleSnapshot": null,
+    "details": {
+      "0": "A",
+      "1": "P",
+      "2": "P",
+      "3": "L",
+      "4": "I",
+      "5": "C",
+      "6": "A",
+      "7": "N",
+      "8": "T",
+      "expectedUser": "APPLICANT",
+      "expectedRole": "Reviewer Bob 20260615015502243"
+    },
+    "result": "FAILURE",
+    "errorMessage": "Identity mismatch: user or role does not match",
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:55:02.347Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqek99wa-48fa8657",
+    "timestamp": "2026-06-15T01:55:02.362Z",
+    "eventType": "REQUEST_CANCELLED",
+    "requestId": "REQ-mqek99vb-dc0d39d5",
+    "sampleId": "SMP-mqek99v2-940bac48",
+    "user": "Reviewer Bob 20260615015502243",
+    "userRole": "APPLICANT",
+    "previousStatus": "PENDING",
+    "newStatus": "CANCELLED",
+    "requestSnapshot": {
+      "id": "REQ-mqek99vb-dc0d39d5",
+      "sampleId": "SMP-mqek99v2-940bac48",
+      "type": "BORROW",
+      "status": "CANCELLED",
+      "applicant": "Reviewer Bob 20260615015502243",
+      "creator": "Reviewer Bob 20260615015502243",
+      "creatorRole": "APPLICANT",
+      "reason": "review cancel",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 2,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:55:02.327Z",
+          "actor": "Reviewer Bob 20260615015502243",
+          "actorRole": "APPLICANT"
+        },
+        {
+          "status": "CANCELLED",
+          "timestamp": "2026-06-15T01:55:02.353Z",
+          "actor": "Reviewer Bob 20260615015502243",
+          "actorRole": "APPLICANT",
+          "reason": "self cancel after bad attempt"
+        }
+      ],
+      "createdAt": "2026-06-15T01:55:02.327Z",
+      "updatedAt": "2026-06-15T01:55:02.354Z"
+    },
+    "sampleSnapshot": null,
+    "details": {
+      "requestType": "BORROW",
+      "cancelReason": "self cancel after bad attempt",
+      "creator": "Reviewer Bob 20260615015502243",
+      "creatorRole": "APPLICANT"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:55:02.362Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqek99wf-03a5a43c",
+    "timestamp": "2026-06-15T01:55:02.367Z",
+    "eventType": "DUPLICATE_OPERATION",
+    "requestId": "REQ-mqek99vb-dc0d39d5",
+    "sampleId": "SMP-mqek99v2-940bac48",
+    "user": "Reviewer Bob 20260615015502243",
+    "userRole": "APPLICANT",
+    "previousStatus": null,
+    "newStatus": null,
+    "requestSnapshot": null,
+    "sampleSnapshot": null,
+    "details": {
+      "attemptedOperation": "CANCEL_REQUEST",
+      "currentStatus": "CANCELLED"
+    },
+    "result": "FAILURE",
+    "errorMessage": "Duplicate operation on non-pending request",
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:55:02.367Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqek99x0-b6476ebb",
+    "timestamp": "2026-06-15T01:55:02.388Z",
+    "eventType": "REQUEST_CREATED",
+    "requestId": "REQ-mqek99ws-d3dc053e",
+    "sampleId": "SMP-mqek99wj-321e6888",
+    "user": "Reviewer RaceUser 20260615015502243",
+    "userRole": "APPLICANT",
+    "previousStatus": null,
+    "newStatus": "PENDING",
+    "requestSnapshot": {
+      "id": "REQ-mqek99ws-d3dc053e",
+      "sampleId": "SMP-mqek99wj-321e6888",
+      "type": "BORROW",
+      "status": "PENDING",
+      "applicant": "Reviewer RaceUser 20260615015502243",
+      "creator": "Reviewer RaceUser 20260615015502243",
+      "creatorRole": "APPLICANT",
+      "reason": "review race",
+      "approvalBasis": null,
+      "approver": null,
+      "approverRole": null,
+      "approveDate": null,
+      "version": 1,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:55:02.380Z",
+          "actor": "Reviewer RaceUser 20260615015502243",
+          "actorRole": "APPLICANT"
+        }
+      ],
+      "createdAt": "2026-06-15T01:55:02.380Z",
+      "updatedAt": "2026-06-15T01:55:02.380Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqek99wj-321e6888",
+      "name": "Reviewer Race 20260615015502243",
+      "category": "review",
+      "status": "AVAILABLE",
+      "currentHolder": null,
+      "storageLocation": "Shelf X",
+      "validityPeriod": "2027-12-31",
+      "version": 1
+    },
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review race",
+      "applicant": "Reviewer RaceUser 20260615015502243",
+      "creator": "Reviewer RaceUser 20260615015502243"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:55:02.388Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqek99xn-bcfcd2d8",
+    "timestamp": "2026-06-15T01:55:02.411Z",
+    "eventType": "REQUEST_APPROVED",
+    "requestId": "REQ-mqek99ws-d3dc053e",
+    "sampleId": "SMP-mqek99wj-321e6888",
+    "user": "Reviewer Librarian",
+    "userRole": "LIBRARIAN",
+    "previousStatus": "PENDING",
+    "newStatus": "APPROVED",
+    "requestSnapshot": {
+      "id": "REQ-mqek99ws-d3dc053e",
+      "sampleId": "SMP-mqek99wj-321e6888",
+      "type": "BORROW",
+      "status": "APPROVED",
+      "applicant": "Reviewer RaceUser 20260615015502243",
+      "creator": "Reviewer RaceUser 20260615015502243",
+      "creatorRole": "APPLICANT",
+      "reason": "review race",
+      "approvalBasis": "race approve",
+      "approver": "Reviewer Librarian",
+      "approverRole": "LIBRARIAN",
+      "approveDate": "2026-06-15T01:55:02.402Z",
+      "version": 2,
+      "statusHistory": [
+        {
+          "status": "PENDING",
+          "timestamp": "2026-06-15T01:55:02.380Z",
+          "actor": "Reviewer RaceUser 20260615015502243",
+          "actorRole": "APPLICANT"
+        },
+        {
+          "status": "APPROVED",
+          "timestamp": "2026-06-15T01:55:02.402Z",
+          "actor": "Reviewer Librarian",
+          "actorRole": "LIBRARIAN"
+        }
+      ],
+      "createdAt": "2026-06-15T01:55:02.380Z",
+      "updatedAt": "2026-06-15T01:55:02.403Z"
+    },
+    "sampleSnapshot": {
+      "id": "SMP-mqek99wj-321e6888",
+      "name": "Reviewer Race 20260615015502243",
+      "category": "review",
+      "status": "BORROWED",
+      "currentHolder": "Reviewer RaceUser 20260615015502243",
+      "storageLocation": "Shelf X",
+      "validityPeriod": "2027-12-31",
+      "version": 2
+    },
+    "details": {
+      "requestType": "BORROW",
+      "approvalBasis": "race approve"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null,
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:55:02.411Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  },
+  {
+    "id": "TLE-mqek99xs-542dc57a",
+    "timestamp": "2026-06-15T01:55:02.416Z",
+    "eventType": "DUPLICATE_OPERATION",
+    "requestId": "REQ-mqek99ws-d3dc053e",
+    "sampleId": "SMP-mqek99wj-321e6888",
+    "user": "Reviewer RaceUser 20260615015502243",
+    "userRole": "APPLICANT",
+    "previousStatus": null,
+    "newStatus": null,
+    "requestSnapshot": null,
+    "sampleSnapshot": null,
+    "details": {
+      "attemptedOperation": "CANCEL_REQUEST",
+      "currentStatus": "APPROVED"
+    },
+    "result": "FAILURE",
+    "errorMessage": "Duplicate operation on non-pending request",
+    "conflictInfo": null,
+    "metadata": {
+      "recordedAt": "2026-06-15T01:55:02.416Z",
+      "auditEnabled": true,
+      "retentionMaxDays": 365,
+      "retentionMaxRecords": 100000
+    }
+  }
+]

@@ -14287,5 +14287,2344 @@
     },
     "result": "SUCCESS",
     "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecsjgw-16e9669a",
+    "timestamp": "2026-06-14T22:26:04.305Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqecsjft-a7a4e3ac",
+    "sampleName": "Test Borrow Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet A, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecsji2-b4dcc268",
+    "timestamp": "2026-06-14T22:26:04.346Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Wang",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqecsjft-a7a4e3ac",
+    "sampleName": "Test Borrow Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet A, Shelf 1",
+    "requestId": "REQ-mqecsjhj-b8a1e515",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Need for research"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecul6f-17339d4a",
+    "timestamp": "2026-06-14T22:27:39.831Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqecul4d-40032623",
+    "sampleName": "Test Borrow Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet A, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecul89-a2986107",
+    "timestamp": "2026-06-14T22:27:39.898Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Wang",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqecul4d-40032623",
+    "sampleName": "Test Borrow Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet A, Shelf 1",
+    "requestId": "REQ-mqecul7p-0174a023",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Need for research"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecula3-5a3d61f6",
+    "timestamp": "2026-06-14T22:27:39.963Z",
+    "action": "SAMPLE_BORROWED",
+    "user": "Researcher Wang",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqecul4d-40032623",
+    "sampleName": "Test Borrow Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet A, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "borrower": "Researcher Wang",
+      "dueDate": "2026-06-21T22:27:39.877Z"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeculbg-0775b95c",
+    "timestamp": "2026-06-14T22:27:40.012Z",
+    "action": "REQUEST_APPROVED",
+    "user": "Dr. Li",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqecul4d-40032623",
+    "sampleName": "Test Borrow Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet A, Shelf 1",
+    "requestId": "REQ-mqecul7p-0174a023",
+    "approvalBasis": "Research purpose verified",
+    "details": {
+      "requestType": "BORROW"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeculd5-12f92630",
+    "timestamp": "2026-06-14T22:27:40.073Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqeculcp-1c23adcc",
+    "sampleName": "Test Destruction Sample",
+    "validityPeriod": "2025-01-01",
+    "storageLocation": "Freezer B, Shelf 2",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeculec-96490ffe",
+    "timestamp": "2026-06-14T22:27:40.116Z",
+    "action": "REQUEST_CREATED",
+    "user": "Dr. Li",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqeculcp-1c23adcc",
+    "sampleName": "Test Destruction Sample",
+    "validityPeriod": "2025-01-01",
+    "storageLocation": "Freezer B, Shelf 2",
+    "requestId": "REQ-mqeculdw-06a65c4c",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Sample expired"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeculgn-4177c870",
+    "timestamp": "2026-06-14T22:27:40.199Z",
+    "action": "SAMPLE_DESTROYED",
+    "user": "Prof. Chen",
+    "role": "SUPERVISOR",
+    "sampleId": "SMP-mqeculcp-1c23adcc",
+    "sampleName": "Test Destruction Sample",
+    "validityPeriod": "2025-01-01",
+    "storageLocation": "Freezer B, Shelf 2",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Marked for destruction"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeculi5-b8340bb0",
+    "timestamp": "2026-06-14T22:27:40.253Z",
+    "action": "SAMPLE_DESTROYED",
+    "user": "Prof. Chen",
+    "role": "SUPERVISOR",
+    "sampleId": "SMP-mqeculcp-1c23adcc",
+    "sampleName": "Test Destruction Sample",
+    "validityPeriod": "2025-01-01",
+    "storageLocation": "Freezer B, Shelf 2",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Final destruction"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeculji-6eae65f5",
+    "timestamp": "2026-06-14T22:27:40.302Z",
+    "action": "REQUEST_APPROVED",
+    "user": "Prof. Chen",
+    "role": "SUPERVISOR",
+    "sampleId": "SMP-mqeculcp-1c23adcc",
+    "sampleName": "Test Destruction Sample",
+    "validityPeriod": "2025-01-01",
+    "storageLocation": "Freezer B, Shelf 2",
+    "requestId": "REQ-mqeculdw-06a65c4c",
+    "approvalBasis": "Confirmed expired",
+    "details": {
+      "requestType": "DESTRUCTION"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeculkv-32b7113d",
+    "timestamp": "2026-06-14T22:27:40.351Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqeculkg-d5bf9c46",
+    "sampleName": "Test Cancel Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet C, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeculmd-95d01d94",
+    "timestamp": "2026-06-14T22:27:40.405Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Liu",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqeculkg-d5bf9c46",
+    "sampleName": "Test Cancel Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet C, Shelf 1",
+    "requestId": "REQ-mqecullp-510063e5",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Need for analysis"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeculnw-e80f68a1",
+    "timestamp": "2026-06-14T22:27:40.460Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Researcher Liu",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqeculkg-d5bf9c46",
+    "sampleName": "Test Cancel Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet C, Shelf 1",
+    "requestId": "REQ-mqecullp-510063e5",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "cancelReason": "Changed plan",
+      "previousStatus": "PENDING",
+      "applicant": "Researcher Liu",
+      "creator": "Researcher Liu",
+      "creatorRole": "APPLICANT",
+      "verifiedIdentity": {
+        "user": "Researcher Liu",
+        "userRole": "APPLICANT",
+        "creator": "Researcher Liu",
+        "creatorRole": "APPLICANT",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeculpx-4ea3164c",
+    "timestamp": "2026-06-14T22:27:40.533Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqeculp6-aea76c12",
+    "sampleName": "Test Unauthorized Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet D, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeculr8-0f7242ec",
+    "timestamp": "2026-06-14T22:27:40.580Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Wang",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqeculp6-aea76c12",
+    "sampleName": "Test Unauthorized Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet D, Shelf 1",
+    "requestId": "REQ-mqeculqp-38e7213f",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Research"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeculsw-ece1adf2",
+    "timestamp": "2026-06-14T22:27:40.640Z",
+    "action": "ERROR_OCCURRED",
+    "user": "Researcher Wang",
+    "role": "LIBRARIAN",
+    "sampleId": null,
+    "sampleName": null,
+    "validityPeriod": null,
+    "storageLocation": null,
+    "requestId": "REQ-mqeculqp-38e7213f",
+    "approvalBasis": null,
+    "details": {
+      "action": "CANCEL_REQUEST",
+      "requestId": "REQ-mqeculqp-38e7213f",
+      "requestCreator": "Researcher Wang",
+      "requestCreatorRole": "APPLICANT",
+      "reason": "Role mismatch: user role 'LIBRARIAN' does not match creator's role 'APPLICANT'. Only the original creator can cancel this request"
+    },
+    "result": "FAILURE",
+    "errorMessage": "Role mismatch: user role 'LIBRARIAN' does not match creator's role 'APPLICANT'. Only the original creator can cancel this request"
+  },
+  {
+    "id": "AUDIT-mqecultn-62ea34e2",
+    "timestamp": "2026-06-14T22:27:40.667Z",
+    "action": "ERROR_OCCURRED",
+    "user": "Different User",
+    "role": "APPLICANT",
+    "sampleId": null,
+    "sampleName": null,
+    "validityPeriod": null,
+    "storageLocation": null,
+    "requestId": "REQ-mqeculqp-38e7213f",
+    "approvalBasis": null,
+    "details": {
+      "action": "CANCEL_REQUEST",
+      "requestId": "REQ-mqeculqp-38e7213f",
+      "requestCreator": "Researcher Wang",
+      "requestCreatorRole": "APPLICANT",
+      "reason": "Name mismatch: cannot impersonate creator. Provided user 'Different User' does not match creator 'Researcher Wang'"
+    },
+    "result": "FAILURE",
+    "errorMessage": "Name mismatch: cannot impersonate creator. Provided user 'Different User' does not match creator 'Researcher Wang'"
+  },
+  {
+    "id": "AUDIT-mqecvtkp-6fca580a",
+    "timestamp": "2026-06-14T22:28:37.369Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqecvtit-098a59f6",
+    "sampleName": "Test Borrow Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet A, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecvtm3-fe8a5cf1",
+    "timestamp": "2026-06-14T22:28:37.419Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Wang",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqecvtit-098a59f6",
+    "sampleName": "Test Borrow Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet A, Shelf 1",
+    "requestId": "REQ-mqecvtll-14ee14ad",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Need for research"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecvtnn-cd940e3d",
+    "timestamp": "2026-06-14T22:28:37.475Z",
+    "action": "SAMPLE_BORROWED",
+    "user": "Researcher Wang",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqecvtit-098a59f6",
+    "sampleName": "Test Borrow Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet A, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "borrower": "Researcher Wang",
+      "dueDate": "2026-06-21T22:28:37.401Z"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecvtom-7e4ce7f5",
+    "timestamp": "2026-06-14T22:28:37.511Z",
+    "action": "REQUEST_APPROVED",
+    "user": "Dr. Li",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqecvtit-098a59f6",
+    "sampleName": "Test Borrow Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet A, Shelf 1",
+    "requestId": "REQ-mqecvtll-14ee14ad",
+    "approvalBasis": "Research purpose verified",
+    "details": {
+      "requestType": "BORROW"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecvtqn-582caefb",
+    "timestamp": "2026-06-14T22:28:37.583Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqecvtq3-02a624e1",
+    "sampleName": "Test Destruction Sample",
+    "validityPeriod": "2025-01-01",
+    "storageLocation": "Freezer B, Shelf 2",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecvts1-673b2d91",
+    "timestamp": "2026-06-14T22:28:37.633Z",
+    "action": "REQUEST_CREATED",
+    "user": "Dr. Li",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqecvtq3-02a624e1",
+    "sampleName": "Test Destruction Sample",
+    "validityPeriod": "2025-01-01",
+    "storageLocation": "Freezer B, Shelf 2",
+    "requestId": "REQ-mqecvtrf-72b008a4",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Sample expired"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecvtuj-6d6d217b",
+    "timestamp": "2026-06-14T22:28:37.723Z",
+    "action": "SAMPLE_DESTROYED",
+    "user": "Prof. Chen",
+    "role": "SUPERVISOR",
+    "sampleId": "SMP-mqecvtq3-02a624e1",
+    "sampleName": "Test Destruction Sample",
+    "validityPeriod": "2025-01-01",
+    "storageLocation": "Freezer B, Shelf 2",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Marked for destruction"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecvtvj-abd0bd02",
+    "timestamp": "2026-06-14T22:28:37.759Z",
+    "action": "SAMPLE_DESTROYED",
+    "user": "Prof. Chen",
+    "role": "SUPERVISOR",
+    "sampleId": "SMP-mqecvtq3-02a624e1",
+    "sampleName": "Test Destruction Sample",
+    "validityPeriod": "2025-01-01",
+    "storageLocation": "Freezer B, Shelf 2",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Final destruction"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecvtwl-2be33138",
+    "timestamp": "2026-06-14T22:28:37.797Z",
+    "action": "REQUEST_APPROVED",
+    "user": "Prof. Chen",
+    "role": "SUPERVISOR",
+    "sampleId": "SMP-mqecvtq3-02a624e1",
+    "sampleName": "Test Destruction Sample",
+    "validityPeriod": "2025-01-01",
+    "storageLocation": "Freezer B, Shelf 2",
+    "requestId": "REQ-mqecvtrf-72b008a4",
+    "approvalBasis": "Confirmed expired",
+    "details": {
+      "requestType": "DESTRUCTION"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecvtye-e5fc9969",
+    "timestamp": "2026-06-14T22:28:37.862Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqecvtxx-4d25d41b",
+    "sampleName": "Test Cancel Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet C, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecvtzz-e9ec3a48",
+    "timestamp": "2026-06-14T22:28:37.919Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Liu",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqecvtxx-4d25d41b",
+    "sampleName": "Test Cancel Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet C, Shelf 1",
+    "requestId": "REQ-mqecvtzg-96301e67",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Need for analysis"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecvu21-cb304c8b",
+    "timestamp": "2026-06-14T22:28:37.993Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Researcher Liu",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqecvtxx-4d25d41b",
+    "sampleName": "Test Cancel Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet C, Shelf 1",
+    "requestId": "REQ-mqecvtzg-96301e67",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "cancelReason": "Changed plan",
+      "previousStatus": "PENDING",
+      "applicant": "Researcher Liu",
+      "creator": "Researcher Liu",
+      "creatorRole": "APPLICANT",
+      "verifiedIdentity": {
+        "user": "Researcher Liu",
+        "userRole": "APPLICANT",
+        "creator": "Researcher Liu",
+        "creatorRole": "APPLICANT",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecvu43-428a8bf9",
+    "timestamp": "2026-06-14T22:28:38.067Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqecvu3j-f1afa1a8",
+    "sampleName": "Test Unauthorized Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet D, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecvu5h-fd0be899",
+    "timestamp": "2026-06-14T22:28:38.117Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Wang",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqecvu3j-f1afa1a8",
+    "sampleName": "Test Unauthorized Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet D, Shelf 1",
+    "requestId": "REQ-mqecvu4p-aa6d8fb1",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Research"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecvu6l-c7c0349d",
+    "timestamp": "2026-06-14T22:28:38.157Z",
+    "action": "ERROR_OCCURRED",
+    "user": "Researcher Wang",
+    "role": "LIBRARIAN",
+    "sampleId": null,
+    "sampleName": null,
+    "validityPeriod": null,
+    "storageLocation": null,
+    "requestId": "REQ-mqecvu4p-aa6d8fb1",
+    "approvalBasis": null,
+    "details": {
+      "action": "CANCEL_REQUEST",
+      "requestId": "REQ-mqecvu4p-aa6d8fb1",
+      "requestCreator": "Researcher Wang",
+      "requestCreatorRole": "APPLICANT",
+      "reason": "Role mismatch: user role 'LIBRARIAN' does not match creator's role 'APPLICANT'. Only the original creator can cancel this request"
+    },
+    "result": "FAILURE",
+    "errorMessage": "Role mismatch: user role 'LIBRARIAN' does not match creator's role 'APPLICANT'. Only the original creator can cancel this request"
+  },
+  {
+    "id": "AUDIT-mqecvu7p-1e556314",
+    "timestamp": "2026-06-14T22:28:38.197Z",
+    "action": "ERROR_OCCURRED",
+    "user": "Different User",
+    "role": "APPLICANT",
+    "sampleId": null,
+    "sampleName": null,
+    "validityPeriod": null,
+    "storageLocation": null,
+    "requestId": "REQ-mqecvu4p-aa6d8fb1",
+    "approvalBasis": null,
+    "details": {
+      "action": "CANCEL_REQUEST",
+      "requestId": "REQ-mqecvu4p-aa6d8fb1",
+      "requestCreator": "Researcher Wang",
+      "requestCreatorRole": "APPLICANT",
+      "reason": "Name mismatch: cannot impersonate creator. Provided user 'Different User' does not match creator 'Researcher Wang'"
+    },
+    "result": "FAILURE",
+    "errorMessage": "Name mismatch: cannot impersonate creator. Provided user 'Different User' does not match creator 'Researcher Wang'"
+  },
+  {
+    "id": "AUDIT-mqecvumu-9ecd2629",
+    "timestamp": "2026-06-14T22:28:38.742Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqecvumd-795634c8",
+    "sampleName": "Test Duplicate Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet E, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecvuok-b9f0903a",
+    "timestamp": "2026-06-14T22:28:38.804Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Wang",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqecvumd-795634c8",
+    "sampleName": "Test Duplicate Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet E, Shelf 1",
+    "requestId": "REQ-mqecvuns-07f43139",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Research"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecvuq5-2f37d7d5",
+    "timestamp": "2026-06-14T22:28:38.861Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Researcher Wang",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqecvumd-795634c8",
+    "sampleName": "Test Duplicate Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet E, Shelf 1",
+    "requestId": "REQ-mqecvuns-07f43139",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "cancelReason": "First cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Researcher Wang",
+      "creator": "Researcher Wang",
+      "creatorRole": "APPLICANT",
+      "verifiedIdentity": {
+        "user": "Researcher Wang",
+        "userRole": "APPLICANT",
+        "creator": "Researcher Wang",
+        "creatorRole": "APPLICANT",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecvv6j-2c8e04f8",
+    "timestamp": "2026-06-14T22:28:39.451Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqecvv62-f7bcf9c3",
+    "sampleName": "Test Concurrent Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet F, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecvv8l-9cf0d982",
+    "timestamp": "2026-06-14T22:28:39.526Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Wang",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqecvv62-f7bcf9c3",
+    "sampleName": "Test Concurrent Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet F, Shelf 1",
+    "requestId": "REQ-mqecvv81-8ef616ad",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Concurrent test"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecvvap-b4d5efc0",
+    "timestamp": "2026-06-14T22:28:39.601Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Researcher Wang",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqecvv62-f7bcf9c3",
+    "sampleName": "Test Concurrent Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet F, Shelf 1",
+    "requestId": "REQ-mqecvv81-8ef616ad",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "cancelReason": "Creator cancels",
+      "previousStatus": "PENDING",
+      "applicant": "Researcher Wang",
+      "creator": "Researcher Wang",
+      "creatorRole": "APPLICANT",
+      "verifiedIdentity": {
+        "user": "Researcher Wang",
+        "userRole": "APPLICANT",
+        "creator": "Researcher Wang",
+        "creatorRole": "APPLICANT",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecvyzh-4cd4ff7d",
+    "timestamp": "2026-06-14T22:28:44.381Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqecvyyz-19e544ac",
+    "sampleName": "Test Disabled Audit Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet G, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecvz18-0aaa852f",
+    "timestamp": "2026-06-14T22:28:44.444Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Wang",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqecvyyz-19e544ac",
+    "sampleName": "Test Disabled Audit Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet G, Shelf 1",
+    "requestId": "REQ-mqecvz0h-54a29230",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Audit disabled test"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecx67b-dd8675a5",
+    "timestamp": "2026-06-14T22:29:40.391Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqecx669-16fd107b",
+    "sampleName": "Test Borrow Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet A, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecx68e-24634f94",
+    "timestamp": "2026-06-14T22:29:40.430Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Wang",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqecx669-16fd107b",
+    "sampleName": "Test Borrow Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet A, Shelf 1",
+    "requestId": "REQ-mqecx67y-bdfb38eb",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Need for research"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecx6a4-27cc2433",
+    "timestamp": "2026-06-14T22:29:40.493Z",
+    "action": "SAMPLE_BORROWED",
+    "user": "Researcher Wang",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqecx669-16fd107b",
+    "sampleName": "Test Borrow Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet A, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "borrower": "Researcher Wang",
+      "dueDate": "2026-06-21T22:29:40.414Z"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecx6b7-fb9b9572",
+    "timestamp": "2026-06-14T22:29:40.531Z",
+    "action": "REQUEST_APPROVED",
+    "user": "Dr. Li",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqecx669-16fd107b",
+    "sampleName": "Test Borrow Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet A, Shelf 1",
+    "requestId": "REQ-mqecx67y-bdfb38eb",
+    "approvalBasis": "Research purpose verified",
+    "details": {
+      "requestType": "BORROW"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecx6cw-01e0ef58",
+    "timestamp": "2026-06-14T22:29:40.592Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqecx6ca-16696b0a",
+    "sampleName": "Test Destruction Sample",
+    "validityPeriod": "2025-01-01",
+    "storageLocation": "Freezer B, Shelf 2",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecx6ea-4b4a27fb",
+    "timestamp": "2026-06-14T22:29:40.642Z",
+    "action": "REQUEST_CREATED",
+    "user": "Dr. Li",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqecx6ca-16696b0a",
+    "sampleName": "Test Destruction Sample",
+    "validityPeriod": "2025-01-01",
+    "storageLocation": "Freezer B, Shelf 2",
+    "requestId": "REQ-mqecx6dn-fa595528",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "DESTRUCTION",
+      "reason": "Sample expired"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecx6gh-eea3c185",
+    "timestamp": "2026-06-14T22:29:40.721Z",
+    "action": "SAMPLE_DESTROYED",
+    "user": "Prof. Chen",
+    "role": "SUPERVISOR",
+    "sampleId": "SMP-mqecx6ca-16696b0a",
+    "sampleName": "Test Destruction Sample",
+    "validityPeriod": "2025-01-01",
+    "storageLocation": "Freezer B, Shelf 2",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Marked for destruction"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecx6hp-32dba2f0",
+    "timestamp": "2026-06-14T22:29:40.765Z",
+    "action": "SAMPLE_DESTROYED",
+    "user": "Prof. Chen",
+    "role": "SUPERVISOR",
+    "sampleId": "SMP-mqecx6ca-16696b0a",
+    "sampleName": "Test Destruction Sample",
+    "validityPeriod": "2025-01-01",
+    "storageLocation": "Freezer B, Shelf 2",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Final destruction"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecx6j8-fb53a261",
+    "timestamp": "2026-06-14T22:29:40.820Z",
+    "action": "REQUEST_APPROVED",
+    "user": "Prof. Chen",
+    "role": "SUPERVISOR",
+    "sampleId": "SMP-mqecx6ca-16696b0a",
+    "sampleName": "Test Destruction Sample",
+    "validityPeriod": "2025-01-01",
+    "storageLocation": "Freezer B, Shelf 2",
+    "requestId": "REQ-mqecx6dn-fa595528",
+    "approvalBasis": "Confirmed expired",
+    "details": {
+      "requestType": "DESTRUCTION"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecx6ko-dfcfb017",
+    "timestamp": "2026-06-14T22:29:40.872Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqecx6ka-e3bde81a",
+    "sampleName": "Test Cancel Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet C, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecx6m1-15e07a53",
+    "timestamp": "2026-06-14T22:29:40.921Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Liu",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqecx6ka-e3bde81a",
+    "sampleName": "Test Cancel Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet C, Shelf 1",
+    "requestId": "REQ-mqecx6l8-58e98747",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Need for analysis"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecx6o6-48eb87e2",
+    "timestamp": "2026-06-14T22:29:40.998Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Researcher Liu",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqecx6ka-e3bde81a",
+    "sampleName": "Test Cancel Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet C, Shelf 1",
+    "requestId": "REQ-mqecx6l8-58e98747",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "cancelReason": "Changed plan",
+      "previousStatus": "PENDING",
+      "applicant": "Researcher Liu",
+      "creator": "Researcher Liu",
+      "creatorRole": "APPLICANT",
+      "verifiedIdentity": {
+        "user": "Researcher Liu",
+        "userRole": "APPLICANT",
+        "creator": "Researcher Liu",
+        "creatorRole": "APPLICANT",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecx6pq-64b368b8",
+    "timestamp": "2026-06-14T22:29:41.054Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqecx6pa-88780026",
+    "sampleName": "Test Unauthorized Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet D, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecx6rb-d7ee0c80",
+    "timestamp": "2026-06-14T22:29:41.111Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Wang",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqecx6pa-88780026",
+    "sampleName": "Test Unauthorized Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet D, Shelf 1",
+    "requestId": "REQ-mqecx6qn-40a4431f",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Research"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecx6sb-aff3e2d4",
+    "timestamp": "2026-06-14T22:29:41.147Z",
+    "action": "ERROR_OCCURRED",
+    "user": "Researcher Wang",
+    "role": "LIBRARIAN",
+    "sampleId": null,
+    "sampleName": null,
+    "validityPeriod": null,
+    "storageLocation": null,
+    "requestId": "REQ-mqecx6qn-40a4431f",
+    "approvalBasis": null,
+    "details": {
+      "action": "CANCEL_REQUEST",
+      "requestId": "REQ-mqecx6qn-40a4431f",
+      "requestCreator": "Researcher Wang",
+      "requestCreatorRole": "APPLICANT",
+      "reason": "Role mismatch: user role 'LIBRARIAN' does not match creator's role 'APPLICANT'. Only the original creator can cancel this request"
+    },
+    "result": "FAILURE",
+    "errorMessage": "Role mismatch: user role 'LIBRARIAN' does not match creator's role 'APPLICANT'. Only the original creator can cancel this request"
+  },
+  {
+    "id": "AUDIT-mqecx6tb-e1b833bd",
+    "timestamp": "2026-06-14T22:29:41.183Z",
+    "action": "ERROR_OCCURRED",
+    "user": "Different User",
+    "role": "APPLICANT",
+    "sampleId": null,
+    "sampleName": null,
+    "validityPeriod": null,
+    "storageLocation": null,
+    "requestId": "REQ-mqecx6qn-40a4431f",
+    "approvalBasis": null,
+    "details": {
+      "action": "CANCEL_REQUEST",
+      "requestId": "REQ-mqecx6qn-40a4431f",
+      "requestCreator": "Researcher Wang",
+      "requestCreatorRole": "APPLICANT",
+      "reason": "Name mismatch: cannot impersonate creator. Provided user 'Different User' does not match creator 'Researcher Wang'"
+    },
+    "result": "FAILURE",
+    "errorMessage": "Name mismatch: cannot impersonate creator. Provided user 'Different User' does not match creator 'Researcher Wang'"
+  },
+  {
+    "id": "AUDIT-mqecx791-b2d381a8",
+    "timestamp": "2026-06-14T22:29:41.749Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqecx77u-7fc8ade2",
+    "sampleName": "Test Duplicate Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet E, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecx7ak-40b69ebb",
+    "timestamp": "2026-06-14T22:29:41.804Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Wang",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqecx77u-7fc8ade2",
+    "sampleName": "Test Duplicate Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet E, Shelf 1",
+    "requestId": "REQ-mqecx7a2-b85b325d",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Research"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecx7c2-3d4962b1",
+    "timestamp": "2026-06-14T22:29:41.858Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Researcher Wang",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqecx77u-7fc8ade2",
+    "sampleName": "Test Duplicate Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet E, Shelf 1",
+    "requestId": "REQ-mqecx7a2-b85b325d",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "cancelReason": "First cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Researcher Wang",
+      "creator": "Researcher Wang",
+      "creatorRole": "APPLICANT",
+      "verifiedIdentity": {
+        "user": "Researcher Wang",
+        "userRole": "APPLICANT",
+        "creator": "Researcher Wang",
+        "creatorRole": "APPLICANT",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecx7sl-d75931ef",
+    "timestamp": "2026-06-14T22:29:42.453Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqecx7r9-dae80cd2",
+    "sampleName": "Test Concurrent Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet F, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecx7tp-6306497f",
+    "timestamp": "2026-06-14T22:29:42.493Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Wang",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqecx7r9-dae80cd2",
+    "sampleName": "Test Concurrent Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet F, Shelf 1",
+    "requestId": "REQ-mqecx7t9-503a08ee",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Concurrent test"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecx7v9-566c9596",
+    "timestamp": "2026-06-14T22:29:42.549Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Researcher Wang",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqecx7r9-dae80cd2",
+    "sampleName": "Test Concurrent Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet F, Shelf 1",
+    "requestId": "REQ-mqecx7t9-503a08ee",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "cancelReason": "Creator cancels",
+      "previousStatus": "PENDING",
+      "applicant": "Researcher Wang",
+      "creator": "Researcher Wang",
+      "creatorRole": "APPLICANT",
+      "verifiedIdentity": {
+        "user": "Researcher Wang",
+        "userRole": "APPLICANT",
+        "creator": "Researcher Wang",
+        "creatorRole": "APPLICANT",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecxbl9-eb206208",
+    "timestamp": "2026-06-14T22:29:47.373Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Dr. Zhang",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqecxbkb-e35a0f59",
+    "sampleName": "Test Disabled Audit Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet G, Shelf 1",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqecxbmb-3bfaca81",
+    "timestamp": "2026-06-14T22:29:47.411Z",
+    "action": "REQUEST_CREATED",
+    "user": "Researcher Wang",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqecxbkb-e35a0f59",
+    "sampleName": "Test Disabled Audit Sample",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Cabinet G, Shelf 1",
+    "requestId": "REQ-mqecxblv-4b5a5751",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "Audit disabled test"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeimr5j-5b4e9666",
+    "timestamp": "2026-06-15T01:09:32.023Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqeimr4d-fe0ff303",
+    "sampleName": "Review Sample Success 2a4d37b7",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Review Rack A",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeimr7t-e1ec9ea8",
+    "timestamp": "2026-06-15T01:09:32.105Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Applicant",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqeimr4d-fe0ff303",
+    "sampleName": "Review Sample Success 2a4d37b7",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Review Rack A",
+    "requestId": "REQ-mqeimr79-4ca498a8",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review success chain"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeimr9u-091e74b1",
+    "timestamp": "2026-06-15T01:09:32.178Z",
+    "action": "SAMPLE_BORROWED",
+    "user": "Reviewer Applicant",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqeimr4d-fe0ff303",
+    "sampleName": "Review Sample Success 2a4d37b7",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Review Rack A",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "borrower": "Reviewer Applicant",
+      "dueDate": "2026-06-20T01:09:32.085Z"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeimrar-5a3a9a23",
+    "timestamp": "2026-06-15T01:09:32.211Z",
+    "action": "REQUEST_APPROVED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqeimr4d-fe0ff303",
+    "sampleName": "Review Sample Success 2a4d37b7",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Review Rack A",
+    "requestId": "REQ-mqeimr79-4ca498a8",
+    "approvalBasis": "review approval",
+    "details": {
+      "requestType": "BORROW"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeimrff-e3ee426a",
+    "timestamp": "2026-06-15T01:09:32.379Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqeimrez-371d487a",
+    "sampleName": "Review Sample Cancel 2a4d37b7",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Review Rack B",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeimrhh-44362b92",
+    "timestamp": "2026-06-15T01:09:32.453Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Owner",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqeimrez-371d487a",
+    "sampleName": "Review Sample Cancel 2a4d37b7",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Review Rack B",
+    "requestId": "REQ-mqeimrgi-98570589",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review cancel chain"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeimrk2-690f505f",
+    "timestamp": "2026-06-15T01:09:32.546Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Owner",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqeimrez-371d487a",
+    "sampleName": "Review Sample Cancel 2a4d37b7",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Review Rack B",
+    "requestId": "REQ-mqeimrgi-98570589",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "cancelReason": "review cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Owner",
+      "creator": "Reviewer Owner",
+      "creatorRole": "APPLICANT",
+      "verifiedIdentity": {
+        "user": "Reviewer Owner",
+        "userRole": "APPLICANT",
+        "creator": "Reviewer Owner",
+        "creatorRole": "APPLICANT",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeimrxx-77f968c3",
+    "timestamp": "2026-06-15T01:09:33.045Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqeimrwz-1715fc3a",
+    "sampleName": "Review Sample Identity 2a4d37b7",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Review Rack C",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeimrze-ac1c6002",
+    "timestamp": "2026-06-15T01:09:33.098Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Real Owner",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqeimrwz-1715fc3a",
+    "sampleName": "Review Sample Identity 2a4d37b7",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Review Rack C",
+    "requestId": "REQ-mqeimryy-a2a34644",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review identity chain"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeims0s-d6d02a78",
+    "timestamp": "2026-06-15T01:09:33.148Z",
+    "action": "ERROR_OCCURRED",
+    "user": "Intruder",
+    "role": "APPLICANT",
+    "sampleId": null,
+    "sampleName": null,
+    "validityPeriod": null,
+    "storageLocation": null,
+    "requestId": "REQ-mqeimryy-a2a34644",
+    "approvalBasis": null,
+    "details": {
+      "action": "CANCEL_REQUEST",
+      "requestId": "REQ-mqeimryy-a2a34644",
+      "requestCreator": "Reviewer Real Owner",
+      "requestCreatorRole": "APPLICANT",
+      "reason": "Name mismatch: cannot impersonate creator. Provided user 'Intruder' does not match creator 'Reviewer Real Owner'"
+    },
+    "result": "FAILURE",
+    "errorMessage": "Name mismatch: cannot impersonate creator. Provided user 'Intruder' does not match creator 'Reviewer Real Owner'"
+  },
+  {
+    "id": "AUDIT-mqeimsce-7dd68d1c",
+    "timestamp": "2026-06-15T01:09:33.566Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqeimsbh-07418f32",
+    "sampleName": "Review Sample Race 2a4d37b7",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Review Rack D",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeimsds-63a42e03",
+    "timestamp": "2026-06-15T01:09:33.616Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Racer",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqeimsbh-07418f32",
+    "sampleName": "Review Sample Race 2a4d37b7",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Review Rack D",
+    "requestId": "REQ-mqeimsdd-42520013",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review race chain"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeimstc-913f0a4b",
+    "timestamp": "2026-06-15T01:09:34.176Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Racer",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqeimsbh-07418f32",
+    "sampleName": "Review Sample Race 2a4d37b7",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Review Rack D",
+    "requestId": "REQ-mqeimsdd-42520013",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "cancelReason": "cancel in race",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Racer",
+      "creator": "Reviewer Racer",
+      "creatorRole": "APPLICANT",
+      "verifiedIdentity": {
+        "user": "Reviewer Racer",
+        "userRole": "APPLICANT",
+        "creator": "Reviewer Racer",
+        "creatorRole": "APPLICANT",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeisk5v-b9e3d9c2",
+    "timestamp": "2026-06-15T01:14:02.899Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqeisk4s-14d2c63b",
+    "sampleName": "Review Sample Success 556841ab",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Review Rack A",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeisk84-6f75af4b",
+    "timestamp": "2026-06-15T01:14:02.980Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Applicant",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqeisk4s-14d2c63b",
+    "sampleName": "Review Sample Success 556841ab",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Review Rack A",
+    "requestId": "REQ-mqeisk7m-1ee549a9",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review success chain"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeiska1-21fdd60b",
+    "timestamp": "2026-06-15T01:14:03.049Z",
+    "action": "SAMPLE_BORROWED",
+    "user": "Reviewer Applicant",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqeisk4s-14d2c63b",
+    "sampleName": "Review Sample Success 556841ab",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Review Rack A",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "borrower": "Reviewer Applicant",
+      "dueDate": "2026-06-20T01:14:02.962Z"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeiskaz-e286f092",
+    "timestamp": "2026-06-15T01:14:03.083Z",
+    "action": "REQUEST_APPROVED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqeisk4s-14d2c63b",
+    "sampleName": "Review Sample Success 556841ab",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Review Rack A",
+    "requestId": "REQ-mqeisk7m-1ee549a9",
+    "approvalBasis": "review approval",
+    "details": {
+      "requestType": "BORROW"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeiskdn-32790499",
+    "timestamp": "2026-06-15T01:14:03.179Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqeiskd8-58af474d",
+    "sampleName": "Review Sample Cancel 556841ab",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Review Rack B",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeiskf0-88177b9b",
+    "timestamp": "2026-06-15T01:14:03.228Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Owner",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqeiskd8-58af474d",
+    "sampleName": "Review Sample Cancel 556841ab",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Review Rack B",
+    "requestId": "REQ-mqeiskem-566dc6a0",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review cancel chain"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeiskh2-7609ef09",
+    "timestamp": "2026-06-15T01:14:03.302Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Owner",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqeiskd8-58af474d",
+    "sampleName": "Review Sample Cancel 556841ab",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Review Rack B",
+    "requestId": "REQ-mqeiskem-566dc6a0",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "cancelReason": "review cancel",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Owner",
+      "creator": "Reviewer Owner",
+      "creatorRole": "APPLICANT",
+      "verifiedIdentity": {
+        "user": "Reviewer Owner",
+        "userRole": "APPLICANT",
+        "creator": "Reviewer Owner",
+        "creatorRole": "APPLICANT",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeisktx-3a08396d",
+    "timestamp": "2026-06-15T01:14:03.765Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqeisksz-9f2a955d",
+    "sampleName": "Review Sample Identity 556841ab",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Review Rack C",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeiskvc-3f6d3d56",
+    "timestamp": "2026-06-15T01:14:03.816Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Real Owner",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqeisksz-9f2a955d",
+    "sampleName": "Review Sample Identity 556841ab",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Review Rack C",
+    "requestId": "REQ-mqeiskux-d9034970",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review identity chain"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeiskwp-3c7acbf9",
+    "timestamp": "2026-06-15T01:14:03.865Z",
+    "action": "ERROR_OCCURRED",
+    "user": "Intruder",
+    "role": "APPLICANT",
+    "sampleId": null,
+    "sampleName": null,
+    "validityPeriod": null,
+    "storageLocation": null,
+    "requestId": "REQ-mqeiskux-d9034970",
+    "approvalBasis": null,
+    "details": {
+      "action": "CANCEL_REQUEST",
+      "requestId": "REQ-mqeiskux-d9034970",
+      "requestCreator": "Reviewer Real Owner",
+      "requestCreatorRole": "APPLICANT",
+      "reason": "Name mismatch: cannot impersonate creator. Provided user 'Intruder' does not match creator 'Reviewer Real Owner'"
+    },
+    "result": "FAILURE",
+    "errorMessage": "Name mismatch: cannot impersonate creator. Provided user 'Intruder' does not match creator 'Reviewer Real Owner'"
+  },
+  {
+    "id": "AUDIT-mqeisl7m-801f171a",
+    "timestamp": "2026-06-15T01:14:04.258Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqeisl6n-98c4a022",
+    "sampleName": "Review Sample Race 556841ab",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Review Rack D",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeisl92-8aef946c",
+    "timestamp": "2026-06-15T01:14:04.310Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Racer",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqeisl6n-98c4a022",
+    "sampleName": "Review Sample Race 556841ab",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Review Rack D",
+    "requestId": "REQ-mqeisl8m-594d22a0",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review race chain"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqeislnn-719b5f46",
+    "timestamp": "2026-06-15T01:14:04.835Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Racer",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqeisl6n-98c4a022",
+    "sampleName": "Review Sample Race 556841ab",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Review Rack D",
+    "requestId": "REQ-mqeisl8m-594d22a0",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "cancelReason": "cancel in race",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Racer",
+      "creator": "Reviewer Racer",
+      "creatorRole": "APPLICANT",
+      "verifiedIdentity": {
+        "user": "Reviewer Racer",
+        "userRole": "APPLICANT",
+        "creator": "Reviewer Racer",
+        "creatorRole": "APPLICANT",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqek7pvo-cc18fc0c",
+    "timestamp": "2026-06-15T01:53:49.764Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqek7pvm-c8fc0b20",
+    "sampleName": "Reviewer Success 20260615095349669",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Shelf R",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqek7pw6-f58ae2fc",
+    "timestamp": "2026-06-15T01:53:49.782Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Alice 20260615095349669",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqek7pvm-c8fc0b20",
+    "sampleName": "Reviewer Success 20260615095349669",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Shelf R",
+    "requestId": "REQ-mqek7pw3-c2cfc58f",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review success chain"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqek7pwp-0bed12b9",
+    "timestamp": "2026-06-15T01:53:49.801Z",
+    "action": "SAMPLE_BORROWED",
+    "user": "Reviewer Alice 20260615095349669",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqek7pvm-c8fc0b20",
+    "sampleName": "Reviewer Success 20260615095349669",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Shelf R",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "borrower": "Reviewer Alice 20260615095349669",
+      "dueDate": "2026-06-18T01:53:49.779Z"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqek7pwz-9560507a",
+    "timestamp": "2026-06-15T01:53:49.811Z",
+    "action": "REQUEST_APPROVED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqek7pvm-c8fc0b20",
+    "sampleName": "Reviewer Success 20260615095349669",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Shelf R",
+    "requestId": "REQ-mqek7pw3-c2cfc58f",
+    "approvalBasis": "review approval",
+    "details": {
+      "requestType": "BORROW"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqek7py7-6199cea6",
+    "timestamp": "2026-06-15T01:53:49.856Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqek7py6-d96a2c67",
+    "sampleName": "Reviewer Cancel 20260615095349669",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Shelf C",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqek7pyk-aa815c9a",
+    "timestamp": "2026-06-15T01:53:49.868Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Bob 20260615095349669",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqek7py6-d96a2c67",
+    "sampleName": "Reviewer Cancel 20260615095349669",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Shelf C",
+    "requestId": "REQ-mqek7pyh-601d1fc3",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review cancel"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqek7pyz-5d6412d9",
+    "timestamp": "2026-06-15T01:53:49.883Z",
+    "action": "ERROR_OCCURRED",
+    "user": "Reviewer Mallory 20260615095349669",
+    "role": "APPLICANT",
+    "sampleId": null,
+    "sampleName": null,
+    "validityPeriod": null,
+    "storageLocation": null,
+    "requestId": "REQ-mqek7pyh-601d1fc3",
+    "approvalBasis": null,
+    "details": {
+      "action": "CANCEL_REQUEST",
+      "requestId": "REQ-mqek7pyh-601d1fc3",
+      "requestCreator": "Reviewer Bob 20260615095349669",
+      "requestCreatorRole": "APPLICANT",
+      "reason": "Name mismatch: cannot impersonate creator. Provided user 'Reviewer Mallory 20260615095349669' does not match creator 'Reviewer Bob 20260615095349669'"
+    },
+    "result": "FAILURE",
+    "errorMessage": "Name mismatch: cannot impersonate creator. Provided user 'Reviewer Mallory 20260615095349669' does not match creator 'Reviewer Bob 20260615095349669'"
+  },
+  {
+    "id": "AUDIT-mqek7pzh-8efd5a2c",
+    "timestamp": "2026-06-15T01:53:49.901Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Bob 20260615095349669",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqek7py6-d96a2c67",
+    "sampleName": "Reviewer Cancel 20260615095349669",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Shelf C",
+    "requestId": "REQ-mqek7pyh-601d1fc3",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "cancelReason": "self cancel after bad attempt",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Bob 20260615095349669",
+      "creator": "Reviewer Bob 20260615095349669",
+      "creatorRole": "APPLICANT",
+      "verifiedIdentity": {
+        "user": "Reviewer Bob 20260615095349669",
+        "userRole": "APPLICANT",
+        "creator": "Reviewer Bob 20260615095349669",
+        "creatorRole": "APPLICANT",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqek7q02-46d43a82",
+    "timestamp": "2026-06-15T01:53:49.922Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqek7q00-5189c80f",
+    "sampleName": "Reviewer Race 20260615095349669",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Shelf X",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqek7q0e-7988478a",
+    "timestamp": "2026-06-15T01:53:49.934Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer RaceUser 20260615095349669",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqek7q00-5189c80f",
+    "sampleName": "Reviewer Race 20260615095349669",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Shelf X",
+    "requestId": "REQ-mqek7q0a-960a20f3",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review race"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqek7qdd-0920cc05",
+    "timestamp": "2026-06-15T01:53:50.401Z",
+    "action": "SAMPLE_BORROWED",
+    "user": "Reviewer RaceUser 20260615095349669",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqek7q00-5189c80f",
+    "sampleName": "Reviewer Race 20260615095349669",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Shelf X",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "borrower": "Reviewer RaceUser 20260615095349669",
+      "dueDate": "2026-06-17T01:53:49.930Z"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqek7qdn-d4126466",
+    "timestamp": "2026-06-15T01:53:50.411Z",
+    "action": "REQUEST_APPROVED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqek7q00-5189c80f",
+    "sampleName": "Reviewer Race 20260615095349669",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Shelf X",
+    "requestId": "REQ-mqek7q0a-960a20f3",
+    "approvalBasis": "race approve",
+    "details": {
+      "requestType": "BORROW"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqek99tu-45ef0887",
+    "timestamp": "2026-06-15T01:55:02.274Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqek99ts-52b17ef8",
+    "sampleName": "Reviewer Success 20260615015502243",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Shelf R",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqek99u4-05ee817b",
+    "timestamp": "2026-06-15T01:55:02.284Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Alice 20260615015502243",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqek99ts-52b17ef8",
+    "sampleName": "Reviewer Success 20260615015502243",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Shelf R",
+    "requestId": "REQ-mqek99u2-f7e80c0e",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review success chain"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqek99ui-53d445a6",
+    "timestamp": "2026-06-15T01:55:02.298Z",
+    "action": "SAMPLE_BORROWED",
+    "user": "Reviewer Alice 20260615015502243",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqek99ts-52b17ef8",
+    "sampleName": "Reviewer Success 20260615015502243",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Shelf R",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "borrower": "Reviewer Alice 20260615015502243",
+      "dueDate": "2026-06-18T01:55:02.282Z"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqek99ur-de639ae5",
+    "timestamp": "2026-06-15T01:55:02.307Z",
+    "action": "REQUEST_APPROVED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqek99ts-52b17ef8",
+    "sampleName": "Reviewer Success 20260615015502243",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Shelf R",
+    "requestId": "REQ-mqek99u2-f7e80c0e",
+    "approvalBasis": "review approval",
+    "details": {
+      "requestType": "BORROW"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqek99v3-c362796a",
+    "timestamp": "2026-06-15T01:55:02.319Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqek99v2-940bac48",
+    "sampleName": "Reviewer Cancel 20260615015502243",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Shelf C",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqek99vd-db865b70",
+    "timestamp": "2026-06-15T01:55:02.329Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer Bob 20260615015502243",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqek99v2-940bac48",
+    "sampleName": "Reviewer Cancel 20260615015502243",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Shelf C",
+    "requestId": "REQ-mqek99vb-dc0d39d5",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review cancel"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqek99vp-80374795",
+    "timestamp": "2026-06-15T01:55:02.341Z",
+    "action": "ERROR_OCCURRED",
+    "user": "Reviewer Mallory 20260615015502243",
+    "role": "APPLICANT",
+    "sampleId": null,
+    "sampleName": null,
+    "validityPeriod": null,
+    "storageLocation": null,
+    "requestId": "REQ-mqek99vb-dc0d39d5",
+    "approvalBasis": null,
+    "details": {
+      "action": "CANCEL_REQUEST",
+      "requestId": "REQ-mqek99vb-dc0d39d5",
+      "requestCreator": "Reviewer Bob 20260615015502243",
+      "requestCreatorRole": "APPLICANT",
+      "reason": "Name mismatch: cannot impersonate creator. Provided user 'Reviewer Mallory 20260615015502243' does not match creator 'Reviewer Bob 20260615015502243'"
+    },
+    "result": "FAILURE",
+    "errorMessage": "Name mismatch: cannot impersonate creator. Provided user 'Reviewer Mallory 20260615015502243' does not match creator 'Reviewer Bob 20260615015502243'"
+  },
+  {
+    "id": "AUDIT-mqek99w5-21de0035",
+    "timestamp": "2026-06-15T01:55:02.357Z",
+    "action": "REQUEST_CANCELLED",
+    "user": "Reviewer Bob 20260615015502243",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqek99v2-940bac48",
+    "sampleName": "Reviewer Cancel 20260615015502243",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Shelf C",
+    "requestId": "REQ-mqek99vb-dc0d39d5",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "cancelReason": "self cancel after bad attempt",
+      "previousStatus": "PENDING",
+      "applicant": "Reviewer Bob 20260615015502243",
+      "creator": "Reviewer Bob 20260615015502243",
+      "creatorRole": "APPLICANT",
+      "verifiedIdentity": {
+        "user": "Reviewer Bob 20260615015502243",
+        "userRole": "APPLICANT",
+        "creator": "Reviewer Bob 20260615015502243",
+        "creatorRole": "APPLICANT",
+        "nameVerified": true,
+        "roleVerified": true
+      }
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqek99wl-a47d9ea6",
+    "timestamp": "2026-06-15T01:55:02.373Z",
+    "action": "SAMPLE_REGISTERED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqek99wj-321e6888",
+    "sampleName": "Reviewer Race 20260615015502243",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Shelf X",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "action": "Register new sample"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqek99wv-b2e60af8",
+    "timestamp": "2026-06-15T01:55:02.383Z",
+    "action": "REQUEST_CREATED",
+    "user": "Reviewer RaceUser 20260615015502243",
+    "role": "APPLICANT",
+    "sampleId": "SMP-mqek99wj-321e6888",
+    "sampleName": "Reviewer Race 20260615015502243",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Shelf X",
+    "requestId": "REQ-mqek99ws-d3dc053e",
+    "approvalBasis": null,
+    "details": {
+      "requestType": "BORROW",
+      "reason": "review race"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqek99x8-4bff0634",
+    "timestamp": "2026-06-15T01:55:02.397Z",
+    "action": "SAMPLE_BORROWED",
+    "user": "Reviewer RaceUser 20260615015502243",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqek99wj-321e6888",
+    "sampleName": "Reviewer Race 20260615015502243",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Shelf X",
+    "requestId": null,
+    "approvalBasis": null,
+    "details": {
+      "borrower": "Reviewer RaceUser 20260615015502243",
+      "dueDate": "2026-06-17T01:55:02.380Z"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
+  },
+  {
+    "id": "AUDIT-mqek99xh-f89feaa7",
+    "timestamp": "2026-06-15T01:55:02.405Z",
+    "action": "REQUEST_APPROVED",
+    "user": "Reviewer Librarian",
+    "role": "LIBRARIAN",
+    "sampleId": "SMP-mqek99wj-321e6888",
+    "sampleName": "Reviewer Race 20260615015502243",
+    "validityPeriod": "2027-12-31",
+    "storageLocation": "Shelf X",
+    "requestId": "REQ-mqek99ws-d3dc053e",
+    "approvalBasis": "race approve",
+    "details": {
+      "requestType": "BORROW"
+    },
+    "result": "SUCCESS",
+    "errorMessage": null
   }
 ]

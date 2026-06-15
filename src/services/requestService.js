@@ -1,6 +1,7 @@
 const dataStore = require('../utils/dataStore');
 const auditService = require('./auditService');
 const sampleService = require('./sampleService');
+const timelineService = require('./timelineService');
 const { generateId, now, addDays } = require('../utils/helpers');
 const { SAMPLE_STATUS, REQUEST_TYPE, REQUEST_STATUS, ACTION_TYPE } = require('../utils/constants');
 const crypto = require('crypto');
@@ -99,6 +100,13 @@ class RequestService {
       'SUCCESS',
       null,
       request.id
+    );
+
+    await timelineService.recordRequestCreated(
+      request,
+      sample,
+      requestData.applicant,
+      requestData.applicantRole || 'APPLICANT'
     );
 
     return request;
@@ -257,6 +265,13 @@ class RequestService {
         approvalBasis
       );
 
+      await timelineService.recordRequestApproved(
+        updatedRequest,
+        updatedSample,
+        approver,
+        approverRole
+      );
+
       return { request: updatedRequest, sample: updatedSample };
     } finally {
       await this.releaseOperationLock(requestId, 'approve', lockId);
@@ -315,6 +330,14 @@ class RequestService {
         'SUCCESS',
         null,
         request.id,
+        reason
+      );
+
+      await timelineService.recordRequestRejected(
+        updatedRequest,
+        sample,
+        approver,
+        approverRole,
         reason
       );
 
@@ -414,6 +437,14 @@ class RequestService {
         'SUCCESS',
         null,
         request.id
+      );
+
+      await timelineService.recordRequestCancelled(
+        updatedRequest,
+        sample,
+        user,
+        userRole,
+        reason
       );
 
       return updatedRequest;

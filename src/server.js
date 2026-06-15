@@ -2,6 +2,7 @@ const express = require('express');
 const samplesRouter = require('./routes/samples');
 const requestsRouter = require('./routes/requests');
 const auditLogsRouter = require('./routes/auditLogs');
+const timelineRouter = require('./routes/timeline');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -20,6 +21,7 @@ app.get('/health', (req, res) => {
 app.use('/api/samples', samplesRouter);
 app.use('/api/requests', requestsRouter);
 app.use('/api/audit-logs', auditLogsRouter);
+app.use('/api/timeline', timelineRouter);
 
 app.use((err, req, res, next) => {
   console.error('Unhandled error:', err);
@@ -60,6 +62,12 @@ if (require.main === module) {
     console.log('  POST /api/requests/:id/cancel');
     console.log('  GET  /api/audit-logs');
     console.log('  GET  /api/audit-logs/export');
+    console.log('  GET  /api/timeline');
+    console.log('  GET  /api/timeline/:id');
+    console.log('  GET  /api/timeline/export');
+    console.log('  GET  /api/timeline/stats');
+    console.log('  GET  /api/timeline/config');
+    console.log('  PUT  /api/timeline/config');
   });
 }
 

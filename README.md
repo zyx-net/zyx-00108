@@ -619,3 +619,211 @@ PENDING ──[申请人撤销]──> CANCELLED
 ```
 
 **注意**：撤销申请不会改变样本状态、持有人或到期时间。
+
+## 申请时间线与对账模块
+
+### 概述
+
+申请时间线模块为借出、归还、续借、销毁等申请提供完整的生命周期追踪，记录从创建、审批、撤销到冲突失败的每一步，并保存可查询的快照。
+
+### 主要功能
+
+1. **申请快照**：记录每个申请在每个操作时刻的完整状态快照
+2. **事件追踪**：记录所有操作事件，包括创建、审批、拒绝、撤销
+3. **安全事件记录**：记录越权访问、身份不匹配、重复操作等安全事件
+4. **并发冲突记录**：记录审批与撤销之间的竞争条件
+5. **数据导出**：支持 CSV/JSON 格式导出，包含校验和
+6. **可配置审计**：支持审计开关、数据保留策略
+7. **持久化存储**：服务重启后数据完整保留
+
+### 时间线事件类型
+
+| 事件类型 | 说明 |
+|---------|------|
+| REQUEST_CREATED | 申请创建 |
+| REQUEST_APPROVED | 申请审批通过 |
+| REQUEST_REJECTED | 申请审批拒绝 |
+| REQUEST_CANCELLED | 申请被撤销 |
+| IDENTITY_MISMATCH | 身份不匹配（越权撤销尝试）|
+| DUPLICATE_OPERATION | 重复操作（非待审批状态撤销）|
+| VERSION_CONFLICT | 版本冲突（并发修改）|
+| APPROVAL_CANCEL_RACE | 审批与撤销竞争 |
+
+### API 接口
+
+#### 查询时间线事件
+
+```bash
+# 查询所有事件（分页）
+curl -X GET "http://localhost:3000/api/timeline?page=1&limit=20" \
+  -H "X-User-Role: LIBRARIAN"
+
+# 按申请ID查询
+curl -X GET "http://localhost:3000/api/timeline/request/REQ-xxx-xxx" \
+  -H "X-User-Role: LIBRARIAN"
+
+# 按筛选条件查询
+curl -X GET "http://localhost:3000/api/timeline?user=Researcher Wang&eventType=REQUEST_CANCELLED" \
+  -H "X-User-Role: SUPERVISOR"
+```
+
+**筛选参数**：
+- `requestId`: 按申请ID筛选
+- `sampleId`: 按样本ID筛选
+- `user`: 按操作者筛选
+- `userRole`: 按角色筛选
+- `eventType`: 按事件类型筛选
+- `startDate`: 开始时间
+- `endDate`: 结束时间
+- `result`: 结果筛选（SUCCESS/FAILURE）
+- `page`: 页码
+- `limit`: 每页数量
+
+#### 导出时间线
+
+```bash
+# JSON 格式导出
+curl -X GET "http://localhost:3000/api/timeline/export?format=json" \
+  -H "X-User-Role: LIBRARIAN" \
+  -o timeline-events.json
+
+# CSV 格式导出
+curl -X GET "http://localhost:3000/api/timeline/export?format=csv" \
+  -H "X-User-Role: SUPERVISOR" \
+  -o timeline-events.csv
+```
+
+#### 查询统计信息
+
+```bash
+curl -X GET "http://localhost:3000/api/timeline/stats" \
+  -H "X-User-Role: LIBRARIAN"
+```
+
+响应示例：
+```json
+{
+  "success": true,
+  "data": {
+    "totalEvents": 150,
+    "eventsByType": {
+      "REQUEST_CREATED": 50,
+      "REQUEST_APPROVED": 40,
+      "REQUEST_CANCELLED": 10,
+      "IDENTITY_MISMATCH": 5
+    },
+    "eventsByResult": {
+      "SUCCESS": 145,
+      "FAILURE": 5
+    },
+    "concurrencyConflicts": 2,
+    "securityEvents": 5,
+    "config": {
+      "auditEnabled": true,
+      "retentionMaxDays": 365
+    }
+  }
+}
+```
+
+#### 审计配置管理
+
+```bash
+# 查询当前配置
+curl -X GET "http://localhost:3000/api/timeline/config" \
+  -H "X-User-Role: LIBRARIAN"
+
+# 更新配置
+curl -X PUT "http://localhost:3000/api/timeline/config" \
+  -H "Content-Type: application/json" \
+  -H "X-User-Role: LIBRARIAN" \
+  -d '{
+    "auditEnabled": true,
+    "retentionMaxDays": 30,
+    "retentionMaxRecords": 5000,
+    "captureRequestSnapshots": true,
+    "captureSampleSnapshots": true
+  }'
+
+# 重置为默认配置（仅主管）
+curl -X POST "http://localhost:3000/api/timeline/config/reset" \
+  -H "X-User-Role: SUPERVISOR"
+```
+
+### 配置项说明
+
+| 配置项 | 类型 | 默认值 | 说明 |
+|--------|------|--------|------|
+| auditEnabled | boolean | true | 是否启用审计 |
+| retentionMaxDays | number | 365 | 数据保留天数 |
+| retentionMaxRecords | number | 100000 | 最大记录数 |
+| captureRequestSnapshots | boolean | true | 是否捕获申请快照 |
+| captureSampleSnapshots | boolean | true | 是否捕获样本快照 |
+| recordSecurityEvents | boolean | true | 是否记录安全事件 |
+| recordConcurrencyConflicts | boolean | true | 是否记录并发冲突 |
+
+### 时间线事件结构
+
+```json
+{
+  "id": "TLE-xxx-xxx",
+  "timestamp": "2026-06-15T10:30:00.000Z",
+  "eventType": "REQUEST_CANCELLED",
+  "requestId": "REQ-xxx-xxx",
+  "sampleId": "SMP-xxx-xxx",
+  "user": "Researcher Wang",
+  "userRole": "APPLICANT",
+  "previousStatus": "PENDING",
+  "newStatus": "CANCELLED",
+  "requestSnapshot": {
+    "id": "REQ-xxx-xxx",
+    "sampleId": "SMP-xxx-xxx",
+    "type": "BORROW",
+    "status": "CANCELLED",
+    "version": 2,
+    "..."
+  },
+  "sampleSnapshot": {
+    "id": "SMP-xxx-xxx",
+    "name": "Sample Name",
+    "status": "AVAILABLE",
+    "..."
+  },
+  "details": {
+    "requestType": "BORROW",
+    "cancelReason": "Changed plan"
+  },
+  "result": "SUCCESS",
+  "errorMessage": null,
+  "conflictInfo": null,
+  "metadata": {
+    "recordedAt": "2026-06-15T10:30:00.000Z",
+    "auditEnabled": true,
+    "retentionMaxDays": 365
+  }
+}
+```
+
+### 数据持久化
+
+时间线数据存储在 `data/timeline-events.json` 文件中，服务重启后自动恢复。
+
+### 运行测试
+
+```bash
+# 运行时间线模块测试
+node src/test-timeline.js
+```
+
+测试覆盖场景：
+1. 普通申请生命周期（借出、审批）
+2. 库管发起销毁申请
+3. 创建者本人撤销
+4. 越权访问检测
+5. 重复操作检测
+6. 并发冲突处理
+7. 统计数据查询
+8. 导出功能（JSON/CSV）
+9. 服务重启后数据一致性
+10. 审计开关切换
+11. 配置重置

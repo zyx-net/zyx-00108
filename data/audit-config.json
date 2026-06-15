@@ -1,0 +1,23 @@
+{
+  "auditEnabled": true,
+  "retentionMaxDays": 365,
+  "retentionMaxRecords": 100000,
+  "logLevel": "INFO",
+  "captureRequestSnapshots": true,
+  "captureSampleSnapshots": true,
+  "recordSecurityEvents": true,
+  "recordConcurrencyConflicts": true,
+  "recordDataConsistencyIssues": true,
+  "enabledEventTypes": [
+    "REQUEST_CREATED",
+    "REQUEST_APPROVED",
+    "REQUEST_REJECTED",
+    "REQUEST_CANCELLED",
+    "CONCURRENCY_CONFLICT",
+    "UNAUTHORIZED_ACCESS",
+    "IDENTITY_MISMATCH",
+    "DUPLICATE_OPERATION",
+    "APPROVAL_CANCEL_RACE",
+    "DATA_INCONSISTENCY"
+  ]
+}
