@@ -6610,5 +6610,841 @@
         "actorRole": "LIBRARIAN"
       }
     ]
+  },
+  {
+    "id": "REQ-mqeopxd1-74406550",
+    "sampleId": "SMP-mqeopxb4-1a07fe24",
+    "type": "BORROW",
+    "applicant": "Researcher Wang",
+    "creator": "Researcher Wang",
+    "creatorRole": "APPLICANT",
+    "status": "APPROVED",
+    "approvalBasis": "Valid research purpose, storage capacity confirmed",
+    "approver": "Dr. Li (Librarian)",
+    "approverRole": "LIBRARIAN",
+    "approveDate": "2026-06-15T03:59:57.823Z",
+    "reason": "COVID-19 variant analysis",
+    "newDueDate": "2026-06-22T03:59:57.733Z",
+    "createdAt": "2026-06-15T03:59:57.733Z",
+    "updatedAt": "2026-06-15T03:59:57.824Z",
+    "version": 2,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T03:59:57.733Z",
+        "actor": "Researcher Wang",
+        "actorRole": "APPLICANT"
+      },
+      {
+        "status": "APPROVED",
+        "timestamp": "2026-06-15T03:59:57.823Z",
+        "actor": "Dr. Li (Librarian)",
+        "actorRole": "LIBRARIAN"
+      }
+    ]
+  },
+  {
+    "id": "REQ-mqeopxh3-22d8fb10",
+    "sampleId": "SMP-mqeopxb4-1a07fe24",
+    "type": "RENEW",
+    "applicant": "Researcher Wang",
+    "creator": "Researcher Wang",
+    "creatorRole": "APPLICANT",
+    "status": "APPROVED",
+    "approvalBasis": "Research progress verified, extension approved",
+    "approver": "Dr. Li (Librarian)",
+    "approverRole": "LIBRARIAN",
+    "approveDate": "2026-06-15T03:59:57.971Z",
+    "reason": "Analysis incomplete, need more time",
+    "newDueDate": "2026-06-29T03:59:57.879Z",
+    "createdAt": "2026-06-15T03:59:57.879Z",
+    "updatedAt": "2026-06-15T03:59:57.973Z",
+    "version": 2,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T03:59:57.879Z",
+        "actor": "Researcher Wang",
+        "actorRole": "APPLICANT"
+      },
+      {
+        "status": "APPROVED",
+        "timestamp": "2026-06-15T03:59:57.971Z",
+        "actor": "Dr. Li (Librarian)",
+        "actorRole": "LIBRARIAN"
+      }
+    ]
+  },
+  {
+    "id": "REQ-mqeopxlb-a05dbf43",
+    "sampleId": "SMP-mqeopxb4-1a07fe24",
+    "type": "RETURN",
+    "applicant": "Researcher Wang",
+    "creator": "Researcher Wang",
+    "creatorRole": "APPLICANT",
+    "status": "APPROVED",
+    "approvalBasis": "Sample returned in good condition",
+    "approver": "Dr. Li (Librarian)",
+    "approverRole": "LIBRARIAN",
+    "approveDate": "2026-06-15T03:59:58.122Z",
+    "reason": "Return sample",
+    "newDueDate": null,
+    "createdAt": "2026-06-15T03:59:58.031Z",
+    "updatedAt": "2026-06-15T03:59:58.124Z",
+    "version": 2,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T03:59:58.031Z",
+        "actor": "Researcher Wang",
+        "actorRole": "APPLICANT"
+      },
+      {
+        "status": "APPROVED",
+        "timestamp": "2026-06-15T03:59:58.122Z",
+        "actor": "Dr. Li (Librarian)",
+        "actorRole": "LIBRARIAN"
+      }
+    ]
+  },
+  {
+    "id": "REQ-mqeopxqd-1bbbedd6",
+    "sampleId": "SMP-mqeopxpd-036e7ce8",
+    "type": "DESTRUCTION",
+    "applicant": "Dr. Zhang (Library)",
+    "creator": "Dr. Zhang (Library)",
+    "creatorRole": "LIBRARIAN",
+    "status": "APPROVED",
+    "approvalBasis": "Confirmed expired, disposal protocol followed",
+    "approver": "Prof. Chen (Supervisor)",
+    "approverRole": "SUPERVISOR",
+    "approveDate": "2026-06-15T03:59:58.362Z",
+    "reason": "Sample expired on 2020-01-01",
+    "newDueDate": null,
+    "createdAt": "2026-06-15T03:59:58.213Z",
+    "updatedAt": "2026-06-15T03:59:58.363Z",
+    "version": 2,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T03:59:58.213Z",
+        "actor": "Dr. Zhang (Library)",
+        "actorRole": "LIBRARIAN"
+      },
+      {
+        "status": "APPROVED",
+        "timestamp": "2026-06-15T03:59:58.362Z",
+        "actor": "Prof. Chen (Supervisor)",
+        "actorRole": "SUPERVISOR"
+      }
+    ]
+  },
+  {
+    "id": "REQ-mqeopxx3-4d1c1d5b",
+    "sampleId": "SMP-mqeopxw2-9156ffc4",
+    "type": "DESTRUCTION",
+    "applicant": "Dr. Zhang (Library)",
+    "creator": "Dr. Zhang (Library)",
+    "creatorRole": "LIBRARIAN",
+    "status": "APPROVED",
+    "approvalBasis": "First approval",
+    "approver": "Prof. Chen (Supervisor)",
+    "approverRole": "SUPERVISOR",
+    "approveDate": "2026-06-15T03:59:58.590Z",
+    "reason": "Expired sample",
+    "newDueDate": null,
+    "createdAt": "2026-06-15T03:59:58.455Z",
+    "updatedAt": "2026-06-15T03:59:58.591Z",
+    "version": 2,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T03:59:58.455Z",
+        "actor": "Dr. Zhang (Library)",
+        "actorRole": "LIBRARIAN"
+      },
+      {
+        "status": "APPROVED",
+        "timestamp": "2026-06-15T03:59:58.590Z",
+        "actor": "Prof. Chen (Supervisor)",
+        "actorRole": "SUPERVISOR"
+      }
+    ]
+  },
+  {
+    "id": "REQ-mqeopy3j-d8a25c26",
+    "sampleId": "SMP-mqeopy2j-d3de3acc",
+    "type": "BORROW",
+    "applicant": "Researcher Liu",
+    "creator": "Researcher Liu",
+    "creatorRole": "APPLICANT",
+    "status": "APPROVED",
+    "approvalBasis": "Approved",
+    "approver": "Dr. Li (Librarian)",
+    "approverRole": "LIBRARIAN",
+    "approveDate": "2026-06-15T03:59:58.785Z",
+    "reason": "Testing",
+    "newDueDate": "2026-06-22T03:59:58.687Z",
+    "createdAt": "2026-06-15T03:59:58.687Z",
+    "updatedAt": "2026-06-15T03:59:58.787Z",
+    "version": 2,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T03:59:58.687Z",
+        "actor": "Researcher Liu",
+        "actorRole": "APPLICANT"
+      },
+      {
+        "status": "APPROVED",
+        "timestamp": "2026-06-15T03:59:58.785Z",
+        "actor": "Dr. Li (Librarian)",
+        "actorRole": "LIBRARIAN"
+      }
+    ]
+  },
+  {
+    "id": "REQ-mqeopya1-65332ef2",
+    "sampleId": "SMP-mqeopy2j-d3de3acc",
+    "type": "RETURN",
+    "applicant": "Researcher Liu",
+    "creator": "Researcher Liu",
+    "creatorRole": "APPLICANT",
+    "status": "APPROVED",
+    "approvalBasis": "Sample returned",
+    "approver": "Dr. Li (Librarian)",
+    "approverRole": "LIBRARIAN",
+    "approveDate": "2026-06-15T03:59:59.036Z",
+    "reason": "Return sample",
+    "newDueDate": null,
+    "createdAt": "2026-06-15T03:59:58.921Z",
+    "updatedAt": "2026-06-15T03:59:59.038Z",
+    "version": 2,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T03:59:58.921Z",
+        "actor": "Researcher Liu",
+        "actorRole": "APPLICANT"
+      },
+      {
+        "status": "APPROVED",
+        "timestamp": "2026-06-15T03:59:59.036Z",
+        "actor": "Dr. Li (Librarian)",
+        "actorRole": "LIBRARIAN"
+      }
+    ]
+  },
+  {
+    "id": "REQ-mqeopyg2-82eb9210",
+    "sampleId": "SMP-mqeopyez-e622047c",
+    "type": "BORROW",
+    "applicant": "Researcher Zhao",
+    "creator": "Researcher Zhao",
+    "creatorRole": "APPLICANT",
+    "status": "CANCELLED",
+    "approvalBasis": null,
+    "approver": null,
+    "approverRole": null,
+    "approveDate": null,
+    "reason": "Testing cancellation",
+    "newDueDate": "2026-06-22T03:59:59.138Z",
+    "createdAt": "2026-06-15T03:59:59.138Z",
+    "updatedAt": "2026-06-15T03:59:59.199Z",
+    "version": 2,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T03:59:59.138Z",
+        "actor": "Researcher Zhao",
+        "actorRole": "APPLICANT"
+      },
+      {
+        "status": "CANCELLED",
+        "timestamp": "2026-06-15T03:59:59.197Z",
+        "actor": "Researcher Zhao",
+        "actorRole": "APPLICANT",
+        "reason": "Changed research direction"
+      }
+    ],
+    "cancelledAt": "2026-06-15T03:59:59.197Z",
+    "cancelReason": "Changed research direction",
+    "cancelledBy": "Researcher Zhao",
+    "cancelledByRole": "APPLICANT"
+  },
+  {
+    "id": "REQ-mqeopyke-179631dc",
+    "sampleId": "SMP-mqeopyja-6244db51",
+    "type": "BORROW",
+    "applicant": "Researcher Wang",
+    "creator": "Researcher Wang",
+    "creatorRole": "APPLICANT",
+    "status": "PENDING",
+    "approvalBasis": null,
+    "approver": null,
+    "approverRole": null,
+    "approveDate": null,
+    "reason": "Creator authorization test",
+    "newDueDate": "2026-06-22T03:59:59.294Z",
+    "createdAt": "2026-06-15T03:59:59.294Z",
+    "updatedAt": "2026-06-15T03:59:59.294Z",
+    "version": 1,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T03:59:59.294Z",
+        "actor": "Researcher Wang",
+        "actorRole": "APPLICANT"
+      }
+    ]
+  },
+  {
+    "id": "REQ-mqeopyo4-e8513951",
+    "sampleId": "SMP-mqeopyn4-2fb638b7",
+    "type": "BORROW",
+    "applicant": "Researcher Liu",
+    "creator": "Researcher Liu",
+    "creatorRole": "APPLICANT",
+    "status": "PENDING",
+    "approvalBasis": null,
+    "approver": null,
+    "approverRole": null,
+    "approveDate": null,
+    "reason": "Non-creator test",
+    "newDueDate": "2026-06-22T03:59:59.428Z",
+    "createdAt": "2026-06-15T03:59:59.428Z",
+    "updatedAt": "2026-06-15T03:59:59.428Z",
+    "version": 1,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T03:59:59.428Z",
+        "actor": "Researcher Liu",
+        "actorRole": "APPLICANT"
+      }
+    ]
+  },
+  {
+    "id": "REQ-mqeopysx-8002d397",
+    "sampleId": "SMP-mqeopyry-97ab5b52",
+    "type": "BORROW",
+    "applicant": "Researcher Wang",
+    "creator": "Researcher Wang",
+    "creatorRole": "APPLICANT",
+    "status": "REJECTED",
+    "approvalBasis": "Insufficient justification",
+    "approver": "Dr. Li (Librarian)",
+    "approverRole": "LIBRARIAN",
+    "approveDate": "2026-06-15T03:59:59.662Z",
+    "reason": "Test rejection then cancel",
+    "newDueDate": "2026-06-22T03:59:59.601Z",
+    "createdAt": "2026-06-15T03:59:59.602Z",
+    "updatedAt": "2026-06-15T03:59:59.664Z",
+    "version": 2,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T03:59:59.602Z",
+        "actor": "Researcher Wang",
+        "actorRole": "APPLICANT"
+      },
+      {
+        "status": "REJECTED",
+        "timestamp": "2026-06-15T03:59:59.662Z",
+        "actor": "Dr. Li (Librarian)",
+        "actorRole": "LIBRARIAN"
+      }
+    ]
+  },
+  {
+    "id": "REQ-mqeopyyb-53ff5cd7",
+    "sampleId": "SMP-mqeopyx7-3a1a3452",
+    "type": "DESTRUCTION",
+    "applicant": "Dr. Zhang (Library)",
+    "creator": "Dr. Zhang (Library)",
+    "creatorRole": "LIBRARIAN",
+    "status": "CANCELLED",
+    "approvalBasis": "Safety regulation",
+    "approver": null,
+    "approverRole": null,
+    "approveDate": null,
+    "reason": "Sample expired - cancellation test",
+    "newDueDate": null,
+    "createdAt": "2026-06-15T03:59:59.795Z",
+    "updatedAt": "2026-06-15T03:59:59.858Z",
+    "version": 2,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T03:59:59.795Z",
+        "actor": "Dr. Zhang (Library)",
+        "actorRole": "LIBRARIAN"
+      },
+      {
+        "status": "CANCELLED",
+        "timestamp": "2026-06-15T03:59:59.856Z",
+        "actor": "Dr. Zhang (Library)",
+        "actorRole": "LIBRARIAN",
+        "reason": "No longer needed for disposal"
+      }
+    ],
+    "cancelledAt": "2026-06-15T03:59:59.856Z",
+    "cancelReason": "No longer needed for disposal",
+    "cancelledBy": "Dr. Zhang (Library)",
+    "cancelledByRole": "LIBRARIAN"
+  },
+  {
+    "id": "REQ-mqeopz2l-22687afa",
+    "sampleId": "SMP-mqeopz1l-8976cd15",
+    "type": "DESTRUCTION",
+    "applicant": "Dr. Zhang (Library)",
+    "creator": "Dr. Zhang (Library)",
+    "creatorRole": "LIBRARIAN",
+    "status": "PENDING",
+    "approvalBasis": "Safety regulation",
+    "approver": null,
+    "approverRole": null,
+    "approveDate": null,
+    "reason": "Sample expired - non-creator test",
+    "newDueDate": null,
+    "createdAt": "2026-06-15T03:59:59.949Z",
+    "updatedAt": "2026-06-15T03:59:59.949Z",
+    "version": 1,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T03:59:59.949Z",
+        "actor": "Dr. Zhang (Library)",
+        "actorRole": "LIBRARIAN"
+      }
+    ]
+  },
+  {
+    "id": "REQ-mqeouiqs-435230d9",
+    "sampleId": "SMP-mqeouip3-fb93ea0e",
+    "type": "BORROW",
+    "applicant": "Reviewer Applicant",
+    "creator": "Reviewer Applicant",
+    "creatorRole": "APPLICANT",
+    "status": "APPROVED",
+    "approvalBasis": "Manual review approval",
+    "approver": "Reviewer Librarian",
+    "approverRole": "LIBRARIAN",
+    "approveDate": "2026-06-15T04:03:32.166Z",
+    "reason": "Manual review success chain",
+    "newDueDate": "2026-06-20T04:03:32.068Z",
+    "createdAt": "2026-06-15T04:03:32.068Z",
+    "updatedAt": "2026-06-15T04:03:32.168Z",
+    "version": 2,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T04:03:32.068Z",
+        "actor": "Reviewer Applicant",
+        "actorRole": "APPLICANT"
+      },
+      {
+        "status": "APPROVED",
+        "timestamp": "2026-06-15T04:03:32.166Z",
+        "actor": "Reviewer Librarian",
+        "actorRole": "LIBRARIAN"
+      }
+    ]
+  },
+  {
+    "id": "REQ-mqeouiw8-f43cefc0",
+    "sampleId": "SMP-mqeouiv8-6624a3d6",
+    "type": "BORROW",
+    "applicant": "Owner User",
+    "creator": "Owner User",
+    "creatorRole": "APPLICANT",
+    "status": "PENDING",
+    "approvalBasis": null,
+    "approver": null,
+    "approverRole": null,
+    "approveDate": null,
+    "reason": "Unauthorized cancel chain",
+    "newDueDate": "2026-06-18T04:03:32.264Z",
+    "createdAt": "2026-06-15T04:03:32.264Z",
+    "updatedAt": "2026-06-15T04:03:32.264Z",
+    "version": 1,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T04:03:32.264Z",
+        "actor": "Owner User",
+        "actorRole": "APPLICANT"
+      }
+    ]
+  },
+  {
+    "id": "REQ-mqeouj0b-a6d4652c",
+    "sampleId": "SMP-mqeouiza-0f3ee4de",
+    "type": "BORROW",
+    "applicant": "Race User 0",
+    "creator": "Race User 0",
+    "creatorRole": "APPLICANT",
+    "status": "CANCELLED",
+    "approvalBasis": null,
+    "approver": null,
+    "approverRole": null,
+    "approveDate": null,
+    "reason": "Race replay validation",
+    "newDueDate": "2026-06-17T04:03:32.411Z",
+    "createdAt": "2026-06-15T04:03:32.411Z",
+    "updatedAt": "2026-06-15T04:03:32.476Z",
+    "version": 2,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T04:03:32.411Z",
+        "actor": "Race User 0",
+        "actorRole": "APPLICANT"
+      },
+      {
+        "status": "CANCELLED",
+        "timestamp": "2026-06-15T04:03:32.474Z",
+        "actor": "Race User 0",
+        "actorRole": "APPLICANT",
+        "reason": "Race cancel"
+      }
+    ],
+    "cancelledAt": "2026-06-15T04:03:32.474Z",
+    "cancelReason": "Race cancel",
+    "cancelledBy": "Race User 0",
+    "cancelledByRole": "APPLICANT"
+  },
+  {
+    "id": "REQ-mqeouj5d-f9bf4d14",
+    "sampleId": "SMP-mqeouj4c-da2ccfc4",
+    "type": "BORROW",
+    "applicant": "Race User 1",
+    "creator": "Race User 1",
+    "creatorRole": "APPLICANT",
+    "status": "CANCELLED",
+    "approvalBasis": null,
+    "approver": null,
+    "approverRole": null,
+    "approveDate": null,
+    "reason": "Race replay validation",
+    "newDueDate": "2026-06-17T04:03:32.593Z",
+    "createdAt": "2026-06-15T04:03:32.593Z",
+    "updatedAt": "2026-06-15T04:03:32.682Z",
+    "version": 2,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T04:03:32.593Z",
+        "actor": "Race User 1",
+        "actorRole": "APPLICANT"
+      },
+      {
+        "status": "CANCELLED",
+        "timestamp": "2026-06-15T04:03:32.679Z",
+        "actor": "Race User 1",
+        "actorRole": "APPLICANT",
+        "reason": "Race cancel"
+      }
+    ],
+    "cancelledAt": "2026-06-15T04:03:32.679Z",
+    "cancelReason": "Race cancel",
+    "cancelledBy": "Race User 1",
+    "cancelledByRole": "APPLICANT"
+  },
+  {
+    "id": "REQ-mqeoujbq-243ce9cf",
+    "sampleId": "SMP-mqeoujah-fe80cc50",
+    "type": "BORROW",
+    "applicant": "Race User 2",
+    "creator": "Race User 2",
+    "creatorRole": "APPLICANT",
+    "status": "CANCELLED",
+    "approvalBasis": null,
+    "approver": null,
+    "approverRole": null,
+    "approveDate": null,
+    "reason": "Race replay validation",
+    "newDueDate": "2026-06-17T04:03:32.822Z",
+    "createdAt": "2026-06-15T04:03:32.822Z",
+    "updatedAt": "2026-06-15T04:03:32.879Z",
+    "version": 2,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T04:03:32.822Z",
+        "actor": "Race User 2",
+        "actorRole": "APPLICANT"
+      },
+      {
+        "status": "CANCELLED",
+        "timestamp": "2026-06-15T04:03:32.878Z",
+        "actor": "Race User 2",
+        "actorRole": "APPLICANT",
+        "reason": "Race cancel"
+      }
+    ],
+    "cancelledAt": "2026-06-15T04:03:32.878Z",
+    "cancelReason": "Race cancel",
+    "cancelledBy": "Race User 2",
+    "cancelledByRole": "APPLICANT"
+  },
+  {
+    "id": "REQ-mqeoujg8-095b43e5",
+    "sampleId": "SMP-mqeoujf8-e27b25e2",
+    "type": "BORROW",
+    "applicant": "Race User 3",
+    "creator": "Race User 3",
+    "creatorRole": "APPLICANT",
+    "status": "CANCELLED",
+    "approvalBasis": null,
+    "approver": null,
+    "approverRole": null,
+    "approveDate": null,
+    "reason": "Race replay validation",
+    "newDueDate": "2026-06-17T04:03:32.984Z",
+    "createdAt": "2026-06-15T04:03:32.984Z",
+    "updatedAt": "2026-06-15T04:03:33.043Z",
+    "version": 2,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T04:03:32.984Z",
+        "actor": "Race User 3",
+        "actorRole": "APPLICANT"
+      },
+      {
+        "status": "CANCELLED",
+        "timestamp": "2026-06-15T04:03:33.042Z",
+        "actor": "Race User 3",
+        "actorRole": "APPLICANT",
+        "reason": "Race cancel"
+      }
+    ],
+    "cancelledAt": "2026-06-15T04:03:33.042Z",
+    "cancelReason": "Race cancel",
+    "cancelledBy": "Race User 3",
+    "cancelledByRole": "APPLICANT"
+  },
+  {
+    "id": "REQ-mqeoujky-a4d5a5f5",
+    "sampleId": "SMP-mqeoujjt-beeee6fb",
+    "type": "BORROW",
+    "applicant": "Race User 4",
+    "creator": "Race User 4",
+    "creatorRole": "APPLICANT",
+    "status": "CANCELLED",
+    "approvalBasis": null,
+    "approver": null,
+    "approverRole": null,
+    "approveDate": null,
+    "reason": "Race replay validation",
+    "newDueDate": "2026-06-17T04:03:33.154Z",
+    "createdAt": "2026-06-15T04:03:33.154Z",
+    "updatedAt": "2026-06-15T04:03:33.219Z",
+    "version": 2,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T04:03:33.154Z",
+        "actor": "Race User 4",
+        "actorRole": "APPLICANT"
+      },
+      {
+        "status": "CANCELLED",
+        "timestamp": "2026-06-15T04:03:33.218Z",
+        "actor": "Race User 4",
+        "actorRole": "APPLICANT",
+        "reason": "Race cancel"
+      }
+    ],
+    "cancelledAt": "2026-06-15T04:03:33.218Z",
+    "cancelReason": "Race cancel",
+    "cancelledBy": "Race User 4",
+    "cancelledByRole": "APPLICANT"
+  },
+  {
+    "id": "REQ-mqeoujpm-8e470a28",
+    "sampleId": "SMP-mqeoujom-1110a885",
+    "type": "BORROW",
+    "applicant": "Race User 5",
+    "creator": "Race User 5",
+    "creatorRole": "APPLICANT",
+    "status": "CANCELLED",
+    "approvalBasis": null,
+    "approver": null,
+    "approverRole": null,
+    "approveDate": null,
+    "reason": "Race replay validation",
+    "newDueDate": "2026-06-17T04:03:33.322Z",
+    "createdAt": "2026-06-15T04:03:33.322Z",
+    "updatedAt": "2026-06-15T04:03:33.380Z",
+    "version": 2,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T04:03:33.322Z",
+        "actor": "Race User 5",
+        "actorRole": "APPLICANT"
+      },
+      {
+        "status": "CANCELLED",
+        "timestamp": "2026-06-15T04:03:33.379Z",
+        "actor": "Race User 5",
+        "actorRole": "APPLICANT",
+        "reason": "Race cancel"
+      }
+    ],
+    "cancelledAt": "2026-06-15T04:03:33.379Z",
+    "cancelReason": "Race cancel",
+    "cancelledBy": "Race User 5",
+    "cancelledByRole": "APPLICANT"
+  },
+  {
+    "id": "REQ-mqeoujuc-8a4dc1b0",
+    "sampleId": "SMP-mqeoujta-9529be99",
+    "type": "BORROW",
+    "applicant": "Race User 6",
+    "creator": "Race User 6",
+    "creatorRole": "APPLICANT",
+    "status": "CANCELLED",
+    "approvalBasis": null,
+    "approver": null,
+    "approverRole": null,
+    "approveDate": null,
+    "reason": "Race replay validation",
+    "newDueDate": "2026-06-17T04:03:33.492Z",
+    "createdAt": "2026-06-15T04:03:33.492Z",
+    "updatedAt": "2026-06-15T04:03:33.561Z",
+    "version": 2,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T04:03:33.492Z",
+        "actor": "Race User 6",
+        "actorRole": "APPLICANT"
+      },
+      {
+        "status": "CANCELLED",
+        "timestamp": "2026-06-15T04:03:33.560Z",
+        "actor": "Race User 6",
+        "actorRole": "APPLICANT",
+        "reason": "Race cancel"
+      }
+    ],
+    "cancelledAt": "2026-06-15T04:03:33.560Z",
+    "cancelReason": "Race cancel",
+    "cancelledBy": "Race User 6",
+    "cancelledByRole": "APPLICANT"
+  },
+  {
+    "id": "REQ-mqeoujz6-531473d9",
+    "sampleId": "SMP-mqeoujy6-53bf5c6f",
+    "type": "BORROW",
+    "applicant": "Race User 7",
+    "creator": "Race User 7",
+    "creatorRole": "APPLICANT",
+    "status": "CANCELLED",
+    "approvalBasis": null,
+    "approver": null,
+    "approverRole": null,
+    "approveDate": null,
+    "reason": "Race replay validation",
+    "newDueDate": "2026-06-17T04:03:33.666Z",
+    "createdAt": "2026-06-15T04:03:33.666Z",
+    "updatedAt": "2026-06-15T04:03:33.747Z",
+    "version": 2,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T04:03:33.666Z",
+        "actor": "Race User 7",
+        "actorRole": "APPLICANT"
+      },
+      {
+        "status": "CANCELLED",
+        "timestamp": "2026-06-15T04:03:33.745Z",
+        "actor": "Race User 7",
+        "actorRole": "APPLICANT",
+        "reason": "Race cancel"
+      }
+    ],
+    "cancelledAt": "2026-06-15T04:03:33.745Z",
+    "cancelReason": "Race cancel",
+    "cancelledBy": "Race User 7",
+    "cancelledByRole": "APPLICANT"
+  },
+  {
+    "id": "REQ-mqeouk4d-e0aab29a",
+    "sampleId": "SMP-mqeouk38-6834b194",
+    "type": "BORROW",
+    "applicant": "Race User 8",
+    "creator": "Race User 8",
+    "creatorRole": "APPLICANT",
+    "status": "CANCELLED",
+    "approvalBasis": null,
+    "approver": null,
+    "approverRole": null,
+    "approveDate": null,
+    "reason": "Race replay validation",
+    "newDueDate": "2026-06-17T04:03:33.853Z",
+    "createdAt": "2026-06-15T04:03:33.853Z",
+    "updatedAt": "2026-06-15T04:03:33.915Z",
+    "version": 2,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T04:03:33.853Z",
+        "actor": "Race User 8",
+        "actorRole": "APPLICANT"
+      },
+      {
+        "status": "CANCELLED",
+        "timestamp": "2026-06-15T04:03:33.912Z",
+        "actor": "Race User 8",
+        "actorRole": "APPLICANT",
+        "reason": "Race cancel"
+      }
+    ],
+    "cancelledAt": "2026-06-15T04:03:33.912Z",
+    "cancelReason": "Race cancel",
+    "cancelledBy": "Race User 8",
+    "cancelledByRole": "APPLICANT"
+  },
+  {
+    "id": "REQ-mqeouk8z-db29a34c",
+    "sampleId": "SMP-mqeouk80-07809d79",
+    "type": "BORROW",
+    "applicant": "Race User 9",
+    "creator": "Race User 9",
+    "creatorRole": "APPLICANT",
+    "status": "CANCELLED",
+    "approvalBasis": null,
+    "approver": null,
+    "approverRole": null,
+    "approveDate": null,
+    "reason": "Race replay validation",
+    "newDueDate": "2026-06-17T04:03:34.019Z",
+    "createdAt": "2026-06-15T04:03:34.019Z",
+    "updatedAt": "2026-06-15T04:03:34.077Z",
+    "version": 2,
+    "statusHistory": [
+      {
+        "status": "PENDING",
+        "timestamp": "2026-06-15T04:03:34.019Z",
+        "actor": "Race User 9",
+        "actorRole": "APPLICANT"
+      },
+      {
+        "status": "CANCELLED",
+        "timestamp": "2026-06-15T04:03:34.075Z",
+        "actor": "Race User 9",
+        "actorRole": "APPLICANT",
+        "reason": "Race cancel"
+      }
+    ],
+    "cancelledAt": "2026-06-15T04:03:34.075Z",
+    "cancelReason": "Race cancel",
+    "cancelledBy": "Race User 9",
+    "cancelledByRole": "APPLICANT"
   }
 ]
